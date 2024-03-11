@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Online Library - Login/Signup</title>
+		<style>
+			/* Add your CSS styles here */
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Welcome to the Online Library</h1>
+		</header>
+
+		<main>
+			<section id="signup-section">
+				<h2>Signup</h2>
+				<!-- Signup form goes here -->
+				<form action="signup.php" method="post">
+					<label for="signup-username">Username:</label>
+					<input
+						type="text"
+						id="signup-username"
+						name="signup-username"
+						required />
+
+					<label for="signup-password">Password:</label>
+					<input
+						type="password"
+						id="signup-password"
+						name="signup-password"
+						required />
+
+					<label for="confirm-password">Confirm Password:</label>
+					<input
+						type="password"
+						id="confirm-password"
+						name="confirm-password"
+						required />
+
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" required />
+					<label for="is-admin">
+						Register as admin
+						<input type="checkbox" id="is-admin" />
+					</label>
+					<button type="submit">Signup</button>
+				</form>
+			</section>
+		</main>
+	</body>
+</html>

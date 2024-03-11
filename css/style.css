@@ -1,0 +1,11 @@
+.navbar {
+    background-color: #B0E0E6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.main-title {
+    text-align: center;
+    background-color: #B0E9FF;
+}

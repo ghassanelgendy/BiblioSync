@@ -1,4 +1,4 @@
-### Types of users
+### [[Types of users]]
 - ##### Admin
 	- Edit books
 	- Add books
@@ -16,7 +16,7 @@
 		- About
 		- Contact Us 
 ---
-### Pages
+### [[Pages]]
 1. Admin Homepage
 2. User Homepage
 3. Login page
@@ -31,7 +31,9 @@
 		 - Upload a new book
 7. Search results page
 ---
-### Objects
+### [[Objects]]
 - Book
 	- ID, book name, author, category, description
+### [[README]]
+
 --- 

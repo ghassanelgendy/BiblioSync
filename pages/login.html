@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="UTF-8" />
-
-		<link rel="stylesheet" href="./css/reset.css" />
-		<!--ANA GHASSAN W ANA ELY KATEB EL SATR DAAA-->
-
-		<link rel="stylesheet" href="./css/style.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login</title>
+		<meta charset="utf-8" />
+		<title>Login Form</title>
+		<link rel="stylesheet" href="../css/style.css" />
+		<!-- boxicons da website gebt meno el icons eli mahtota ganb el username w pw -->
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet" />
 	</head>
-	<body>
-		<main>
-			<section id="login-section">
-				<h2>Login</h2>
-				<!-- Login form goes here -->
-				<form action="" method="post">
-					<label for="username">Username:</label>
-					<input type="text" id="username" name="username" required />
 
-					<label for="password">Password:</label>
-					<input type="password" id="password" name="password" required />
-
-					<button type="submit">Login</button>
-				</form>
-
-				<p>
-					Don't have an account? <a href="./pages/signup.html">Sign up here</a>.
-				</p>
-			</section>
-		</main>
+	<body class="login-body">
+		<!-- class wrapper 3amlo 3shan fl css  -->
+		<div class="wrapper">
+			<form action="">
+				<h1>Login</h1>
+				<div class="input-box">
+					<input type="text" placeholder="Username" required />
+					<!-- de el icon eli kan asdy 3leha fo2 -->
+					<i class="bx bxs-user"></i>
+				</div>
+				<div class="input-box">
+					<input type="password" placeholder="Password" required />
+					<!-- de el icon eli kan asdy 3leha fo2 -->
+					<i class="bx bxs-lock-alt"></i>
+				</div>
+				<div class="rememebr-forgot">
+					<label><input type="checkbox" /> Remember Me</label>
+					<a href="#" class="rememebr-forgot">Forgot Password?</a>
+				</div>
+				<button type="submit" class="button">Login</button>
+				<div class="register-link">
+					<p>Don't have an account? <a href="./signup.html"> Register</a></p>
+				</div>
+			</form>
+		</div>
 	</body>
 </html>

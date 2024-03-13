@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library Search</title>
+  </head>
+  <body>
+    <h1>Library Search</h1>
+    <form action="#" method="get">
+      <label for="searchQuery">Search:</label><br />
+      <input
+        type="text"
+        id="searchQuery"
+        name="searchQuery"
+        required
+      /><br /><br />
+      <label>Search by:</label>
+      <br />
+      <label> <input type="radio" name="filter" id="author" />author</label>
+
+      
+      <label for="filter"
+        ><input type="radio" name="filter" id="name" />book name</label
+      >
+      <label> <input type="radio" name="filter" id="ISBN" />ISBN</label>
+
+      <br />
+      <br />
+
+      <label for="genres">Search by genre</label>
+      <select name="genre" id="genre">
+        <option value="">Select</option>
+        <option value="1">Fantasy</option>
+        <option value="2">Romance</option>
+        <option value="3">Mystery</option>
+        <option value="4">Sci-fi</option>
+        <option value="5">Horror</option>
+        <option value="6">Drama</option>
+        <option value="7">Psychology</option>
+      </select>
+
+      <br />
+      <br />
+      <input type="submit" value="Search" />
+    </form>
+  </body>
+</html>

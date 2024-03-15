@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new book</title>
+</head>
+<body>
+    <h1>Add New Book</h1>
+    <form>
+        <label for="book-name">Book name:</label><br />
+        <input
+          type="text"
+          id="book-name"
+          name="book-name"
+          required
+        /><br /><br />
+  
+        <label for="book-ID">Book ID:</label><br />
+        <input
+          type="text"
+          id="book-ID"
+          name="book-ID"
+          required
+        /><br /><br />
+  
+        <label for="Author">Author: </label><br />
+        <input
+          type="text"
+          id="author"
+          name="author"
+          required
+        /><br /><br />
+
+        <div class="genres">
+            <label for="genres">Genres:</label><br />
+            <input type="checkbox" id="Classics" name="classics"  />
+        <label for="classics">Classics</label>
+        <input type="checkbox" id="Fantasy" name="fantasy" />
+        <label for="fantasy">Fantasy</label>
+        <input type="checkbox" id="Horror" name="horror" />
+        <label for="horror">Horror</label>
+        <input type="checkbox" id="Mystery" name="mystery" />
+        <label for="mystery">Mystery</label>
+        <input type="checkbox" id="Romance" name="romance" />
+        <label for="romance">Romance</label>
+        <input type="checkbox" id="Sci-fi" name="sci-fi" />
+        <label for="sci-fi">Sci-fi</label>
+        <input type="checkbox" id="Tragedy" name="tragedy" />
+        <label for="tragedy">Tragedy</label>
+
+
+
+
+        </div>
+  
+
+        <br /><br />
+  
+        <label for="description">Description:</label><br />
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="Add book description"></textarea
+        ><br /><br />
+  
+
+  
+        <input type="submit" value="Add" />
+      </form>
+
+    
+</body>
+</html>

@@ -10,6 +10,18 @@
     background-color: #B0E9FF;
 }
 
+/*Footer*/
+a {
+    color: blue;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: powderblue;
+}
+
+
 /* Login Page */
 * {
     margin: 0;

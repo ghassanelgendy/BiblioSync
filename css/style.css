@@ -1,19 +1,84 @@
+/*Body*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*Universal*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+a {
+    color: black;
+    text-decoration: none;
+    padding: 3px;
+}
+
+/*Navbar*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
 .navbar {
     background-color: #B0E0E6;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 10px;
 }
 
-.main-title {
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.search-bar i {
+    color: black;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 0 50% 50% 0;
+    -webkit-border-radius: 0 50% 50% 0;
+    -moz-border-radius: 0 50% 50% 0;
+    -ms-border-radius: 0 50% 50% 0;
+    -o-border-radius: 0 50% 50% 0;
+}
+
+.search-bar>input {
+    padding: 1px 8px;
+    border: none;
+    border-radius: 12px 0 0 12px;
+    -webkit-border-radius: 12px 0 0 12px;
+    -moz-border-radius: 12px 0 0 12px;
+    -ms-border-radius: 12px 0 0 12px;
+    -o-border-radius: 12px 0 0 12px;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/*Homepage*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+.welcome-modal {
     text-align: center;
-    background-color: #B0E9FF;
+    padding: 17px;
 }
 
 /*Footer*/
-a {
-    color: blue;
-}
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
 
 footer {
     display: flex;
@@ -23,6 +88,10 @@ footer {
 
 
 /* Login Page */
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+
 * {
     margin: 0;
     padding: 0;
@@ -107,12 +176,6 @@ footer {
     margin-right: 3px;
 }
 
-a {
-    color: #fff;
-    text-decoration: none;
-    padding-left: 18px;
-
-}
 
 .remember-forgot a:hover {
     text-decoration: underline;

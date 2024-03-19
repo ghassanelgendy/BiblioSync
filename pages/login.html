@@ -3,13 +3,26 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Login Form</title>
-		<link rel="stylesheet" href="../css/style.css" />
+		<!-- <link rel="stylesheet" href="../css/style.css" /> -->
 		<!-- boxicons da website gebt meno el icons eli mahtota ganb el username w pw -->
 		<link
 			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 			rel="stylesheet" />
 	</head>
-
+	<nav class="navbar">
+		<div class="logo"><h1 class="main-title">BiblioSync</h1></div>
+		<div class="search-bar">
+			<input type="text" placeholder="Search" />
+			<a href="./pages/search.html">
+				<i class="fa-solid fa-magnifying-glass"></i>
+			</a>
+		</div>
+		<div class="nav-items">
+			<a href="../index.html">Home</a>
+			<a href="../pages/collection.html">Books</a>
+			<a href="../pages/login.html">Login</a>
+		</div>
+	</nav>
 	<body class="login-body">
 		<!-- class wrapper 3amlo 3shan fl css  -->
 		<div class="wrapper">
@@ -35,5 +48,15 @@
 				</div>
 			</form>
 		</div>
+		<footer style="padding: 20px">
+			<div class="links-wrapper">
+				<a href="./pages/about.html">About us</a>
+				<a href="./pages/contact.html">Contact</a>
+				<a href="javascript:history.back()">Go Back</a>
+			</div>
+			<div class="social-media">
+				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+			</div>
+		</footer>
 	</body>
 </html>

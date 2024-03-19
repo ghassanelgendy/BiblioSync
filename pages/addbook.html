@@ -1,73 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add new book</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add new book</title>
 </head>
+
 <body>
-    <h1>Add New Book</h1>
-    <form>
-        <label for="book-name">Book name:</label><br />
-        <input
-          type="text"
-          id="book-name"
-          name="book-name"
-          required
-        /><br /><br />
-  
-        <label for="ISBN">ISBN:</label><br />
-        <input
-          type="text"
-          id="ISBN"
-          name="ISBN"
-          required
-        /><br /><br />
-  
-        <label for="Author">Author: </label><br />
-        <input
-          type="text"
-          id="author"
-          name="author"
-          required
-        /><br /><br />
-        <label for = "cover" >Add Book Cover:</label> <br>
-        <input type = "file" id = "cover" name = "cover " required> <br><br>
-        <div class="genres">
-            <label for="genres">Genres:</label><br />
-            <input type="checkbox" id="Classics" name="classics"  />
-        <label for="classics">Classics</label>
-        <input type="checkbox" id="Fantasy" name="fantasy" />
-        <label for="fantasy">Fantasy</label>
-        <input type="checkbox" id="Horror" name="horror" />
-        <label for="horror">Horror</label>
-        <input type="checkbox" id="Mystery" name="mystery" />
-        <label for="mystery">Mystery</label>
-        <input type="checkbox" id="Romance" name="romance" />
-        <label for="romance">Romance</label>
-        <input type="checkbox" id="Sci-fi" name="sci-fi" />
-        <label for="sci-fi">Sci-fi</label>
-        <input type="checkbox" id="Tragedy" name="tragedy" />
-        <label for="tragedy">Tragedy</label>
+  <nav class="navbar">
+    <div class="logo">
+      <h1 class="main-title">BiblioSync</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search" />
+      <a href="./pages/search.html">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+    </div>
+    <div class="nav-items">
+      <a href="../index.html">Home</a>
+      <a href="../pages/collection.html">Books</a>
+      <a href="../pages/login.html">Login</a>
+    </div>
+  </nav>
+
+  <h1>Add New Book</h1>
+  <form>
+    <label for="book-name">Book name:</label><br />
+    <input type="text" id="book-name" name="book-name" required /><br /><br />
+
+    <label for="ISBN">ISBN:</label><br />
+    <input type="text" id="ISBN" name="ISBN" required /><br /><br />
+
+    <label for="Author">Author: </label><br />
+    <input type="text" id="author" name="author" required /><br /><br />
+    <label for="cover">Add Book Cover:</label> <br>
+    <input type="file" id="cover" name="cover " required> <br><br>
+    <div class="genres">
+      <label for="genres">Genres:</label><br />
+      <input type="checkbox" id="Classics" name="classics" />
+      <label for="classics">Classics</label>
+      <input type="checkbox" id="Fantasy" name="fantasy" />
+      <label for="fantasy">Fantasy</label>
+      <input type="checkbox" id="Horror" name="horror" />
+      <label for="horror">Horror</label>
+      <input type="checkbox" id="Mystery" name="mystery" />
+      <label for="mystery">Mystery</label>
+      <input type="checkbox" id="Romance" name="romance" />
+      <label for="romance">Romance</label>
+      <input type="checkbox" id="Sci-fi" name="sci-fi" />
+      <label for="sci-fi">Sci-fi</label>
+      <input type="checkbox" id="Tragedy" name="tragedy" />
+      <label for="tragedy">Tragedy</label>
 
 
 
 
 
-        </div>
-  
+    </div>
 
-        <br /><br />
-  
-        <label for="description">Description:</label><br />
-        <textarea id="description" name="description" rows="4" cols="50" placeholder="Add book description"></textarea
-        ><br /><br />
-  
 
-  
-        <input type="submit" value="Add" />
-      </form>
+    <br /><br />
 
-    
+    <label for="description">Description:</label><br />
+    <textarea id="description" name="description" rows="4" cols="50"
+      placeholder="Add book description"></textarea><br /><br />
+
+
+
+    <input type="submit" value="Add" />
+  </form>
+  <footer style="padding: 20px">
+    <div class="links-wrapper">
+      <a href="#">About us</a>
+      <a href="#">Contact</a>
+      <a href="javascript:history.back()">Go Back</a>
+    </div>
+    <div class="social-media">
+      <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+
 </body>
+
 </html>

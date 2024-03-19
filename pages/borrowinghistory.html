@@ -1,70 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrowing History</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrowing History</title>
 </head>
+
 <body>
-    <body>
-        <h1>
-         Borrowing History
-        </h1>
-        <div>
-            <a href="books/thehobbit.html">
-              <img
-                src="../images/thehobbit.jpg"
-                alt="The Hobbit Cover"
-                width="200"
-                height="200"
-              />
-            </a>
-            <label>
-                <br>
-              <strong>The Hobbit by J.R.R. Tolkien</strong>
-              <br>
-              Borrowing Date: 18/05/2022
-              <br>
-              Return Date: 22/05/2022
-            </label>
-          </div>
-          <hr />
-          <div>
-            <a href="books/1984.html">
-              <img
-                src="../images/1984.jpg"
-                alt="1984 Cover"
-                width="200"
-                height="200"
-              />
-            </a>
-            <label>
-                <br>
-              <strong>1984 by George Orwell</strong>
-              <br>
-              Borrowing Date: 07/03/2023
-              <br>
-              Return Date: 14/03/2023
-            </label>
-          </div>
-          <hr>
-          <div>
-            <a href="books/prideandprejudice.html">
-              <img
-                src="../images/prideandprejudice.webp"
-                alt="Pride and Prejudice Cover"
-                width="200"
-                height="200"
-              />
-            </a>
-            <label>
-                 <br>
-              <strong>Pride and Prejudice by Jane Austen</strong>
-              <br>
-              Borrowing Date: 07/11/2023
-              <br>
-              Return Date: 15/11/2023
-            </label>
-          </div>
-</body>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <h1 class="main-title">BiblioSync</h1>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" />
+        <a href="./pages/search.html">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+      </div>
+      <div class="nav-items">
+        <a href="../index.html">Home</a>
+        <a href="../pages/collection.html">Books</a>
+        <a href="../pages/login.html">Login</a>
+      </div>
+    </nav>
+
+    <h1>
+      Borrowing History
+    </h1>
+    <div>
+      <a href="books/thehobbit.html">
+        <img src="../images/thehobbit.jpg" alt="The Hobbit Cover" width="200" height="200" />
+      </a>
+      <label>
+        <br>
+        <strong>The Hobbit by J.R.R. Tolkien</strong>
+        <br>
+        Borrowing Date: 18/05/2022
+        <br>
+        Return Date: 22/05/2022
+      </label>
+    </div>
+    <hr />
+    <div>
+      <a href="books/1984.html">
+        <img src="../images/1984.jpg" alt="1984 Cover" width="200" height="200" />
+      </a>
+      <label>
+        <br>
+        <strong>1984 by George Orwell</strong>
+        <br>
+        Borrowing Date: 07/03/2023
+        <br>
+        Return Date: 14/03/2023
+      </label>
+    </div>
+    <hr>
+    <div>
+      <a href="books/prideandprejudice.html">
+        <img src="../images/prideandprejudice.webp" alt="Pride and Prejudice Cover" width="200" height="200" />
+      </a>
+      <label>
+        <br>
+        <strong>Pride and Prejudice by Jane Austen</strong>
+        <br>
+        Borrowing Date: 07/11/2023
+        <br>
+        Return Date: 15/11/2023
+      </label>
+    </div>
+    <footer style="padding: 20px">
+      <div class="links-wrapper">
+        <a href="#">About us</a>
+        <a href="#">Contact</a>
+        <a href="javascript:history.back()">Go Back</a>
+      </div>
+      <div class="social-media">
+        <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+      </div>
+    </footer>
+  </body>
+
 </html>

@@ -1,48 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrowed Books</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrowed Books</title>
 </head>
+
 <body>
-   <h1>
+  <nav class="navbar">
+    <div class="logo">
+      <h1 class="main-title">BiblioSync</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search" />
+      <a href="./pages/search.html">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+    </div>
+    <div class="nav-items">
+      <a href="../index.html">Home</a>
+      <a href="../pages/collection.html">Books</a>
+      <a href="../pages/login.html">Login</a>
+    </div>
+  </nav>
+
+  <h1>
     Borrowed Books
-   </h1>
-   <div>
+  </h1>
+  <div>
     <a href="books\thegreatgatsby.html">
-      <img
-        src="../images/thegreatgatsby.webp"
-        alt="The Great Gatsby Cover"
-        width="150"
-        height="150"
-      />
+      <img src="../images/thegreatgatsby.webp" alt="The Great Gatsby Cover" width="150" height="150" />
     </a>
     <br>
-      <label>
-        The Great Gatsby by F. Scott Fitzgerald
-        <br>
-        Borrowed Date: 01/10/2023
-        <br>
-      </label>
+    <label>
+      The Great Gatsby by F. Scott Fitzgerald
+      <br>
+      Borrowed Date: 01/10/2023
+      <br>
+    </label>
   </div>
   <hr>
   <div>
     <a href="books/thepantomoftheopera.html">
-      <img
-        src="../images/thephantomoftheopera.jpg"
-        alt="The phantom of the opera cover"
-        width="150"
-        height="150"
-      />
+      <img src="../images/thephantomoftheopera.jpg" alt="The phantom of the opera cover" width="150" height="150" />
     </a>
     <br>
-      <label>The Phantom of the Opera by Gaston Leroux
-        <br>
-        Borrowed Date: 03/10/2023
-        <br>
-      </label>
+    <label>The Phantom of the Opera by Gaston Leroux
+      <br>
+      Borrowed Date: 03/10/2023
+      <br>
+    </label>
 
   </div>
+  <footer style="padding: 20px">
+    <div class="links-wrapper">
+      <a href="#">About us</a>
+      <a href="#">Contact</a>
+      <a href="javascript:history.back()">Go Back</a>
+    </div>
+    <div class="social-media">
+      <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+    </div>
+  </footer>
 </body>
+
 </html>

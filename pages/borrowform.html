@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Borrow Book Form</title>
-  </head>
-  <body>
-    <h2>Borrow Book</h2>
-    <form>
-      <label for="book-title">Book Title:</label><br />
-      <input
-        type="text"
-        id="book-title"
-        name="book-title"
-        required
-      /><br /><br />
 
-      <label for="borrower-name">Username:</label><br />
-      <input
-        type="text"
-        id="borrower-name"
-        name="borrower-name"
-        required
-      /><br /><br />
+<head>
+  <title>Borrow Book Form</title>
+</head>
 
-      <label for="borrow-date">Borrow Date:</label><br />
-      <input
-        type="date"
-        id="borrow-date"
-        name="borrow-date"
-        required
-      /><br /><br />
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <h1 class="main-title">BiblioSync</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search" />
+      <a href="./pages/search.html">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+    </div>
+    <div class="nav-items">
+      <a href="../index.html">Home</a>
+      <a href="../pages/collection.html">Books</a>
+      <a href="../pages/login.html">Login</a>
+    </div>
+  </nav>
 
-      <label for="return-date">Return Date:</label><br />
-      <input
-        type="date"
-        id="return-date"
-        name="return-date"
-        required
-      /><br /><br />
+  <h2>Borrow Book</h2>
+  <form>
+    <label for="book-title">Book Title:</label><br />
+    <input type="text" id="book-title" name="book-title" required /><br /><br />
 
-      <label for="noted">Notes:</label><br />
-      <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Add any aditional notes or comments here"></textarea
-      ><br /><br />
+    <label for="borrower-name">Username:</label><br />
+    <input type="text" id="borrower-name" name="borrower-name" required /><br /><br />
 
-      <input type="checkbox" id="terms" name="terms" required />
-      <label for="terms">I agree to the terms and conditions</label><br /><br />
+    <label for="borrow-date">Borrow Date:</label><br />
+    <input type="date" id="borrow-date" name="borrow-date" required /><br /><br />
 
-      <input type="submit" value="Submit" />
-    </form>
-  </body>
+    <label for="return-date">Return Date:</label><br />
+    <input type="date" id="return-date" name="return-date" required /><br /><br />
+
+    <label for="noted">Notes:</label><br />
+    <textarea id="notes" name="notes" rows="4" cols="50"
+      placeholder="Add any aditional notes or comments here"></textarea><br /><br />
+
+    <input type="checkbox" id="terms" name="terms" required />
+    <label for="terms">I agree to the terms and conditions</label><br /><br />
+
+    <input type="submit" value="Submit" />
+  </form>
+  <footer style="padding: 20px">
+    <div class="links-wrapper">
+      <a href="#">About us</a>
+      <a href="#">Contact</a>
+      <a href="javascript:history.back()">Go Back</a>
+    </div>
+    <div class="social-media">
+      <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+    </div>
+  </footer>
+</body>
+
 </html>

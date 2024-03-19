@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-        img {
-          width: 100%;
-        }
-        </style>
-        </head>
-        <body>
-          <img src="../images/user profile.jpg" alt="user profile" style="width:128px; height:128px;">
-          <div class="wrapper text-box">
-            <p>
-              <b>John Smith</b>
-              <br>
-              @john_smith
-              <br>
-              member since 2021
-            </br>
-            </p>
-            <button onclick="window.location.href = 'borrowedbooks.html'">
-              Borrowed Books
-            </button>
-            <br>
-            <br>
-            <button onclick="window.location.href = 'borrowinghistory.html'">
-              Borrowing History
-            </button>
-          </div>
-        </body>
+
+<head>
+  <nav class="navbar">
+    <div class="logo">
+      <h1 class="main-title">BiblioSync</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search" />
+      <a href="./pages/search.html">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+    </div>
+    <div class="nav-items">
+      <a href="../index.html">Home</a>
+      <a href="../pages/collection.html">Books</a>
+      <a href="../pages/login.html">Login</a>
+    </div>
+  </nav>
+
+  <style>
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="../images/user profile.jpg" alt="user profile" style="width:128px; height:128px;">
+  <div class="wrapper text-box">
+    <p>
+      <b>John Smith</b>
+      <br>
+      @john_smith
+      <br>
+      member since 2021
+      </br>
+    </p>
+    <button onclick="window.location.href = 'borrowedbooks.html'">
+      Borrowed Books
+    </button>
+    <br>
+    <br>
+    <button onclick="window.location.href = 'borrowinghistory.html'">
+      Borrowing History
+    </button>
+  </div>
+</body>
+
 </html>

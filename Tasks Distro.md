@@ -49,3 +49,6 @@
 ### Tasks
 
 [ ] Add Change password in the edit profile (Osama)
+[ ] Sign up:
+Add Date & Gender
+[ ] Check for navbar and footer in all pages

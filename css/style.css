@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --bg-clr: #38302E;
+    --white-font: whitesmoke;
+    --action-clr: #9CAEA9;
+    --sec-clr: #6F6866;
+    --fnt-bold: 500;
+    --fnt-reg: 300;
+    --fnt-light: 100;
+}
+
 /*Body*/
 /*===============================================================*/
 /*===============================================================*/
@@ -7,16 +19,22 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--bg-clr);
+    color: var(--white-font);
 }
 
 /*Universal*/
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
+* {
+    font-family: 'Petrona';
+
+}
+
 a {
     color: black;
     text-decoration: none;
-    padding: 6px;
 }
 
 /*Navbar*/
@@ -24,47 +42,66 @@ a {
 /*===============================================================*/
 /*===============================================================*/
 .navbar {
-    background-color: #B0E0E6;
+    background-color: var(--sec-clr);
+    color: var(--white-font);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 10px;
-}
+    padding: 20px 10px;
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-}
-
-.search-bar i {
-    color: black;
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 0 50% 50% 0;
-    -webkit-border-radius: 0 50% 50% 0;
-    -moz-border-radius: 0 50% 50% 0;
-    -ms-border-radius: 0 50% 50% 0;
-    -o-border-radius: 0 50% 50% 0;
-}
-
-.search-bar>input {
-    padding: 1px 8px;
-    border: none;
-    border-radius: 12px 0 0 12px;
-    -webkit-border-radius: 12px 0 0 12px;
-    -moz-border-radius: 12px 0 0 12px;
-    -ms-border-radius: 12px 0 0 12px;
-    -o-border-radius: 12px 0 0 12px;
 }
 
 .nav-items {
     display: flex;
     align-items: center;
+
 }
 
+.nav-items a {
+    padding: 6px;
+}
 
+.main-title h1 {
+    font-weight: var(--fnt-bold);
+}
+
+.navbar a {
+    color: var(--white-font);
+}
+
+.container-input {
+    position: relative;
+}
+
+.input {
+    width: 150px;
+    padding: 7px 0px 7px 50px;
+    border-radius: 19px;
+    border: solid 1px #333;
+    transition: all .2s ease-in-out;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -webkit-border-radius: 19px;
+    -moz-border-radius: 19px;
+    -ms-border-radius: 19px;
+    -o-border-radius: 19px;
+}
+
+.container-input svg {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+}
+
+.input:focus {
+    opacity: 1;
+    width: 250px;
+}
 
 /*Homepage*/
 /*===============================================================*/
@@ -83,9 +120,13 @@ a {
 footer {
     display: flex;
     justify-content: space-around;
-    background-color: powderblue;
+    background-color: var(--sec-clr);
 }
 
+footer a {
+    color: var(--white-font);
+    padding: 6px;
+}
 
 /* Login Page */
 /*===============================================================*/
@@ -96,7 +137,6 @@ footer {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "poppins", sans-serif;
 }
 
 .login-body {

@@ -487,7 +487,13 @@ header {
   padding-right: 80px;
   border-right: 2px dashed whitesmoke;
 }
+ #book-title{
+  margin-bottom: 20px;
+ }
 
+ #align h3{
+  padding: 8px 0;
+ }
 
 /*borrow form*/
 /*===============================================================*/

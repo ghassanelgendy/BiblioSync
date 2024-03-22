@@ -76,12 +76,19 @@
         <input type="file" id="cover" name="cover " required />
       </div>
 
-      <div class="genres">
+      
         <h2 id="titles">Genres :</h2>
+        <div class="genres">
+        <div class="divide">
         <label class="container">
           <input checked="checked" type="checkbox" name="classics" />
           <div class="checkmark"></div>
           Classics
+        </label>
+        <label class="container">
+          <input checked="checked" type="checkbox" name="Comedy" />
+          <div class="checkmark"></div>
+          Comedy
         </label>
         <label class="container">
           <input checked="checked" type="checkbox" name="fantasy" />
@@ -93,6 +100,8 @@
           <div class="checkmark"></div>
           Horror
         </label>
+      </div>
+      <div>
         <label class="container">
           <input type="checkbox" name="mystery" />
           <div class="checkmark"></div>
@@ -108,11 +117,13 @@
           <div class="checkmark"></div>
           Sci-fi
         </label>
+    
         <label class="container">
           <input  type="checkbox" name="tragedy" />
           <div class="checkmark"></div>
           Tragedy
         </label>
+      </div>
       </div>
 
       <div class="description">
@@ -126,9 +137,9 @@
         ></textarea>
       </div>
 
-
-      <input type="submit" value="Add" class="button" />
-
+      <div id="addbtn">
+      <input type="submit" value="Add" class="button"/>
+</div>
 
     </form>
     <footer style="padding: 20px">

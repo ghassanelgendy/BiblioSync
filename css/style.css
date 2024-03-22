@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap");
 
 :root {
   --bg-clr: #38302e;
   --white-font: whitesmoke;
   --action-clr: #9caea9;
   --sec-clr: #6f6866;
-  --checkbox-clr : #4d6c6c;
-  --light-green: #CCDAD1;
-  --mid-green: #9CAEA9;
-  --dark-green:#788585;
+  --checkbox-clr: #4d6c6c;
+  --light-green: #ccdad1;
+  --mid-green: #9caea9;
+  --dark-green: #788585;
   --fnt-bold: 500;
   --fnt-reg: 300;
   --fnt-light: 100;
@@ -54,7 +54,7 @@ textarea {
 
 .button {
   color: whitesmoke;
-  font-size: 17px;
+  font-size: 20px;
   background-color: var(--mid-green);
   border: 1px solid var(--light-green);
   border-radius: 5px;
@@ -70,6 +70,19 @@ textarea {
   top: 2px;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+
+
+input[type="date"] {
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+}
 
 /*Navbar*/
 /*===============================================================*/
@@ -106,21 +119,21 @@ textarea {
 }
 
 .input {
-    width: 150px;
-    padding: 7px 0px 7px 50px;
-    border-radius: 19px;
-    border: solid 1px #333;
-    transition: all .2s ease-in-out;
-    outline: none;
-    opacity: 0.8;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -ms-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -webkit-border-radius: 19px;
-    -moz-border-radius: 19px;
-    -ms-border-radius: 19px;
-    -o-border-radius: 19px;
+  width: 150px;
+  padding: 7px 0px 7px 50px;
+  border-radius: 19px;
+  border: solid 1px #333;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  opacity: 0.8;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-border-radius: 19px;
+  -moz-border-radius: 19px;
+  -ms-border-radius: 19px;
+  -o-border-radius: 19px;
 }
 
 .container-input svg {
@@ -286,9 +299,8 @@ footer a {
 #add {
   margin: 10px 20px;
   padding: 5px;
-  
 }
-header{
+header {
   text-align: center;
 }
 
@@ -298,17 +310,13 @@ header{
 .input-group * {
   position: relative;
   margin-bottom: 7px;
-  
-  
 }
 
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .field {
   border: solid 1.5px var(--light-green);
@@ -318,8 +326,7 @@ header{
   font-size: 1rem;
   color: whitesmoke;
   transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100% ;
-  
+  width: 100%;
 }
 
 .user-label {
@@ -345,7 +352,6 @@ header{
   color: var(--light-green);
 }
 
-
 #cover {
   display: flex;
   padding: 10px 20px;
@@ -354,13 +360,11 @@ header{
   justify-content: flex-start;
 }
 
-
 #cover input {
   margin-left: 85px;
-  
 }
 
-#titles{
+#titles {
   text-align: center;
 }
 
@@ -374,14 +378,11 @@ header{
   justify-content: center;
 }
 
-
 .genres > div {
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
-
-
 
 /* Hide the default checkbox */
 .container input {
@@ -414,11 +415,9 @@ header{
   margin: 0 10px 0 0;
 }
 
-
 .container input:checked ~ .checkmark {
   background-color: var(--checkbox-clr);
 }
-
 
 .checkmark:after {
   content: "";
@@ -450,8 +449,63 @@ header{
   align-items: center;
 }
 
-#addbtn{
+
+/*books*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+
+#align {
   display: flex;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+#book-details {
+  margin-left: 20px;
+}
+
+#book-cover {
+  padding: 7px;
+  border: 1px solid white;
+  width: 50%;
+}
+.info {
+  display: flex;
+  gap: 80px;
+}
+.info ul {
+  margin-left: 15px;
+  list-style-type: none;
+}
+
+#description {
+  font-family: "Eczar";
+}
+
+.book-info {
+  padding-right: 80px;
+  border-right: 2px dashed whitesmoke;
+}
+
+
+/*borrow form*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+
+.dates {
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.dates *{
+  padding: 6px;
+}
+#terms{
+  display: flex;
+  align-items: center;
   justify-content: center;
-  margin: 15px;
 }

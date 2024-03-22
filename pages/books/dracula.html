@@ -4,25 +4,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
     <title>Book Details</title>
   </head>
   <body>
-    <header>
-      <h1>Dracula</h1>
-    </header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="../index.html"><h1 class="main-title">BiblioSync</h1></a>
+      </div>
+      <div class="search-bar">
+        <div class="container-input">
+          <input type="text" placeholder="Search" name="text" class="input" />
+          <svg
+            fill="#000000"
+            width="20px"
+            height="20px"
+            viewBox="0 0 1920 1920"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z"
+              fill-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <div class="nav-items">
+        <a href="../collection.html">Books</a>
+        <a href="../login.html">Login</a>\
+        <a href="../admin profile.html">Admin User</a>
+        <a href="../addbook.html">Add Book</a>
+        <a href="../borrowform.html">Borrow Book</a>
+        <a href="../borrowinghistory.html"></a>
+        <a href="../Edit profile.html">Edit Profile</a>
+      </div>
+    </nav>
+    <div id="align">
+      <img
+        id="book-cover"
+        src="../../images/dracula.jpeg"
+        alt="Dracula Cover"
+      />
 
-    <main>
-      <section id="book-details">
-        <!-- Book Entry: Dracula-->
-        <h2>by Bram Stoker</h2>
-        <img
-          src="../../images/dracula.jpeg"
-          alt="Dracula Cover"
-          width="300"
-          height="300"
-        />
-        <p>Description:</p>
-        <p>
+      <div id="book-details">
+        <header>
+          <h1>Dracula</h1>
+          <h2>by Bram Stoker</h2>
+        </header>
+
+        <h3>Description:</h3>
+        <p id="description">
           During a business visit to Count Dracula's castle in Transylvania, a
           young English solicitor finds himself at the center of a series of
           horrifying incidents. Jonathan Harker is attacked by three phantom
@@ -33,22 +65,40 @@
           inexplicable blood loss, and mysterious throat wounds — initiates a
           frantic vampire hunt.
         </p>
-        <p>Availability: Available for Borrowing</p>
-        <p>Originally published: May 26, 1897</p>
-        <p>ISBN : 9798721052927</p>
-        <p>Language: English</p>
-        <p>Pages: 280</p>
-        <p>Genres : Classics , Fantasy , Horror</p>
-        <h3>Additional Details:</h3>
-        <ul>
-          <li>Available Formats: Paperback, eBook</li>
-          <li>Borrowing Period: 2 weeks</li>
-          <li>Reservation Option: Yes</li>
-        </ul>
-        <button onclick="window.location.href = '../borrowform.html';">
-          Borrow
-        </button>
-      </section>
-    </main>
+        <br />
+        <div class="info">
+          <div class="book-info">
+            <p>Originally published: May 26, 1897</p>
+            <p>ISBN : 9798721052927</p>
+            <p>Language: English</p>
+            <p>Pages: 280</p>
+            <p>Genres : Classics , Fantasy , Horror</p>
+          </div>
+          <div class="additional-info">
+            <ul>
+              <li>Availability: Available for Borrowing</li>
+              <li>Available Formats: Paperback, eBook</li>
+              <li>Borrowing Period: 2 weeks</li>
+              <li>Reservation Option: Yes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <a href="../borrowform.html">
+        <button class="button">Borrow</button>
+      </a>
+    </div>
   </body>
+  <footer style="padding: 20px">
+    <div class="links-wrapper">
+      <a href="#">About us</a>
+      <a href="#">Contact</a>
+      <a href="javascript:history.back()">Go Back</a>
+    </div>
+    <div class="social-media">
+      <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+    </div>
+  </footer>
 </html>

@@ -300,6 +300,7 @@ footer a {
   margin: 10px 20px;
   padding: 5px;
 }
+
 header {
   text-align: center;
 }
@@ -307,6 +308,7 @@ header {
 #add:not(h1) {
   font-size: 18px;
 }
+
 .input-group * {
   position: relative;
   margin-bottom: 7px;
@@ -344,8 +346,8 @@ header {
   border: 1.5px solid var(--checkbox-clr);
 }
 
-.field:focus ~ label,
-.field:valid ~ label {
+.field:focus~label,
+.field:valid~label {
   transform: translateY(-50%) scale(0.8);
   background-color: var(--bg-clr);
   padding: 0 0.2em;
@@ -378,7 +380,7 @@ header {
   justify-content: center;
 }
 
-.genres > div {
+.genres>div {
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -415,7 +417,7 @@ header {
   margin: 0 10px 0 0;
 }
 
-.container input:checked ~ .checkmark {
+.container input:checked~.checkmark {
   background-color: var(--checkbox-clr);
 }
 
@@ -426,7 +428,7 @@ header {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.container input:checked~.checkmark:after {
   display: block;
 }
 
@@ -470,10 +472,12 @@ header {
   border: 1px solid white;
   width: 50%;
 }
+
 .info {
   display: flex;
   gap: 80px;
 }
+
 .info ul {
   margin-left: 15px;
   list-style-type: none;
@@ -487,13 +491,14 @@ header {
   padding-right: 80px;
   border-right: 2px dashed whitesmoke;
 }
- #book-title{
-  margin-bottom: 20px;
- }
 
- #align h3{
+#book-title {
+  margin-bottom: 20px;
+}
+
+#align h3 {
   padding: 8px 0;
- }
+}
 
 /*borrow form*/
 /*===============================================================*/
@@ -507,11 +512,53 @@ header {
   align-items: center;
   justify-content: flex-start;
 }
-.dates *{
+
+.dates * {
   padding: 6px;
 }
-#terms{
+
+#terms {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/*books collection*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+
+.books {
+  padding-top: .9em;
+  padding-bottom: 1.7em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9em;
+  justify-content: center;
+}
+
+.books>div {
+  border: --white-font 2px solid;
+  justify-content: center;
+  text-align: center;
+  padding: 2em;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+strong {
+  text-wrap: wrap;
+}
+
+.books div img {
+  border: whitesmoke solid px;
+  height: 300px;
+  width: 210px;
 }

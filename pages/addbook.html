@@ -41,9 +41,11 @@
         <a href="Edit profile.html">Edit Profile</a>
       </div>
     </nav>
-<header id="add"><h1 >Add New Book</h1>
-<p>Fill out this form to add a new book to the collection</p></header>
-   
+    <header id="add">
+      <h1>Add New Book</h1>
+      <p>Fill out this form to add a new book to the collection</p>
+    </header>
+
     <form id="add">
       <div class="input-group">
         <div>
@@ -69,61 +71,92 @@
             class="field"
           /><label class="user-label" for="Author">Author </label>
         </div>
+        <div>
+          <input
+            type="text"
+            id="language"
+            name="language"
+            class="field"
+            required
+          />
+          <label class="user-label" for="language">Language</label>
+        </div>
       </div>
 
       <div id="cover">
-        <h2  id="titles">Add Book Cover :</h2>
+        <h2 id="titles">Add Book Cover :</h2>
         <input type="file" id="cover" name="cover " required />
       </div>
+      <div id="no-pages">
+        <h2 id="titles">Number of pages :</h2>
+        <input type="number" id="no-pages" name="no-pages" required />
+      </div>
+      <div id="publishDate">
+        <h2 id="publishDate">Publishing date :</h2>
+        <input type="date" id="publishDate" name="publishDate" required />
+      </div>
 
-      
-        <h2 id="titles">Genres :</h2>
-        <div class="genres">
+      <h2 id="titles">Genres :</h2>
+      <div class="genres">
         <div class="divide">
-        <label class="container">
-          <input checked="checked" type="checkbox" name="classics" />
-          <div class="checkmark"></div>
-          Classics
-        </label>
-        <label class="container">
-          <input checked="checked" type="checkbox" name="Comedy" />
-          <div class="checkmark"></div>
-          Comedy
-        </label>
-        <label class="container">
-          <input checked="checked" type="checkbox" name="fantasy" />
-          <div class="checkmark"></div>
-          Fantasy
-        </label>
-        <label class="container">
-          <input checked="checked" type="checkbox" name="horror" />
-          <div class="checkmark"></div>
-          Horror
-        </label>
+          <label class="container">
+            <input checked="checked" type="checkbox" name="classics" />
+            <div class="checkmark"></div>
+            Classics
+          </label>
+          <label class="container">
+            <input checked="checked" type="checkbox" name="Comedy" />
+            <div class="checkmark"></div>
+            Comedy
+          </label>
+          <label class="container">
+            <input checked="checked" type="checkbox" name="fantasy" />
+            <div class="checkmark"></div>
+            Fantasy
+          </label>
+          <label class="container">
+            <input checked="checked" type="checkbox" name="horror" />
+            <div class="checkmark"></div>
+            Horror
+          </label>
+        </div>
+        <div>
+          <label class="container">
+            <input type="checkbox" name="mystery" />
+            <div class="checkmark"></div>
+            Mystery
+          </label>
+          <label class="container">
+            <input type="checkbox" name="romance" />
+            <div class="checkmark"></div>
+            Romance
+          </label>
+          <label class="container">
+            <input type="checkbox" name="sci-fi" />
+            <div class="checkmark"></div>
+            Sci-fi
+          </label>
+
+          <label class="container">
+            <input type="checkbox" name="tragedy" />
+            <div class="checkmark"></div>
+            Tragedy
+          </label>
+        </div>
       </div>
-      <div>
-        <label class="container">
-          <input type="checkbox" name="mystery" />
-          <div class="checkmark"></div>
-          Mystery
+      <h2 id="titles">Availability :</h2>
+      <div id="avail">
+        <label class="radio-button">
+          <input type="radio" name="available" value="available" />
+          <span class="radio"></span>
+          Available
         </label>
-        <label class="container">
-          <input  type="checkbox" name="romance" />
-          <div class="checkmark"></div>
-          Romance
+
+        <label class="radio-button">
+          <input type="radio" name="available" value="notAvailable" />
+          <span class="radio"></span>
+          Not Available
         </label>
-        <label class="container">
-          <input  type="checkbox" name="sci-fi" />
-          <div class="checkmark"></div>
-          Sci-fi
-        </label>
-    
-        <label class="container">
-          <input  type="checkbox" name="tragedy" />
-          <div class="checkmark"></div>
-          Tragedy
-        </label>
-      </div>
       </div>
 
       <div class="description">
@@ -138,9 +171,8 @@
       </div>
 
       <div class="button-container">
-      <input type="submit" value="Add" class="button"/>
-</div>
-
+        <input type="submit" value="Add" class="button" />
+      </div>
     </form>
     <footer style="padding: 20px">
       <div class="links-wrapper">

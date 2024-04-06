@@ -76,12 +76,21 @@ textarea {
   margin: 15px;
 }
 
+/*radio button and checkbox style in add page part*/
 
 input[type="date"] {
   background: #fff;
   padding: 5px 10px;
   border-radius: 5px;
   outline: none;
+}
+
+input[type="number"] {
+  background: #fff;
+  padding: 3px 5px;
+  border-radius: 5px;
+  outline: none;
+  margin: 5px;
 }
 
 /*Navbar*/
@@ -346,20 +355,22 @@ header {
   border: 1.5px solid var(--checkbox-clr);
 }
 
-.field:focus~label,
-.field:valid~label {
+.field:focus ~ label,
+.field:valid ~ label {
   transform: translateY(-50%) scale(0.8);
   background-color: var(--bg-clr);
   padding: 0 0.2em;
   color: var(--light-green);
 }
 
-#cover {
+#cover,
+#no-pages,
+#publishDate,
+#avail {
   display: flex;
-  padding: 10px 20px;
+  padding: 5px;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
 }
 
 #cover input {
@@ -380,7 +391,7 @@ header {
   justify-content: center;
 }
 
-.genres>div {
+.genres > div {
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -417,7 +428,7 @@ header {
   margin: 0 10px 0 0;
 }
 
-.container input:checked~.checkmark {
+.container input:checked ~ .checkmark {
   background-color: var(--checkbox-clr);
 }
 
@@ -428,7 +439,7 @@ header {
 }
 
 /* Show the checkmark when checked */
-.container input:checked~.checkmark:after {
+.container input:checked ~ .checkmark:after {
   display: block;
 }
 
@@ -443,6 +454,57 @@ header {
   transform: rotate(45deg);
 }
 
+.radio-button {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px;
+  position: relative;
+  align-items: center;
+  color: white;
+}
+
+.radio-button input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  transform: translateZ(-25px);
+  transition: all 0.3s ease-in-out;
+}
+
+.radio::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+  background-color: var(--checkbox-clr);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.radio-button input[type="radio"]:checked + .radio {
+  border-color: var(--action-clr);
+  transform: translateZ(0px);
+  background-color: #fff;
+}
+
+.radio-button input[type="radio"]:checked + .radio::before {
+  opacity: 1;
+}
+
 .description {
   padding: 15px 0;
   display: flex;
@@ -450,7 +512,6 @@ header {
   justify-content: center;
   align-items: center;
 }
-
 
 /*books*/
 /*===============================================================*/
@@ -471,9 +532,8 @@ header {
   padding: 7px;
   border: 1px solid white;
   width: 60%;
-  width:400px;
+  width: 400px;
   height: 400px;
-  
 }
 
 .info {
@@ -532,7 +592,7 @@ header {
 /*===============================================================*/
 
 .books {
-  padding-top: .9em;
+  padding-top: 0.9em;
   padding-bottom: 1.7em;
   display: flex;
   flex-wrap: wrap;
@@ -540,7 +600,7 @@ header {
   justify-content: center;
 }
 
-.books>div {
+.books > div {
   border: --white-font 2px solid;
   justify-content: center;
   text-align: center;

@@ -323,7 +323,7 @@ const book = [
     availability: "Available for Borrowing",
     formats: ["Paperback", "eBook"],
     borrowingPeriod: "2 weeks",
-    reservationOption: "Yes"
+    reservationOption: "Yes",
   },
   {
     id: 20,
@@ -339,30 +339,36 @@ const book = [
     availability: "Available for Borrowing",
     formats: ["Paperback", "eBook"],
     borrowingPeriod: "2 weeks",
-    reservationOption: "Yes"
-  }
+    reservationOption: "Yes",
+  },
 ];
 const urlParams = new URLSearchParams(window.location.search);
-const bookId = parseInt(urlParams.get('id'));
+const bookId = parseInt(urlParams.get("id"));
 function displayBookDetails(bookId) {
-    const selectedBook = book.find((b) => b.id === bookId);
-    if (selectedBook) {
-        document.getElementById("book-cover").src = selectedBook.cover;
-        document.getElementById("book-title").querySelector("h1").textContent = selectedBook.title;
-        document.getElementById("author").textContent = selectedBook.author;
-        document.getElementById("description").textContent = selectedBook.description;
-        document.getElementById("published").textContent = selectedBook.published;
-        document.getElementById("isbn").textContent = selectedBook.isbn;
-        document.getElementById("language").textContent = selectedBook.language;
-        document.getElementById("pages").textContent = selectedBook.pages;
-        document.getElementById("genres").textContent = selectedBook.genres.join(", ");
-        document.getElementById("availability").textContent = selectedBook.availability;
-        document.getElementById("formats").textContent = selectedBook.formats.join(", ");
-        document.getElementById("borrowing-period").textContent = selectedBook.borrowingPeriod;
-        document.getElementById("reservation-option").textContent = selectedBook.reservationOption;
-    } else {
-        console.log(`Book with ID ${bookId} not found.`);
-    }
-    
+  const selectedBook = book.find((b) => b.id === bookId);
+  if (selectedBook) {
+    document.getElementById("book-cover").src = selectedBook.cover;
+    document.getElementById("book-title").querySelector("h1").textContent =
+      selectedBook.title;
+    document.getElementById("author").textContent = selectedBook.author;
+    document.getElementById("description").textContent =
+      selectedBook.description;
+    document.getElementById("published").textContent = selectedBook.published;
+    document.getElementById("isbn").textContent = selectedBook.isbn;
+    document.getElementById("language").textContent = selectedBook.language;
+    document.getElementById("pages").textContent = selectedBook.pages;
+    document.getElementById("genres").textContent =
+      selectedBook.genres.join(", ");
+    document.getElementById("availability").textContent =
+      selectedBook.availability;
+    document.getElementById("formats").textContent =
+      selectedBook.formats.join(", ");
+    document.getElementById("borrowing-period").textContent =
+      selectedBook.borrowingPeriod;
+    document.getElementById("reservation-option").textContent =
+      selectedBook.reservationOption;
+  } else {
+    console.log(`Book with ID ${bookId} not found.`);
+  }
 }
 displayBookDetails(bookId);

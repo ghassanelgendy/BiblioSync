@@ -382,3 +382,45 @@ let navBarToggle = document.getElementById("js-navbar-toggle");
 navBarToggle.addEventListener("click", function () {
 	mainNav.classList.toggle("active");
 });
+
+//========================================================
+function createUser(username, isAdmin, email, password, age, gender) {
+	return {
+		username: username,
+		isAdmin: isAdmin,
+		email: email,
+		password,
+		password,
+		age: age,
+		gender: gender,
+		getName: function () {
+			return username;
+		},
+	};
+}
+
+function handleSubmit(event) {
+	event.preventDefault(); // Prevent the default form submission
+
+	// Retrieve form values
+	const name = document.getElementById("signup-username").value;
+	const isAdmin = document.getElementById("is-admin").checked;
+	const email = document.getElementById("email").value;
+	const password = document.getElementById("signup-password").value;
+	const age = document.getElementById("birthdate").value;
+	const gender = document.querySelector('input[name="Gender"]:checked').value;
+	// Create user object
+	const user = createUser(name, isAdmin, email, password, age, gender);
+	alert(user.getName());
+
+	// Store user object in localStorage
+	localStorage.setItem(user.getName(), JSON.stringify(user));
+
+	// Clear form fields
+	document.getElementById("registrationForm").reset();
+}
+
+// Add event listener to the form submit button
+document
+	.getElementById("registerButton")
+	.addEventListener("click", handleSubmit);

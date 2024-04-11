@@ -21,6 +21,37 @@
   --fnt-light: 100;
 }
 
+/*Register*/
+.main-reg {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#signup-section {
+  background-color: var(--action-clr);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding: 25px 80px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 55%;
+  height: 55%;
+}
+
+
+.input-field {
+  display: flex;
+  gap: 20%;
+  justify-content: space-between;
+}
+
 /*Body*/
 /*===============================================================*/
 /*===============================================================*/
@@ -67,7 +98,6 @@ body {
 input:hover {
   outline: none;
   border-color: var(--txt-clr);
-  background-color: #fff;
 }
 
 .icon {
@@ -235,14 +265,12 @@ textarea {
 /*radio button and checkbox style in add page part*/
 
 input[type="date"] {
-  background: #fff;
   padding: 5px 10px;
   border-radius: 5px;
   outline: none;
 }
 
 input[type="number"] {
-  background: #fff;
   padding: 3px 5px;
   border-radius: 5px;
   outline: none;
@@ -267,11 +295,11 @@ input[type="number"] {
 footer {
   display: flex;
   justify-content: space-around;
-  background-color: var(--sec-clr);
+  background-color: var(--action-clr)
 }
 
 footer a {
-  color: var(--white-font);
+  color: var(--txt-clr);
   padding: 6px;
 }
 
@@ -330,7 +358,6 @@ footer a {
   font-size: 16px;
   color: #ffffff;
   padding: 20px 45px 20px 20px;
-  background-color: #ffffff4e;
 }
 
 .input-box input::placeholder {

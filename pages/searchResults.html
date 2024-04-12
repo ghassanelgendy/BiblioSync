@@ -1,60 +1,62 @@
 <!-- book_details.html -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="../icons/apple-touch-icon.png" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="../icons/favicon-32x32.png" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="../icons/favicon-16x16.png" />
-		<link rel="manifest" href="../icons/site.webmanifest" />
-		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-		<script
-			src="https://kit.fontawesome.com/d954325b52.js"
-			crossorigin="anonymous"></script>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Search results</title>
-		<link rel="stylesheet" href="../css/reset.css" />
-		<link rel="stylesheet" href="../css/style.css" />
-	</head>
-	<script>
-		$(function () {
-			$("#nav-placeholder").load("nav.html");
-		});
-	</script>
-	<body>
-		<div id="nav-placeholder"></div>
+  <head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../icons/site.webmanifest" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d954325b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search results</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("nav.html");
+    });
+  </script>
+  <body>
+    <div id="nav-placeholder"></div>
 
-		<div class="welcome-modal">
-			<h3>No results found</h3>
-		
-		
-		</div>
-		<footer style="padding: 20px">
-			<div class="links-wrapper">
-				<a href="./pages/about.html">About us</a>
-				<a href="./pages/contact.html">Contact</a>
-			</div>
-			<div class="social-media">
-				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
-			</div>
-		</footer>
-		<script src="./js/script.js"></script>
+    <div class="searchResults">
+      <h3>No results found</h3>
+    </div>
+    <footer style="padding: 20px">
+      <div class="links-wrapper">
+        <a href="./pages/about.html">About us</a>
+        <a href="./pages/contact.html">Contact</a>
+      </div>
+      <div class="social-media">
+        <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+      </div>
+    </footer>
+    <script src="./js/script.js"></script>
 
-		<script>
-			$(function () {
-				$("#nav-placeholder").load("./nav.html");
-			});
-		</script>
-	</body>
+    <script>
+      $(function () {
+        $("#nav-placeholder").load("./nav.html");
+      });
+    </script>
+  </body>
 </html>

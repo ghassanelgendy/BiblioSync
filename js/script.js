@@ -369,6 +369,8 @@ function displayBookDetails(bookId) {
 			).innerHTML = `<i class="fa-solid fa-xmark"></i>`;
 			const borrow_btn = document.getElementById("borrow-btn");
 			borrow_btn.classList.add("disabled");
+			document.getElementById("borrow-btn").disabled = true; 
+		
 		}
 
 		document.getElementById("formats").textContent =

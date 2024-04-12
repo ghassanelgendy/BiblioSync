@@ -22,15 +22,24 @@
 }
 
 /*Register*/
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.underlined {}
+
 .main-reg {
-  height: 85vh;
+  height: 86.5vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+#login-section,
 #signup-section {
-  background-color: var(--action-clr);
+  color: var(--white-font);
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -40,16 +49,45 @@
   margin: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   width: 55%;
   height: 55%;
 }
 
+.red {
+  background-color: red;
+}
 
 .input-field {
+  flex-direction: column;
   display: flex;
   gap: 20%;
   justify-content: space-between;
+}
+
+mark {
+  color: var(--action-clr);
+  padding: 0 5px;
+  -webkit-animation: 1.5s highlight 1.5s 1 normal forwards;
+  animation: 1.5s highlight 1.5s 1 normal forwards;
+  background-color: none;
+  background: linear-gradient(90deg, var(--txt-clr) 50%, rgba(255, 255, 255, 0) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+}
+
+@-webkit-keyframes highlight {
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes highlight {
+  to {
+    background-position: 0 0;
+  }
 }
 
 /*Body*/
@@ -73,7 +111,6 @@ body {
   line-height: 28px;
   align-items: center;
   position: relative;
-  max-width: 190px;
 }
 
 .input {
@@ -239,15 +276,19 @@ textarea {
 }
 
 .button {
-  color: var(--white-font);
+  color: var(--txt-clr);
   font-size: 20px;
-  background-color: var(--mid-green);
-  border: 1px solid var(--light-green);
-  border-radius: 5px;
+  background-color: var(--action-clr);
+  border: 1px solid var(--white-font);
+  border-radius: 9px;
   cursor: pointer;
   padding: 5px 30px;
-  box-shadow: 0px 6px 0px var(--dark-green);
+  box-shadow: 0px 6px 0px #ab8749;
   transition: all 0.1s;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
 }
 
 .button:active {
@@ -268,6 +309,10 @@ input[type="date"] {
   padding: 5px 10px;
   border-radius: 5px;
   outline: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 input[type="number"] {
@@ -549,7 +594,7 @@ header {
 }
 
 .container input:checked~.checkmark {
-  background-color: var(--checkbox-clr);
+  background-color: var(--action-clr);
 }
 
 .checkmark:after {
@@ -569,7 +614,7 @@ header {
   top: 0.2em;
   width: 0.24em;
   height: 0.6em;
-  border: solid white;
+  border: solid var(--txt-clr);
   border-width: 0 0.15em 0.15em 0;
   transform: rotate(45deg);
 }
@@ -735,14 +780,39 @@ header {
   justify-content: center;
 }
 
+.main-content {
+  color: var(--white-font)
+}
 
-#book-details {
-  margin-left: 20px;
+.fa-check {
+  color: green;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.fa-xmark {
+  color: red;
+}
+
+li span,
+.info span {
+  color: var(--light-action-clr);
+}
+
+span i {
+  transform: translateY(1px);
+  -webkit-transform: translateY(1px);
+  -moz-transform: translateY(1px);
+  -ms-transform: translateY(1px);
+  -o-transform: translateY(1px);
 }
 
 .info {
   display: flex;
-  gap: 80px;
+  gap: 50px;
+  justify-content: space-between;
 }
 
 .info ul {
@@ -754,17 +824,17 @@ header {
   font-family: "Eczar";
 }
 
-.book-info {
-  padding-right: 80px;
-  border-right: 2px dashed whitesmoke;
-}
-
-#book-title {
-  margin-bottom: 20px;
+#book-title::first-line {
+  text-decoration: underline;
 }
 
 #align h3 {
   padding: 8px 0;
+}
+
+.info ul li {
+  display: flex;
+
 }
 
 /*borrow form*/
@@ -800,7 +870,7 @@ header {
   padding-bottom: 1.7em;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9em;
+  gap: 1.5em;
   justify-content: center;
 }
 
@@ -812,12 +882,12 @@ header {
   display: flex;
   width: 300px;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  background-color: rgba(225, 210, 184, 0.7);
+  border-radius: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
 }
 
 strong {
@@ -828,4 +898,20 @@ strong {
   border: whitesmoke solid px;
   height: 300px;
   width: 210px;
+  transition: all ease-in-out 200ms;
+  -webkit-transition: all ease-in-out 200ms;
+  -moz-transition: all ease-in-out 200ms;
+  -ms-transition: all ease-in-out 200ms;
+  -o-transition: all ease-in-out 200ms;
+}
+
+.books div img:hover {
+  box-shadow: 2px -1px 60px 7px rgba(255, 255, 255, 0.89);
+  -webkit-box-shadow: 2px -1px 60px 7px rgba(255, 255, 255, 0.89);
+  -moz-box-shadow: 2px -1px 60px 7px rgba(255, 255, 255, 0.89);
+  transition: all ease-in-out 200ms;
+  -webkit-transition: all ease-in-out 200ms;
+  -moz-transition: all ease-in-out 200ms;
+  -ms-transition: all ease-in-out 200ms;
+  -o-transition: all ease-in-out 200ms;
 }

@@ -1,7 +1,3 @@
-$(function () {
-	$("#nav-placeholder").load("nav.html");
-});
-
 /*books*/
 /*===============================================================*/
 /*===============================================================*/
@@ -19,7 +15,7 @@ const book = [
 		language: "English",
 		pages: 336,
 		genres: ["Classics", "Sci-fi"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -36,7 +32,7 @@ const book = [
 		language: "English",
 		pages: 304,
 		genres: ["Classics", "Thriller", "Romance"],
-		availability: "Not Available",
+		availability: 0,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -53,7 +49,7 @@ const book = [
 		language: "English",
 		pages: 280,
 		genres: ["Classics", "Fantasy", "Horror"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -70,7 +66,7 @@ const book = [
 		language: "English",
 		pages: 165,
 		genres: ["Classics", "Tragedy"],
-		availability: "Not Available",
+		availability: 0,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -87,7 +83,7 @@ const book = [
 		language: "English",
 		pages: 368,
 		genres: ["Classics", "Fantasy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -104,7 +100,7 @@ const book = [
 		language: "English",
 		pages: 368,
 		genres: ["Classics", "Romance"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -121,7 +117,7 @@ const book = [
 		language: " English",
 		pages: 336,
 		genres: ["Fantasy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -140,7 +136,7 @@ const book = [
 		language: "English",
 		pages: 1178,
 		genres: ["Classics", "Fantasy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -156,7 +152,7 @@ const book = [
 		language: "English",
 		pages: 384,
 		genres: ["Comedy", "Romance"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -173,7 +169,7 @@ const book = [
 		language: "English",
 		pages: 688,
 		genres: ["Classics", "Fantasy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -190,7 +186,7 @@ const book = [
 		language: "English",
 		pages: 384,
 		genres: ["Sci-Fi"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -207,7 +203,7 @@ const book = [
 		language: "English",
 		pages: 597,
 		genres: ["Mystery"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -224,7 +220,7 @@ const book = [
 		language: "English",
 		pages: 208,
 		genres: ["Classics", "Fantasy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -241,7 +237,7 @@ const book = [
 		language: "English",
 		pages: 128,
 		genres: ["Mystery"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -257,7 +253,7 @@ const book = [
 		language: "English",
 		pages: 177,
 		genres: ["Classics", "Horror", "Sci-Fi", "Tragedy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -273,7 +269,7 @@ const book = [
 		language: "English",
 		pages: 784,
 		genres: ["Classics", "Fantasy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -290,7 +286,7 @@ const book = [
 		language: "English",
 		pages: 497,
 		genres: ["Horror", "Mystery"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -307,7 +303,7 @@ const book = [
 		language: "English",
 		pages: 352,
 		genres: ["Romance", "Tragedy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -324,7 +320,7 @@ const book = [
 		language: "English",
 		pages: 272,
 		genres: ["Classics", "Mystery"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -340,7 +336,7 @@ const book = [
 		language: "English",
 		pages: 304,
 		genres: ["Classics", "Fantasy"],
-		availability: "Available for Borrowing",
+		availability: 1,
 		formats: ["Paperback", "eBook"],
 		borrowingPeriod: "2 weeks",
 		reservationOption: "Yes",
@@ -363,8 +359,18 @@ function displayBookDetails(bookId) {
 		document.getElementById("pages").textContent = selectedBook.pages;
 		document.getElementById("genres").textContent =
 			selectedBook.genres.join(", ");
-		document.getElementById("availability").textContent =
-			selectedBook.availability;
+		if (selectedBook.availability == 1) {
+			document.getElementById(
+				"availability"
+			).innerHTML = `<i class="fa-solid fa-check"></i>`;
+		} else {
+			document.getElementById(
+				"availability"
+			).innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+			const borrow_btn = document.getElementById("borrow-btn");
+			borrow_btn.classList.add("disabled");
+		}
+
 		document.getElementById("formats").textContent =
 			selectedBook.formats.join(", ");
 		document.getElementById("borrowing-period").textContent =
@@ -376,12 +382,6 @@ function displayBookDetails(bookId) {
 	}
 }
 displayBookDetails(bookId);
-let mainNav = document.getElementById("js-menu");
-let navBarToggle = document.getElementById("js-navbar-toggle");
-
-navBarToggle.addEventListener("click", function () {
-	mainNav.classList.toggle("active");
-});
 
 //========================================================
 function createUser(username, isAdmin, email, password, age, gender) {
@@ -411,7 +411,6 @@ function handleSubmit(event) {
 	const gender = document.querySelector('input[name="Gender"]:checked').value;
 	// Create user object
 	const user = createUser(name, isAdmin, email, password, age, gender);
-	alert(user.getName());
 
 	// Store user object in localStorage
 	localStorage.setItem(user.getName(), JSON.stringify(user));
@@ -419,8 +418,50 @@ function handleSubmit(event) {
 	// Clear form fields
 	document.getElementById("registrationForm").reset();
 }
+//==========================================login
 
-// Add event listener to the form submit button
-document
-	.getElementById("registerButton")
-	.addEventListener("click", handleSubmit);
+function checkSubmit(event) {
+	event.preventDefault(); // Prevent the default form submission
+
+	const username = document.getElementById("login-username").value;
+	const password = document.getElementById("login-password").value;
+	const storedUserData = localStorage.getItem(username);
+	const userData = storedUserData ? JSON.parse(storedUserData) : {};
+	if (userData.password === password) {
+		// Successful login
+		login(userData);
+	} else {
+		// Failed login
+		alert("Invalid username or password!");
+	}
+}
+function checkLoggedIn() {
+	const currentUser = localStorage.getItem("Current_user");
+	if (currentUser != {}) {
+		// User is already logged in, redirect to profile page
+		const userData = JSON.parse(currentUser);
+		console.log("===>", userData);
+		login(userData);
+	}
+}
+window.onload = checkLoggedIn;
+
+function login(userObject) {
+	let nav = document.getElementById("js-menu");
+	const profileLink = document.createElement("a");
+	profileLink.classList.add("nav-links");
+	profileLink.textContent = "Profile";
+	if (userObject.isAdmin == 1) {
+		profileLink.href = "./admin profile.html";
+	} else {
+		profileLink.href = "./User profile.html";
+	}
+	if (nav.lastElementChild.innerHTML === "") {
+		nav.lastElementChild.appendChild(profileLink);
+	}
+
+	logged_in = userObject;
+	sessionStorage.setItem("isLoggedIn", "true");
+
+	localStorage.setItem("Current_user", JSON.stringify(logged_in));
+}

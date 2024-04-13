@@ -34,35 +34,61 @@
   <body class="profile-body">
     <div id="nav-placeholder"></div>
     <div class="profilePage">
-      <img
-        class="profilePic"
-        src="../images/user profile.jpg"
-        alt="user profile"
-      />
+      <div style="text-align: center;">
+        <img
+          class="profilePic"
+          src="../images/user profile.jpg"
+          alt="user profile"
+        />
+        <h2 style="padding: 20px;"> <span id="username"></span></h2>
+      </div>
       <div id="user-details">
-        <p>testtttttt <span id="username"></span></p>
         <div class="buttons">
-          <button onclick="window.location.href = 'borrowedbooks.html'">Borrowed Books</button>
-          <button onclick="window.location.href = 'borrowinghistory.html'">Borrowing History</button>
+          <h3><u> Borrowed Books</u></h3>
+          <div class="books">
+            <div>
+              <a href="book.html?id=4">
+                <img
+                  src="../images/thegreatgatsby.webp"
+                  alt="The Great Gatsby Cover"
+                />
+              </a>
+
+              <div>
+                <strong>The Great Gatsby by F. Scott Fitzgerald</strong>
+              </div>
+            </div>
+            <div>
+              <a href="book.html?id=2">
+                <img
+                  src="../images/thephantomoftheopera.jpg"
+                  alt="The phantom of the opera cover"
+                />
+              </a>
+
+              <div>
+                <strong>The Phantom of the Opera by Gaston Leroux</strong>
+              </div>
+            </div>
+          </div>
         </div>
-						
       </div>
     </div>
-  </body> 
-   <script>
+  </body>
+  <script>
     $(function () {
       $("#nav-placeholder").load("nav.html");
     });
   </script>
   <footer style="padding: 20px">
-		<div class="links-wrapper">
-			<a href="./pages/about.html">About us</a>
-			<a href="./pages/contact.html">Contact</a>
-			<a href="javascript:history.back()">Go Back</a>
-		</div>
-		<div class="social-media">
-			<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
-		</div>
-	</footer>
-	<script src="../js/script.js"></script>
+    <div class="links-wrapper">
+      <a href="./pages/about.html">About us</a>
+      <a href="./pages/contact.html">Contact</a>
+      <a href="javascript:history.back()">Go Back</a>
+    </div>
+    <div class="social-media">
+      <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
 </html>

@@ -935,16 +935,25 @@ strong {
 /*===============================================================*/
 .profilePage {
   display: flex;
-  align-items: center;
   padding: 20px;
-  justify-content: center;
-  
+align-items: flex-start;
+margin: 20px;
+
+
 
 }
 .profilePic {
   max-width: 250px;
   max-height: 250px;
   border-radius: 300px;
+}
+
+#user-details{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 40px;
+
 }
 
 /*search results*/

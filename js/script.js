@@ -455,12 +455,19 @@ window.onload = checkLoggedIn;
 function login(userObject) {
   let nav = document.getElementById("js-menu");
   const profileLink = document.createElement("a");
+  const customizable = document.getElementById("customizable");
   profileLink.classList.add("nav-links");
   profileLink.textContent = "Profile";
   if (userObject.isAdmin == 1) {
     profileLink.href = "./admin profile.html";
+    customizable.innerText = "Add book";
+    document.getElementById("customizable").href = "./addbook.html";
+
   } else {
     profileLink.href = "./User profile.html";
+    customizable.innerText = "Borrow Book";
+    document.getElementById("customizable").href = "./borrowform.html";
+
   }
   if (nav.lastElementChild.innerHTML === "") {
     nav.lastElementChild.appendChild(profileLink);
@@ -511,3 +518,4 @@ function search() {
 	searchResults.innerHTML = "No results found";
   }
 }
+

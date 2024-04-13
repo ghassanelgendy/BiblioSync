@@ -1,66 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../icons/site.webmanifest" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d954325b52.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>user profile</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
 
-<head>
-	<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="../icons/apple-touch-icon.png" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="../icons/favicon-32x32.png" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="../icons/favicon-16x16.png" />
-		<link rel="manifest" href="../icons/site.webmanifest" />
-  <nav class="navbar">
-    <div class="logo">
-      <h1 class="main-title">BiblioSync</h1>
+  <body class="profile-body">
+    <div id="nav-placeholder"></div>
+    <div class="profilePage">
+      <img
+        class="profilePic"
+        src="../images/user profile.jpg"
+        alt="user profile"
+      />
+      <div id="user-details">
+        <p>testtttttt <span id="username"></span></p>
+        <div class="buttons">
+          <button onclick="window.location.href = 'borrowedbooks.html'">Borrowed Books</button>
+          <button onclick="window.location.href = 'borrowinghistory.html'">Borrowing History</button>
+        </div>
+						
+      </div>
     </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Search" />
-      <a href="./pages/search.html">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </a>
-    </div>
-    <div class="nav-items">
-      <a href="../index.html">Home</a>
-      <a href="../pages/collection.html">Books</a>
-      <a href="../pages/login.html">Login</a>
-    </div>
-  </nav>
-
-  <style>
-    img {
-      width: 100%;
-    }
-  </style>
-</head>
-
-<body>
-  <img src="../images/user profile.jpg" alt="user profile" style="width:128px; height:128px;">
-  <div class="wrapper text-box">
-    <p>
-      <b>John Smith</b>
-      <br>
-      @john_smith
-      <br>
-      member since 2021
-      </br>
-    </p>
-    <button onclick="window.location.href = 'borrowedbooks.html'">
-      Borrowed Books
-    </button>
-    <br>
-    <br>
-    <button onclick="window.location.href = 'borrowinghistory.html'">
-      Borrowing History
-    </button>
-  </div>
-</body>
-
+  </body> 
+   <script>
+    $(function () {
+      $("#nav-placeholder").load("nav.html");
+    });
+  </script>
+  <footer style="padding: 20px">
+		<div class="links-wrapper">
+			<a href="./pages/about.html">About us</a>
+			<a href="./pages/contact.html">Contact</a>
+			<a href="javascript:history.back()">Go Back</a>
+		</div>
+		<div class="social-media">
+			<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+		</div>
+	</footer>
+	<script src="../js/script.js"></script>
 </html>

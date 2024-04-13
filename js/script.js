@@ -478,13 +478,18 @@ function login(userObject) {
 /*===============================================================*/
 
 function search() {
+	
   const searchInput = document.getElementById("searchInput");
-  const searchResults = document.querySelector(".searchResults");
+  const searchResults = document.getElementById("searchResults");
   const searchTerm = searchInput.value.toLowerCase();
 
+
   // Filter books based on search term
-  const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm)
+  const filteredBooks = book.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm) ||
+    book.author.toLowerCase().includes(searchTerm) ||
+    book.isbn.includes(searchTerm) ||
+    book.genres.some((genre) => genre.toLowerCase().includes(searchTerm))
   );
 
   searchResults.innerHTML = "";
@@ -502,7 +507,7 @@ function search() {
     `;
     searchResults.appendChild(bookElement);
   });
+  if(filteredBooks.length === 0){
+	searchResults.innerHTML = "No results found";
+  }
 }
-document.getElementById('searchIcon').addEventListener('click', function() {
-    alert("aloo");
-});

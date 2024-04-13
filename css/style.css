@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --bg-clr: #1E1E1E;
+  --bg-clr: #1e1e1e;
   --action-clr: #e1d2b8;
   --txt-clr: #894e1d;
   --white-clr: #;
@@ -28,7 +28,8 @@
   gap: 11px;
 }
 
-.underlined {}
+.underlined {
+}
 
 .main-reg {
   height: 86.5vh;
@@ -73,7 +74,11 @@ mark {
   -webkit-animation: 1.5s highlight 1.5s 1 normal forwards;
   animation: 1.5s highlight 1.5s 1 normal forwards;
   background-color: none;
-  background: linear-gradient(90deg, var(--txt-clr) 50%, rgba(255, 255, 255, 0) 50%);
+  background: linear-gradient(
+    90deg,
+    var(--txt-clr) 50%,
+    rgba(255, 255, 255, 0) 50%
+  );
   background-size: 200% 100%;
   background-position: 100% 0;
 }
@@ -153,7 +158,7 @@ input:hover {
 }
 
 body {
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
 }
 
 .navbar {
@@ -171,7 +176,6 @@ body {
 .nav-links,
 .logo {
   text-decoration: none;
-
 }
 
 .main-nav li {
@@ -257,7 +261,7 @@ body {
 /*===============================================================*/
 /*===============================================================*/
 * {
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
 }
 
 a {
@@ -323,7 +327,6 @@ input[type="number"] {
   margin: 5px;
 }
 
-
 /*Homepage*/
 /*===============================================================*/
 /*===============================================================*/
@@ -341,7 +344,7 @@ input[type="number"] {
 footer {
   display: flex;
   justify-content: space-around;
-  background-color: var(--action-clr)
+  background-color: var(--action-clr);
 }
 
 footer a {
@@ -521,8 +524,8 @@ header {
   border: 1.5px solid var(--action-clr);
 }
 
-.field:focus~label,
-.field:valid~label {
+.field:focus ~ label,
+.field:valid ~ label {
   transform: translateY(-50%) scale(0.8);
   background-color: var(--bg-clr);
   padding: 0 0.2em;
@@ -557,7 +560,7 @@ header {
   justify-content: center;
 }
 
-.genres>div {
+.genres > div {
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -594,7 +597,7 @@ header {
   margin: 0 10px 0 0;
 }
 
-.container input:checked~.checkmark {
+.container input:checked ~ .checkmark {
   background-color: var(--action-clr);
 }
 
@@ -605,7 +608,7 @@ header {
 }
 
 /* Show the checkmark when checked */
-.container input:checked~.checkmark:after {
+.container input:checked ~ .checkmark:after {
   display: block;
 }
 
@@ -661,13 +664,13 @@ header {
   transition: all 0.3s ease-in-out;
 }
 
-.radio-button input[type="radio"]:checked+.radio {
+.radio-button input[type="radio"]:checked + .radio {
   border-color: var(--action-clr);
   transform: translateZ(0px);
   background-color: #fff;
 }
 
-.radio-button input[type="radio"]:checked+.radio::before {
+.radio-button input[type="radio"]:checked + .radio::before {
   opacity: 1;
 }
 
@@ -715,7 +718,7 @@ header {
   transform: rotateY(0deg);
 }
 
-.book> :first-child {
+.book > :first-child {
   position: absolute;
   top: 0;
   left: 0;
@@ -730,42 +733,44 @@ header {
 
 .book::before {
   position: absolute;
-  content: ' ';
+  content: " ";
   background-color: blue;
   left: 0;
   top: 1px;
   width: 28px;
   height: 298px;
   transform: translateX(184px) rotateY(90deg);
-  background: linear-gradient(90deg,
-      #fff 0%,
-      #f9f9f9 5%,
-      #fff 10%,
-      #f9f9f9 15%,
-      #fff 20%,
-      #f9f9f9 25%,
-      #fff 30%,
-      #f9f9f9 35%,
-      #fff 40%,
-      #f9f9f9 45%,
-      #fff 50%,
-      #f9f9f9 55%,
-      #fff 60%,
-      #f9f9f9 65%,
-      #fff 70%,
-      #f9f9f9 75%,
-      #fff 80%,
-      #f9f9f9 85%,
-      #fff 90%,
-      #f9f9f9 95%,
-      #fff 100%);
+  background: linear-gradient(
+    90deg,
+    #fff 0%,
+    #f9f9f9 5%,
+    #fff 10%,
+    #f9f9f9 15%,
+    #fff 20%,
+    #f9f9f9 25%,
+    #fff 30%,
+    #f9f9f9 35%,
+    #fff 40%,
+    #f9f9f9 45%,
+    #fff 50%,
+    #f9f9f9 55%,
+    #fff 60%,
+    #f9f9f9 65%,
+    #fff 70%,
+    #f9f9f9 75%,
+    #fff 80%,
+    #f9f9f9 85%,
+    #fff 90%,
+    #f9f9f9 95%,
+    #fff 100%
+  );
 }
 
 .book::after {
   position: absolute;
   top: 0;
   left: 0;
-  content: ' ';
+  content: " ";
   width: 200px;
   height: 300px;
   transform: translateZ(-15px);
@@ -782,10 +787,8 @@ header {
   flex-wrap: wrap;
 }
 
-
-
 .main-content {
-  color: var(--white-font)
+  color: var(--white-font);
 }
 
 .fa-check {
@@ -842,7 +845,6 @@ span i {
 
 .info ul li {
   display: flex;
-
 }
 
 /*borrow form*/
@@ -867,8 +869,8 @@ span i {
   align-items: center;
   justify-content: center;
 }
-body{
-  color : var(--white-font)
+body {
+  color: var(--white-font);
 }
 
 /*books collection*/
@@ -885,7 +887,7 @@ body{
   justify-content: center;
 }
 
-.books>div {
+.books > div {
   border: --white-font 2px solid;
   justify-content: center;
   text-align: center;
@@ -925,4 +927,33 @@ strong {
   -moz-transition: all ease-in-out 200ms;
   -ms-transition: all ease-in-out 200ms;
   -o-transition: all ease-in-out 200ms;
+}
+
+/*User profile*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+.profilePage {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: center;
+  
+
+}
+.profilePic {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 300px;
+}
+
+/*search results*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+#searchResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
 }

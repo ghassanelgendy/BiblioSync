@@ -503,11 +503,6 @@ function search() {
     searchResults.appendChild(bookElement);
   });
 }
-
-document
-  .getElementById("searchIcon")
-  .addEventListener("click", function (event) {
-    console.log("ay haga tayeb");
-    search();
-  });
-
+document.getElementById('searchIcon').addEventListener('click', function() {
+    alert("aloo");
+});

@@ -301,6 +301,7 @@ textarea {
   display: flex;
   justify-content: center;
   margin: 15px;
+  margin-bottom: 45px;
 }
 
 /*radio button and checkbox style in add page part*/
@@ -495,7 +496,7 @@ header {
 }
 
 .field {
-  border: solid 1.5px var(--light-green);
+  border: solid 1.5px whitesmoke;
   border-radius: 1rem;
   background: none;
   padding: 1rem;
@@ -517,7 +518,7 @@ header {
 .field:focus,
 .field:valid {
   outline: none;
-  border: 1.5px solid var(--checkbox-clr);
+  border: 1.5px solid var(--action-clr);
 }
 
 .field:focus~label,
@@ -525,7 +526,7 @@ header {
   transform: translateY(-50%) scale(0.8);
   background-color: var(--bg-clr);
   padding: 0 0.2em;
-  color: var(--light-green);
+  color: whitesmoke;
 }
 
 #cover,
@@ -865,6 +866,9 @@ span i {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+body{
+  color : var(--white-font)
 }
 
 /*books collection*/

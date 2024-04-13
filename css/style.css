@@ -774,11 +774,14 @@ header {
 }
 
 #align {
-  margin: 6rem 27rem;
+  margin: 6rem 15rem;
   display: flex;
   gap: 50px;
   justify-content: center;
+  flex-wrap: wrap;
 }
+
+
 
 .main-content {
   color: var(--white-font)
@@ -807,6 +810,10 @@ span i {
   -moz-transform: translateY(1px);
   -ms-transform: translateY(1px);
   -o-transform: translateY(1px);
+}
+
+.desc {
+  max-width: 810px;
 }
 
 .info {

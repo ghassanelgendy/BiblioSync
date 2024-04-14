@@ -481,13 +481,22 @@ function login(userObject) {
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
+//Handles enter button for search
+document
+	.getElementById("searchInput")
+	.addEventListener("keypress", function (event) {
+		if (event.key === "Enter") {
+			// Execute your function here
+			redirectToResults();
+		}
+	});
 function redirectToResults() {
 	const userQuery = document.getElementById("searchInput").value;
 	let url;
 	if (window.location.href.includes("index")) {
-		url = `./pages/searchresults.html?query=${encodeURIComponent(userQuery)}`;
+		url = `./pages/searchResults.html?query=${encodeURIComponent(userQuery)}`;
 	} else {
-		url = `searchresults.html?query=${encodeURIComponent(userQuery)}`;
+		url = `searchResults.html?query=${encodeURIComponent(userQuery)}`;
 	}
 	window.location.href = url;
 }

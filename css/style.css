@@ -28,8 +28,7 @@
   gap: 11px;
 }
 
-.underlined {
-}
+.underlined {}
 
 .main-reg {
   height: 86.5vh;
@@ -74,11 +73,9 @@ mark {
   -webkit-animation: 1.5s highlight 1.5s 1 normal forwards;
   animation: 1.5s highlight 1.5s 1 normal forwards;
   background-color: none;
-  background: linear-gradient(
-    90deg,
-    var(--txt-clr) 50%,
-    rgba(255, 255, 255, 0) 50%
-  );
+  background: linear-gradient(90deg,
+      var(--txt-clr) 50%,
+      rgba(255, 255, 255, 0) 50%);
   background-size: 200% 100%;
   background-position: 100% 0;
 }
@@ -110,6 +107,10 @@ body {
 }
 
 /*search*/
+
+#searchIcon {
+  cursor: pointer;
+}
 
 .group {
   display: flex;
@@ -524,8 +525,8 @@ header {
   border: 1.5px solid var(--action-clr);
 }
 
-.field:focus ~ label,
-.field:valid ~ label {
+.field:focus~label,
+.field:valid~label {
   transform: translateY(-50%) scale(0.8);
   background-color: var(--bg-clr);
   padding: 0 0.2em;
@@ -560,7 +561,7 @@ header {
   justify-content: center;
 }
 
-.genres > div {
+.genres>div {
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -597,7 +598,7 @@ header {
   margin: 0 10px 0 0;
 }
 
-.container input:checked ~ .checkmark {
+.container input:checked~.checkmark {
   background-color: var(--action-clr);
 }
 
@@ -608,7 +609,7 @@ header {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.container input:checked~.checkmark:after {
   display: block;
 }
 
@@ -664,13 +665,13 @@ header {
   transition: all 0.3s ease-in-out;
 }
 
-.radio-button input[type="radio"]:checked + .radio {
+.radio-button input[type="radio"]:checked+.radio {
   border-color: var(--action-clr);
   transform: translateZ(0px);
   background-color: #fff;
 }
 
-.radio-button input[type="radio"]:checked + .radio::before {
+.radio-button input[type="radio"]:checked+.radio::before {
   opacity: 1;
 }
 
@@ -718,7 +719,7 @@ header {
   transform: rotateY(0deg);
 }
 
-.book > :first-child {
+.book> :first-child {
   position: absolute;
   top: 0;
   left: 0;
@@ -740,30 +741,28 @@ header {
   width: 28px;
   height: 298px;
   transform: translateX(184px) rotateY(90deg);
-  background: linear-gradient(
-    90deg,
-    #fff 0%,
-    #f9f9f9 5%,
-    #fff 10%,
-    #f9f9f9 15%,
-    #fff 20%,
-    #f9f9f9 25%,
-    #fff 30%,
-    #f9f9f9 35%,
-    #fff 40%,
-    #f9f9f9 45%,
-    #fff 50%,
-    #f9f9f9 55%,
-    #fff 60%,
-    #f9f9f9 65%,
-    #fff 70%,
-    #f9f9f9 75%,
-    #fff 80%,
-    #f9f9f9 85%,
-    #fff 90%,
-    #f9f9f9 95%,
-    #fff 100%
-  );
+  background: linear-gradient(90deg,
+      #fff 0%,
+      #f9f9f9 5%,
+      #fff 10%,
+      #f9f9f9 15%,
+      #fff 20%,
+      #f9f9f9 25%,
+      #fff 30%,
+      #f9f9f9 35%,
+      #fff 40%,
+      #f9f9f9 45%,
+      #fff 50%,
+      #f9f9f9 55%,
+      #fff 60%,
+      #f9f9f9 65%,
+      #fff 70%,
+      #f9f9f9 75%,
+      #fff 80%,
+      #f9f9f9 85%,
+      #fff 90%,
+      #f9f9f9 95%,
+      #fff 100%);
 }
 
 .book::after {
@@ -869,6 +868,7 @@ span i {
   align-items: center;
   justify-content: center;
 }
+
 body {
   color: var(--white-font);
 }
@@ -887,7 +887,7 @@ body {
   justify-content: center;
 }
 
-.books > div {
+.books>div {
   border: --white-font 2px solid;
   justify-content: center;
   text-align: center;
@@ -936,19 +936,20 @@ strong {
 .profilePage {
   display: flex;
   padding: 20px;
-align-items: flex-start;
-margin: 20px;
+  align-items: flex-start;
+  margin: 20px;
 
 
 
 }
+
 .profilePic {
   max-width: 250px;
   max-height: 250px;
   border-radius: 300px;
 }
 
-#user-details{
+#user-details {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -964,5 +965,5 @@ margin: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
+
 }

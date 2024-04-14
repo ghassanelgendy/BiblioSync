@@ -456,7 +456,7 @@ function login(userObject) {
   let nav = document.getElementById("js-menu");
   const profileLink = document.createElement("a");
   const customizable = document.getElementById("customizable");
-  const deletebtn = document.getElementById("bookbtn");
+  //const deletebtn = document.getElementById("bookbtn");
   profileLink.classList.add("nav-links");
   profileLink.textContent = "Profile";
   if (userObject.isAdmin == 1) {
@@ -470,7 +470,7 @@ function login(userObject) {
   } else {
     profileLink.href = "./User profile.html";
     customizable.innerText = "Borrow Book";
-    customizable.setAttribute("href", "./borrow.html");
+    customizable.setAttribute("href", "./borrowform.html");
   }
   if (nav.lastElementChild.innerHTML === "") {
     nav.lastElementChild.appendChild(profileLink);
@@ -532,6 +532,6 @@ function search(useQ) {
     searchResults.appendChild(bookElement);
   });
   if (filteredBooks.length === 0) {
-    searchResults.innerHTML = "No results found";
+    searchResults.innerHTML = `	<h3 style="color: whitesmoke; font-size: 22px;">No results found</h3>`;
   }
 }

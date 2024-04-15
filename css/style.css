@@ -1226,3 +1226,47 @@ strong {
     transform: rotateY(0deg);
   }
 }
+/*Admin Profile*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+
+.nav-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-items a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--txt-clr);
+  transition: color 0.3s ease;
+}
+.nav-items a:hover {
+  color: var(--light-action-clr);
+}
+
+.navbar-toggle {
+  display: none;
+}
+.wrapper {
+  width: 420px;
+  background: #756969cd;
+  box-shadow: 5px 5px 20px rgba(180, 180, 180, 0.5);
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+
+}
+#username {
+  text-decoration: underline;
+
+}
+.profile-body{
+  display: flex;
+  justify-content: center;
+
+}

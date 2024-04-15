@@ -1,6 +1,11 @@
 $(window).on("load", function () {
 	$(".loader-wrapper").fadeOut("slow");
-}); /*books*/
+});
+let urlvar = './'
+if (window.location.href.includes("index")) {
+    urlvar = "./pages/";
+}
+/*books*/
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
@@ -462,21 +467,21 @@ function login(userObject) {
 	profileLink.classList.add("nav-links");
 	profileLink.textContent = "Profile";
 	if (userObject.isAdmin == 1) {
-		profileLink.href = "./admin profile.html";
+		profileLink.href= `${urlvar}adminprofile.html`
 		customizable.innerText = "Add book";
-		customizable.setAttribute("href", "./addbook.html");
+		customizable.href= `${urlvar}addbook.html`
 		//for some reason bt5aly zorar el profile y5tfy???
 		/* deletebtn.innerHTML = ` <a href="#">
         <button class="button" id="borrow-btn">Delete Book</button>
       </a>`;*/
 	} else {
-		profileLink.href = "./User profile.html";
+		profileLink.href= `${urlvar}user profile.html`
 		customizable.innerText = "Borrow Book";
-		customizable.setAttribute("href", "./borrowform.html");
-	}
+		customizable.href= `${urlvar}borrowform.html`
 	if (nav.lastElementChild.innerHTML === "") {
 		nav.lastElementChild.appendChild(profileLink);
 	}
+}
 
 	logged_in = userObject;
 	sessionStorage.setItem("isLoggedIn", "true");
@@ -496,16 +501,12 @@ document
 			redirectToResults();
 		}
 	});
-function redirectToResults() {
-	const userQuery = document.getElementById("searchInput").value;
-	let url;
-	if (window.location.href.includes("index")) {
-		url = `./pages/searchResults.html?query=${encodeURIComponent(userQuery)}`;
-	} else {
-		url = `searchResults.html?query=${encodeURIComponent(userQuery)}`;
+	function redirectToResults() {
+		const userQuery = document.getElementById("searchInput").value;
+		let url;
+		url = `${urlvar}searchResults.html?query=${encodeURIComponent(userQuery)}`;
+		window.location.href = url;
 	}
-	window.location.href = url;
-}
 function search(useQ) {
 	const searchResults = document.getElementById("searchResults");
 	const searchTerm = useQ.toLowerCase();

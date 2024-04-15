@@ -478,9 +478,11 @@ function login(userObject) {
 		profileLink.href= `${urlvar}user profile.html`
 		customizable.innerText = "Borrow Book";
 		customizable.href= `${urlvar}borrowform.html`
-	if (nav.lastElementChild.innerHTML === "") {
-		nav.lastElementChild.appendChild(profileLink);
-	}
+	
+}
+	const profilePlaceholder = document.getElementById("profile-placeholder");
+if (!profilePlaceholder.hasChildNodes()) {
+	profilePlaceholder.appendChild(profileLink);
 }
 
 	logged_in = userObject;

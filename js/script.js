@@ -378,6 +378,11 @@ function displayBookDetails(bookId) {
 			const borrow_btn = document.getElementById("borrow-btn");
 			borrow_btn.classList.add("disabled");
 			document.getElementById("borrow-btn").disabled = true;
+			document.getElementById("borrow-btn").style.backgroundColor = "gray" ; 
+			document.getElementById("borrow-btn").style.boxShadow = "0px 6px 0px #5A5A5A" ; 
+			document.getElementById("borrow-btn").style.color = "black" ; 
+
+
 		}
 
 		document.getElementById("formats").textContent =
@@ -540,3 +545,5 @@ function search(useQ) {
 		searchResults.innerHTML = `	<h3 style="color: whitesmoke; font-size: 22px;">No results found</h3>`;
 	}
 }
+
+document.getElementById("username").innerText = userObject.username;

@@ -27,11 +27,11 @@
 		<link rel="stylesheet" href="../css/reset.css" />
 		<link rel="stylesheet" href="../css/style.css" />
 	</head>
-	<script src="../js/script.js"></script>
 	<script>
 		$(function () {
 			$("#nav-placeholder").load("nav.html");
 		});
+		window.onload = checkLoggedIn();
 	</script>
 	<body>
 		<div class="loader-wrapper">
@@ -80,6 +80,7 @@
 			</div>
 		</div>
 		<div id="nav-placeholder"></div>
+		
 		<div class="main-content">
 			<div id="book-details">
 				<header id="book-title">
@@ -136,4 +137,5 @@
 			</div>
 		</footer>
 	</body>
+	<script src="../js/script.js"></script>
 </html>

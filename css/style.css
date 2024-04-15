@@ -961,6 +961,7 @@ strong {
   max-width: 250px;
   max-height: 250px;
   border-radius: 300px;
+  margin: 0 auto;
 }
 
 #user-details {

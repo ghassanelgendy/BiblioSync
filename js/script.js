@@ -489,12 +489,12 @@ function login(userObject) {
 if (!profilePlaceholder.hasChildNodes()) {
 	profilePlaceholder.appendChild(profileLink);
 }
-	document.getElementById("username").innerText = userObject.username;
-	document.getElementById("Mail").innerText = userObject.email;
 
 	logged_in = userObject;
 	sessionStorage.setItem("isLoggedIn", "true");
 	localStorage.setItem("Current_user", JSON.stringify(logged_in));
+	document.getElementById("username").innerText = userObject.username;
+	document.getElementById("Mail").innerText = userObject.email;
 }
 
 /*Search results*/

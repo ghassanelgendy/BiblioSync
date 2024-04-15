@@ -489,6 +489,7 @@ function login(userObject) {
 if (!profilePlaceholder.hasChildNodes()) {
 	profilePlaceholder.appendChild(profileLink);
 }
+document.getElementById("username").innerText = userObject.username;
 
 	logged_in = userObject;
 	sessionStorage.setItem("isLoggedIn", "true");
@@ -546,4 +547,3 @@ function search(useQ) {
 	}
 }
 
-document.getElementById("username").innerText = userObject.username;

@@ -479,7 +479,7 @@ function login(userObject) {
         <button class="button" id="borrow-btn">Delete Book</button>
       </a>`;*/
   } else {
-    profileLink.href = `${urlvar}user profile.html`;
+    profileLink.href = `${urlvar}userprofile.html`;
     customizable.innerText = "Borrow Book";
     customizable.href = `${urlvar}borrowform.html`;
   }
@@ -546,7 +546,6 @@ function search(useQ) {
   }
 }
 
-
 /*Recommended books*/
 /*===============================================================*/
 /*===============================================================*/
@@ -562,19 +561,22 @@ function shuffle(array) {
 
 const shuffledBooks = shuffle(book);
 const booksSection = document.getElementById("rand");
+
 function displayRandomBooks() {
   for (let i = 0; i < 4; i++) {
     const randomBook = shuffledBooks[i];
     const bookDiv = document.createElement("div");
+booksSection.innerHTML=""
     bookDiv.innerHTML = `
-		<a href="book.html?id=${randomBook.id}">
-		  <img src="${randomBook.cover}" alt="${randomBook.title} Cover" />
-		</a>
-		<div>
-		  <strong>${randomBook.title} by ${randomBook.author}</strong>
-		</div>
-	  `;
+        <a href="book.html?id=${randomBook.id}">
+          <img src="${randomBook.cover}" alt="${randomBook.title} Cover" />
+        </a>
+        <div>
+          <strong>${randomBook.title} by ${randomBook.author}</strong>
+        </div>
+      `;
     booksSection.appendChild(bookDiv);
   }
 }
+
 displayRandomBooks();

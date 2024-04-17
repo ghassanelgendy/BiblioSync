@@ -352,7 +352,7 @@ const book = [
 ];
 const urlParams = new URLSearchParams(window.location.search);
 const bookId = parseInt(urlParams.get("id"));
-function displayBookDetails(bookId) {
+function displayBookDetails(bookId = 0) {
   const selectedBook = book.find((b) => b.id === bookId);
   if (selectedBook) {
     document.getElementById("book-cover").src = selectedBook.cover;
@@ -480,7 +480,7 @@ function login(userObject) {
       </a>`;*/
   } else {
     profileLink.href = `${urlvar}userprofile.html`;
-    customizable.innerText = "Borrow Book";
+   //customizable.innerText = "Borrow Book";
     customizable.href = `${urlvar}borrowform.html`;
   }
   const profilePlaceholder = document.getElementById("profile-placeholder");
@@ -558,15 +558,15 @@ function shuffle(array) {
   }
   return array;
 }
-
-const shuffledBooks = shuffle(book);
-const booksSection = document.getElementById("rand");
-
 function displayRandomBooks() {
+  const booksSection = document.getElementById("rand");
+
+  const shuffledBooks = shuffle(book);
+  booksSection.innerHTML=""
+
   for (let i = 0; i < 4; i++) {
     const randomBook = shuffledBooks[i];
     const bookDiv = document.createElement("div");
-booksSection.innerHTML=""
     bookDiv.innerHTML = `
         <a href="book.html?id=${randomBook.id}">
           <img src="${randomBook.cover}" alt="${randomBook.title} Cover" />
@@ -577,6 +577,7 @@ booksSection.innerHTML=""
       `;
     booksSection.appendChild(bookDiv);
   }
+  
 }
 
 displayRandomBooks();

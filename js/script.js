@@ -581,3 +581,23 @@ function displayRandomBooks() {
 }
 
 displayRandomBooks();
+
+/*Collection*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+
+const collection = document.getElementById("collection");
+
+book.forEach((book) => {
+  const bookelement = document.createElement("div");
+  bookelement.innerHTML = `
+    <a href="book.html?id=${book.id}">
+      <img src="${book.cover}" alt="${book.title} Cover" />
+    </a>
+    <div>
+      <strong>${book.title} by ${book.author}</strong>
+    </div>
+  `;
+  collection.appendChild(bookelement);
+});

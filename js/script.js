@@ -206,17 +206,20 @@ function login(userObject) {
 		  </a>`;*/
 	} else {
 		profileLink.href = `./userprofile.html`;
-		//customizable.innerText = "Borrow Book";
+		customizable.innerText = "Borrow Book";
 		customizable.href = `./borrowform.html`;
 	}
 	const profilePlaceholder = document.getElementById("profile-placeholder");
 	if (!profilePlaceholder.hasChildNodes()) {
 		profilePlaceholder.appendChild(profileLink);
 	}
-	if (currentLoc.includes("register")) {
+	if (currentLoc.includes("signup") || currentLoc.includes("login")) {
 		logged_in = userObject;
 		sessionStorage.setItem("isLoggedIn", "true");
 		localStorage.setItem("Current_user", JSON.stringify(logged_in));
+	
+	}
+	if(currentLoc.includes("profile")){
 		document.getElementById("username").innerText = userObject.username;
 		document.getElementById("Mail").innerText = userObject.email;
 	}

@@ -356,11 +356,11 @@ function addBook() {
     var bookName = document.getElementById("book-name").value;
     var isbn = document.getElementById("ISBN").value;
     var author = document.getElementById("author").value;
+	var cover = document.getElementById("coverlink").value;
     var language = document.getElementById("language").value
     var noPages = document.getElementById("no-pages").value;
     var publishDate = document.getElementById("publishDate").value;
     var genres = document.querySelectorAll(".genres input[type='checkbox']:checked");
-    var availability = document.querySelector("input[name='available']:checked").value;
     var description = document.getElementById("description").value;
 
     // Create an object to store book data
@@ -368,12 +368,11 @@ function addBook() {
         bookName: bookName,
         isbn: isbn,
         author: author,
+		cover : cover,
         language: language,
-        cover: cover,
         noPages: noPages,
         publishDate: publishDate,
         genres: Array.from(genres).map(genre => genre.name),
-        availability: availability,
         description: description
     };
 
@@ -387,9 +386,9 @@ function addBook() {
 
     // Optionally, you can alert the user or redirect them after adding the book
     alert("Book added successfully!");
+    console.log(book);
+
 
     // Clear the form
     form.reset();
 }
-
-

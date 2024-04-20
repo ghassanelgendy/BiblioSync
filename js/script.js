@@ -140,24 +140,49 @@ function createUser(username, isAdmin, email, password, age, gender) {
 }
 
 function handleSubmit(event) {
-	event.preventDefault(); // Prevent the default form submission
+  event.preventDefault(); // Prevent the default form submission
 
-	// Retrieve form values
-	const name = document.getElementById("signup-username").value;
-	const isAdmin = document.getElementById("is-admin").checked;
-	const email = document.getElementById("email").value;
-	const password = document.getElementById("signup-password").value;
-	const age = document.getElementById("birthdate").value;
-	const gender = document.querySelector('input[name="Gender"]:checked').value;
-	// Create user object
-	const user = createUser(name, isAdmin, email, password, age, gender);
+  // Retrieve form values
+  const name = document.getElementById("signup-username").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("signup-password").value;
+  const birthdate = new Date(document.getElementById("birthdate").value);
+  const isAdmin = document.getElementById("is-admin").checked;
+  const gender = document.querySelector('input[name="Gender"]:checked').value;
 
-	// Store user object in localStorage
-	localStorage.setItem(user.getName(), JSON.stringify(user));
+  // Validate form inputs
+  if (name.trim() === "") {
+      alert("Username is required");
+      return;
+  }
 
-	// Clear form fields
-	document.getElementById("registrationForm").reset();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+  }
+
+  if (password.length < 8) {
+      alert("Password must be at least 8 characters long");
+      return;
+  }
+
+  const currentDate = new Date();
+  if (birthdate >= currentDate) {
+      alert("Birthdate must be in the past");
+      return;
+  }
+
+  // Create user object
+  const user = createUser(name, isAdmin, email, password, birthdate, gender);
+
+  // Store user object in localStorage
+  localStorage.setItem(user.getName(), JSON.stringify(user));
+
+  // Clear form fields
+  document.getElementById("registrationForm").reset();
 }
+
 
 /*Login*/
 /*===============================================================*/

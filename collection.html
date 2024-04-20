@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script
-			src="https://kit.fontawesome.com/d954325b52.js"
-			crossorigin="anonymous"></script>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>BiblioSync</title>
-		<link rel="stylesheet" href="./css/reset.css" />
-		<link rel="stylesheet" href="./css/style.css" />
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -23,15 +15,16 @@
 			type="image/png"
 			sizes="16x16"
 			href="./icons/favicon-16x16.png" />
-		<link
-			rel="android-chrome-icon"
-			sizes="192x192"
-			href="./icons/android-chrome-192x192.png" />
 		<link rel="manifest" href="./icons/site.webmanifest" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&amp;family=Great+Vibes&amp;display=swap"
-			rel="stylesheet" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Book collection</title>
+		<script
+			src="https://kit.fontawesome.com/d954325b52.js"
+			crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="./css/style.css" />
 	</head>
+
 	<body>
 		<div class="loader-wrapper">
 			<div class="loader">
@@ -78,13 +71,18 @@
 				<span>Loading</span>
 			</div>
 		</div>
+
 		<div id="nav-placeholder"></div>
 
-		<h3 style="padding: 10px; text-align: center"><u>Recommended Books</u></h3>
-		<div id="rand" class="books">
-			<p>Recommended Books</p>
-		</div>
-		<footer id="footer" style="padding: 20px"></footer>
+		<h2 style="text-align: center; padding: 25px; color: var(--action-clr)">
+			Books collection
+		</h2>
+
+		<main>
+			<section id="collection" class="books"></section>
+		</main>
+
+		<footer style="padding: 20px" id="footer"></footer>
 		<script src="./js/script.js"></script>
 	</body>
 </html>

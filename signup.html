@@ -18,14 +18,14 @@
 		<link rel="manifest" href="./icons/site.webmanifest" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../css/reset.css" />
-		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="./css/style.css" />
 
-		<title>Add new book</title>
+		<title>Online Library - Login/Signup</title>
 	</head>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-	<script src="../js/script.js"></script>
-	<body class="forms">
+
+	<body>
+		<div id="nav-placeholder"></div>
+
 		<div class="loader-wrapper">
 			<div class="loader">
 				<div>
@@ -71,153 +71,98 @@
 				<span>Loading</span>
 			</div>
 		</div>
-		<script>
-			$(function () {
-				$("#nav-placeholder").load("nav.html");
-			});
-		</script>
-		<div id="nav-placeholder"></div>
+		<main class="main-reg">
+			<section id="signup-section">
+				<h2 class="underlined"><mark>Signup</mark></h2>
+				<!-- Signup form goes here -->
+				<form class="signup-form" id="registrationForm">
+					<div class="input-group">
+						<div>
+							<input
+								type="text"
+								id="signup-username"
+								name="username"
+								class="field"
+								required />
+							<label class="user-label" for="username">Username</label>
+						</div>
+						<div>
+							<input
+								type="text"
+								id="email"
+								name="email"
+								required
+								class="field" /><label class="user-label" for="email"
+								>E-mail
+							</label>
+						</div>
+						<div>
+							<input
+								type="password"
+								id="signup-password"
+								name="password"
+								required
+								class="field" />
+							<label class="user-label" for="password">Password</label>
+						</div>
+						<div class="input-field">
+							<label
+								style="text-align: center"
+								for="birthdate"
+								class="underlined">
+								<mark>Birthdate</mark></label
+							>
+							<input type="date" name="birthdate" id="birthdate" />
+						</div>
+					</div>
 
-		<header id="add">
-			<h1>Add New Book</h1>
-			<p>Fill out this form to add a new book to the collection</p>
-		</header>
+					<p class="underlined" style="text-align: center">
+						<mark>Gender</mark>
+					</p>
+					<div
+						class="genderRadio"
+						style="display: flex; justify-content: space-around">
+						<span>
+							<input id="Male" type="radio" name="Gender" value="Male" />
+							<label for="Male">Male</label>
+						</span>
+						<span>
+							<input id="Female" type="radio" name="Gender" value="Female" />
+							<label for="Female">Female</label>
+						</span>
+					</div>
 
-		<form id="add">
-			<div class="input-group">
-				<div>
-					<input
-						type="text"
-						id="book-name"
-						name="book-name"
-						class="field"
-						required />
-					<label class="user-label" for="book-name">Book name</label>
-				</div>
-				<div>
-					<input type="text" id="ISBN" name="ISBN" required class="field" />
-					<label class="user-label" for="ISBN">ISBN</label>
-				</div>
-				<div>
-					<input
-						type="text"
-						id="author"
-						name="author"
-						required
-						class="field" /><label class="user-label" for="Author"
-						>Author
-					</label>
-				</div>
-				<div>
-					<input
-						type="text"
-						id="language"
-						name="language"
-						class="field"
-						required />
-					<label class="user-label" for="language">Language</label>
-				</div>
-			</div>
-
-			<div id="cover">
-				<h2 id="titles">Add Book Cover :</h2>
-				<input type="file" id="cover" name="cover " required />
-			</div>
-			<div id="no-pages">
-				<h2 id="titles">Number of pages :</h2>
-				<input type="number" id="no-pages" name="no-pages" required />
-			</div>
-			<div id="publishDate">
-				<h2 id="publishDate">Publishing date :</h2>
-				<input type="date" id="publishDate" name="publishDate" required />
-			</div>
-
-			<h2 id="titles">Genres :</h2>
-			<div class="genres">
-				<div class="divide">
-					<label class="container">
-						<input checked="checked" type="checkbox" name="classics" />
+					<label class="container" for="is-admin">
+						<input class="checkmark" type="checkbox" id="is-admin" />
 						<div class="checkmark"></div>
-						Classics
-					</label>
-					<label class="container">
-						<input checked="checked" type="checkbox" name="Comedy" />
-						<div class="checkmark"></div>
-						Comedy
-					</label>
-					<label class="container">
-						<input checked="checked" type="checkbox" name="fantasy" />
-						<div class="checkmark"></div>
-						Fantasy
-					</label>
-					<label class="container">
-						<input checked="checked" type="checkbox" name="horror" />
-						<div class="checkmark"></div>
-						Horror
-					</label>
-				</div>
-				<div>
-					<label class="container">
-						<input type="checkbox" name="mystery" />
-						<div class="checkmark"></div>
-						Mystery
-					</label>
-					<label class="container">
-						<input type="checkbox" name="romance" />
-						<div class="checkmark"></div>
-						Romance
-					</label>
-					<label class="container">
-						<input type="checkbox" name="sci-fi" />
-						<div class="checkmark"></div>
-						Sci-fi
+						Register as admin
 					</label>
 
-					<label class="container">
-						<input type="checkbox" name="tragedy" />
-						<div class="checkmark"></div>
-						Tragedy
-					</label>
-				</div>
-			</div>
-			<h2 id="titles">Availability :</h2>
-			<div id="avail">
-				<label class="radio-button">
-					<input type="radio" name="available" value="available" />
-					<span class="radio"></span>
-					Available
-				</label>
-
-				<label class="radio-button">
-					<input type="radio" name="available" value="notAvailable" />
-					<span class="radio"></span>
-					Not Available
-				</label>
-			</div>
-
-			<div class="description">
-				<h2 id="titles">Description :</h2>
-				<textarea
-					id="description"
-					name="description"
-					rows="4"
-					cols="50"
-					placeholder="Add book description"></textarea>
-			</div>
-
-			<div class="button-container">
-				<input type="submit" value="Add" class="button" />
-			</div>
-		</form>
-		<footer style="padding: 20px">
+					<button
+						type="submit"
+						onclick="handleSubmit(event)"
+						id="registerButton"
+						class="button">
+						Signup
+					</button>
+					<h4 style="color: var(--action-clr); text-align: center">
+						&nbsp Already a user?
+						<a style="color: var(--txt-clr)" href="./login.html"
+							>&nbsp Login!</a
+						>
+					</h4>
+				</form>
+			</section>
+		</main>
+		<footer style="padding: 20px" id="footer">
 			<div class="links-wrapper">
 				<a href="#">About us</a>
 				<a href="#">Contact</a>
-				<a href="javascript:history.back()">Go Back</a>
 			</div>
 			<div class="social-media">
 				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
 			</div>
 		</footer>
+		<script src="./js/script.js"></script>
 	</body>
 </html>

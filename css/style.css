@@ -385,7 +385,7 @@ footer a {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("../images/Library\ used.jpg") no-repeat;
+  background: url("./images/Library\ used.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -1330,7 +1330,7 @@ strong {
 
 .cube-side:nth-child(1) {
   transform: rotateY(0deg) translateZ(7.5em);
-  background-image: url("../images/bg.jpg");
+  background-image: url("./images/bg.jpg");
 
 }
 
@@ -1341,7 +1341,7 @@ strong {
 
 .cube-side:nth-child(2) {
   transform: rotateY(90deg) translateZ(7.5em);
-  background-image: url("../images/ghassan.bmp");
+  background-image: url("./images/ghassan.bmp");
 }
 
 .cube-side:nth-child(2):hover {
@@ -1350,12 +1350,12 @@ strong {
 
 .cube-side:nth-child(3) {
   transform: rotateY(180deg) translateZ(7.5em);
-  background-image: url("../images/jana.bmp");
+  background-image: url("./images/jana.bmp");
 }
 
 .cube-side:nth-child(4) {
   transform: rotateY(-90deg) translateZ(7.5em);
-  background-image: url("../images/rue.bmp");
+  background-image: url("./images/rue.bmp");
 }
 
 .cube-side:nth-child(5) {

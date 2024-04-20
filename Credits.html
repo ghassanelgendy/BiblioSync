@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="./icons/apple-touch-icon.png" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="./icons/favicon-32x32.png" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="./icons/favicon-16x16.png" />
-		<link rel="manifest" href="./icons/site.webmanifest" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../css/reset.css" />
-		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>Credits</title>
 
-		<title>Edit Book</title>
+		<title>Online Library - Login/Signup</title>
 	</head>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-	<script src="../js/script.js"></script>
-	<body class="forms">
+	<script>
+		$(function () {
+			$("#nav-placeholder").load("nav.html");
+		});
+	</script>
+	<body>
+		<div id="nav-placeholder"></div>
+
 		<div class="loader-wrapper">
 			<div class="loader">
 				<div>
@@ -71,153 +61,35 @@
 				<span>Loading</span>
 			</div>
 		</div>
-		<script>
-			$(function () {
-				$("#nav-placeholder").load("nav.html");
-			});
-		</script>
-		<div id="nav-placeholder"></div>
-
-		<header id="add">
-			<h1>Edit Book</h1>
-			<p>Fill out this form to edit the book</p>
-		</header>
-
-		<form id="add">
-			<div class="input-group">
-				<div>
-					<input
-						type="text"
-						id="book-name"
-						name="book-name"
-						class="field"
-						required />
-					<label class="user-label" for="book-name">Book name</label>
-				</div>
-				<div>
-					<input type="text" id="ISBN" name="ISBN" required class="field" />
-					<label class="user-label" for="ISBN">ISBN</label>
-				</div>
-				<div>
-					<input
-						type="text"
-						id="author"
-						name="author"
-						required
-						class="field" /><label class="user-label" for="Author"
-						>Author
-					</label>
-				</div>
-				<div>
-					<input
-						type="text"
-						id="language"
-						name="language"
-						class="field"
-						required />
-					<label class="user-label" for="language">Language</label>
+		<div class="main-reg">
+			<div class="cube-container">
+				<input class="radioBtn" type="radio" name="cube-gallery" checked />
+				<input class="radioBtn" type="radio" name="cube-gallery" />
+				<input class="radioBtn" type="radio" name="cube-gallery" />
+				<input class="radioBtn" type="radio" name="cube-gallery" />
+				<input class="radioBtn" type="radio" name="cube-gallery" />
+				<input class="radioBtn" type="radio" name="cube-gallery" />
+				<div class="cube">
+					<div class="cube-side"></div>
+					<div class="cube-side"></div>
+					<div class="cube-side"></div>
+					<div class="cube-side"></div>
+					<div class="cube-side"></div>
+					<div class="cube-side"></div>
 				</div>
 			</div>
+		</div>
 
-			<div id="cover">
-				<h2 id="titles">Edit Book Cover :</h2>
-				<input type="file" id="cover" name="cover " required />
-			</div>
-			<div id="no-pages">
-				<h2 id="titles">Number of pages :</h2>
-				<input type="number" id="no-pages" name="no-pages" required />
-			</div>
-			<div id="publishDate">
-				<h2 id="publishDate">Publishing date :</h2>
-				<input type="date" id="publishDate" name="publishDate" required />
-			</div>
-
-			<h2 id="titles">Genres :</h2>
-			<div class="genres">
-				<div class="divide">
-					<label class="container">
-						<input checked="checked" type="checkbox" name="classics" />
-						<div class="checkmark"></div>
-						Classics
-					</label>
-					<label class="container">
-						<input checked="checked" type="checkbox" name="Comedy" />
-						<div class="checkmark"></div>
-						Comedy
-					</label>
-					<label class="container">
-						<input checked="checked" type="checkbox" name="fantasy" />
-						<div class="checkmark"></div>
-						Fantasy
-					</label>
-					<label class="container">
-						<input checked="checked" type="checkbox" name="horror" />
-						<div class="checkmark"></div>
-						Horror
-					</label>
-				</div>
-				<div>
-					<label class="container">
-						<input type="checkbox" name="mystery" />
-						<div class="checkmark"></div>
-						Mystery
-					</label>
-					<label class="container">
-						<input type="checkbox" name="romance" />
-						<div class="checkmark"></div>
-						Romance
-					</label>
-					<label class="container">
-						<input type="checkbox" name="sci-fi" />
-						<div class="checkmark"></div>
-						Sci-fi
-					</label>
-
-					<label class="container">
-						<input type="checkbox" name="tragedy" />
-						<div class="checkmark"></div>
-						Tragedy
-					</label>
-				</div>
-			</div>
-			<h2 id="titles">Availability :</h2>
-			<div id="avail">
-				<label class="radio-button">
-					<input type="radio" name="available" value="available" />
-					<span class="radio"></span>
-					Available
-				</label>
-
-				<label class="radio-button">
-					<input type="radio" name="available" value="notAvailable" />
-					<span class="radio"></span>
-					Not Available
-				</label>
-			</div>
-
-			<div class="description">
-				<h2 id="titles">Description :</h2>
-				<textarea
-					id="description"
-					name="description"
-					rows="4"
-					cols="50"
-					placeholder="Add book description"></textarea>
-			</div>
-
-			<div class="button-container">
-				<input type="submit" value="Edit" class="button" />
-			</div>
-		</form>
-		<footer style="padding: 20px">
+		<footer style="padding: 20px" id="footer">
 			<div class="links-wrapper">
-				<a href="#">About us</a>
-				<a href="#">Contact</a>
-				<a href="javascript:history.back()">Go Back</a>
+				<a href="./pages/about.html">About us</a>
+				<a href="./pages/Credits.html">Credits</a>
+				<a href="./pages/Todo.html">Todo List</a>
 			</div>
 			<div class="social-media">
 				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
 			</div>
 		</footer>
+		<script src="./js/script.js"></script>
 	</body>
 </html>

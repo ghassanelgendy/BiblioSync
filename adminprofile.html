@@ -1,38 +1,30 @@
-<!-- book_details.html -->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href="../icons/apple-touch-icon.png" />
+			href="./icons/apple-touch-icon.png" />
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="../icons/favicon-32x32.png" />
+			href="./icons/favicon-32x32.png" />
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href="../icons/favicon-16x16.png" />
-		<link rel="manifest" href="../icons/site.webmanifest" />
-		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+			href="./icons/favicon-16x16.png" />
+		<link rel="manifest" href="./icons/site.webmanifest" />
 		<script
 			src="https://kit.fontawesome.com/d954325b52.js"
 			crossorigin="anonymous"></script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Book Details</title>
-		<link rel="stylesheet" href="../css/reset.css" />
-		<link rel="stylesheet" href="../css/style.css" />
+		<title>Admin profile</title>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/style.css" />
 	</head>
-	<script>
-		$(function () {
-			$("#nav-placeholder").load("nav.html");
-		});
-		window.onload = checkLoggedIn();
-	</script>
 	<body>
 		<div class="loader-wrapper">
 			<div class="loader">
@@ -80,62 +72,33 @@
 			</div>
 		</div>
 		<div id="nav-placeholder"></div>
-		
-		<div class="main-content">
-			<div id="book-details">
-				<header id="book-title">
-					<h1></h1>
-					<h2>by <span id="author"></span></h2>
-				</header>
-			</div>
-			<div id="align">
-				<a
-					class="book-container"
-					href=""
-					target="_blank"
-					rel="noreferrer noopener">
-					<div class="book">
-						<img id="book-cover" src="" alt="Cover" />
-					</div>
-				</a>
+		<div class="profile-body">
+			<div class="wrapper text-box">
+				<div style="text-align: center">
+					<img
+						class="profilePic"
+						src="./images/user profile.jpg"
+						alt="user profile" />
+					<h2 style="padding: 5px"><span id="username"></span></h2>
+					<h3><span id="Mail"></span></h3>
+				</div>
 
-				<div class="desc">
-					<h3>Description:</h3>
-					<p id="description"></p>
-					<br />
-					<div class="info">
-						<div class="book-info">
-							<p>Originally published:&nbsp <span id="published"></span></p>
-							<p>ISBN: &nbsp<span id="isbn"></span></p>
-							<p>Language: &nbsp<span id="language"></span></p>
-							<p>Pages: &nbsp<span id="pages"></span></p>
-							<p>Genres: &nbsp<span id="genres"></span></p>
-						</div>
-						<div class="additional-info">
-							<ul>
-								<li>Availability: &nbsp <span id="availability"> </span></li>
-								<li>Formats: &nbsp<span id="formats"></span></li>
-							</ul>
-						</div>
+				<div class="button-container">
+					<div>
+						<a href="editbook.html"
+							><button class="button">Edit Book</button></a
+						>
+						<button class="button">Delete Book</button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="bookbtn" class="button-container">
-			<a href="./borrowform.html">
-				<button class="button" id="borrow-btn">Borrow</button>
-			</a>
-		</div>
-		<footer style="padding: 20px">
-			<div class="links-wrapper">
-				<a href="#">About us</a>
-				<a href="#">Contact</a>
-				<a href="javascript:history.back()">Go Back</a>
-			</div>
-			<div class="social-media">
-				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
-			</div>
-		</footer>
 	</body>
-	<script src="../js/script.js"></script>
+	<script>
+		$(function () {
+			$("#nav-placeholder").load("nav.html");
+		});
+	</script>
+	<footer style="padding: 20px" id="footer"></footer>
+	<script src="./js/script.js"></script>
 </html>

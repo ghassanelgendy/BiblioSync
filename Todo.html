@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<script
+			src="https://kit.fontawesome.com/d954325b52.js"
+			crossorigin="anonymous"></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BiblioSync</title>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/style.css" />
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href="../icons/apple-touch-icon.png" />
+			href="./icons/apple-touch-icon.png" />
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="../icons/favicon-32x32.png" />
+			href="./icons/favicon-32x32.png" />
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href="../icons/favicon-16x16.png" />
-		<link rel="manifest" href="../icons/site.webmanifest" />
-		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+			href="./icons/favicon-16x16.png" />
+		<link rel="manifest" href="./icons/site.webmanifest" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&amp;family=Great+Vibes&amp;display=swap"
+			rel="stylesheet" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Book collection</title>
-		<script
-			src="https://kit.fontawesome.com/d954325b52.js"
-			crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="../css/style.css" />
+		<title>Todo List</title>
 	</head>
-	<script src="../js/script.js"></script>
-	<body class="forms">
+	<body>
 		<div class="loader-wrapper">
 			<div class="loader">
 				<div>
@@ -72,85 +77,73 @@
 				<span>Loading</span>
 			</div>
 		</div>
-		<script>
-			$(function () {
-				$("#nav-placeholder").load("nav.html");
-			});
-		</script>
 		<div id="nav-placeholder"></div>
-		<form>
-			<header id="add">
-				<h1>Borrow a Book</h1>
-				<p>Fill out this form to borrow a book from the collection</p>
-			</header>
-			<div class="input-group">
-				<div>
-					<input
-						type="text"
-						id="book-name"
-						name="book-name"
-						class="field"
-						required />
-					<label class="user-label" for="book-name">Book name</label>
-				</div>
-				<div>
-					<input
-						type="text"
-						id="username"
-						name="username"
-						required
-						class="field" />
-					<label class="user-label" for="username">Username</label>
-				</div>
-				<div>
-					<input
-						type="text"
-						id="address"
-						name="address"
-						required
-						class="field" /><label class="user-label" for="address"
-						>Address
-					</label>
-				</div>
+		<div class="welcome-modal">
+			<h3>Welcome to BiblioSync, Your enlightenment starts here!</h3>
+			<div class="navigator">
+				<ul>
+					<li>
+						<a href="./book.html"><del>book</del></a>
+					</li>
+					<li>
+						<a href="./signup.html"><del>signup</del></a>
+					</li>
+					<li>
+						<a href="./collection.html"><del>collection</del></a>
+					</li>
+					<li>
+						<a href="./login.html"><del>login</del></a>
+					</li>
+					<li>
+						<a href="./addbook.html"><del>addbook</del></a>
+					</li>
+					<li>
+						<a href="./adminprofile.html"><del>admin</del></a>
+					</li>
+					<li>
+						<a href="./borrowform.html"><del>borrowform</del></a>
+					</li>
+					<li><a href="./change password.html">change password</a></li>
+					<li><a href="./Edit profile.html">Edit profile</a></li>
+					<li>
+						<a href="./editbook.html"><del>Edit book</del></a>
+					</li>
+					<li><a href="./nav.html">nav</a></li>
+					<li><a href="./User profile.html">User</a></li>
+					<li>
+						<a href="./searchResults.html"><del> search results</del></a>
+					</li>
+				</ul>
 			</div>
-			<div class="dates">
-				<label for="borrow-date">Borrow Date:</label>
-				<input type="date" id="borrow-date" name="borrow-date" required />
-
-				<label for="return-date">Return Date:</label>
-				<input type="date" id="return-date" name="return-date" required />
-			</div>
-
-			<div class="description">
-				<h2 id="titles">Notes :</h2>
-				<textarea
-					id="notes"
-					name="notes"
-					rows="4"
-					cols="50"
-					placeholder="Add any additional notes or details here"></textarea>
-			</div>
-
-			<div id="terms">
-				<label class="container">
-					<input type="checkbox" name="terms" required />
-					<div class="checkmark"></div>
-					I agree to the terms and conditions
-				</label>
-			</div>
-			<div class="button-container">
-				<input type="submit" value="Submit" class="button" />
-			</div>
-		</form>
-		<footer style="padding: 20px">
+		</div>
+		<footer style="padding: 20px" id="footer">
 			<div class="links-wrapper">
 				<a href="#">About us</a>
 				<a href="#">Contact</a>
-				<a href="javascript:history.back()">Go Back</a>
 			</div>
 			<div class="social-media">
 				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
 			</div>
 		</footer>
+
+		<style>
+			.navigator ul {
+				flex-direction: column;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+			.navigator li a {
+				margin-right: 20px;
+				color: white;
+			}
+		</style>
+		<script>
+			$(function () {
+				$("#nav-placeholder").load("./nav.html");
+			});
+		</script>
+		<script src="./js/script.js"></script>
 	</body>
 </html>

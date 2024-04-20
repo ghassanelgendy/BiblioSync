@@ -1,31 +1,40 @@
+<!-- book_details.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href="../icons/apple-touch-icon.png" />
+			href="./icons/apple-touch-icon.png" />
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="../icons/favicon-32x32.png" />
+			href="./icons/favicon-32x32.png" />
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href="../icons/favicon-16x16.png" />
-		<link rel="manifest" href="../icons/site.webmanifest" />
-		<meta charset="utf-8" />
-		<title>Login Form</title>
-		<link rel="stylesheet" href="../css/style.css" />
-		<!-- boxicons da website gebt meno el icons eli mahtota ganb el username w pw -->
-		<link
-			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-			rel="stylesheet" />
-			<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-		</head>
+			href="./icons/favicon-16x16.png" />
+		<link rel="manifest" href="./icons/site.webmanifest" />
 
+		<script
+			src="https://kit.fontawesome.com/d954325b52.js"
+			crossorigin="anonymous"></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Search results</title>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+
+	<script src="./js/script.js"></script>
+
+	<script>
+		$(function () {
+			$("#nav-placeholder").load("nav.html");
+		});
+	</script>
 	<body>
 		<div class="loader-wrapper">
 			<div class="loader">
@@ -74,64 +83,28 @@
 		</div>
 		<div id="nav-placeholder"></div>
 
-		<main class="main-reg">
-			<section id="login-section">
-				<h2 class="underlined"><mark>Login</mark></h2>
-				<!-- Signup form goes here -->
-				<form class="signup-form" id="login-form">
-					<div class="input-group">
-						<div>
-							<input
-								type="text"
-								id="login-username"
-								name="username"
-								class="field"
-								required />
-							<label class="user-label" for="username">Username</label>
-						</div>
-						<div>
-							<input
-								type="password"
-								id="login-password"
-								name="password"
-								required
-								class="field" />
-							<label class="user-label" for="password">Password</label>
-						</div>
-					</div>
-
-					<button
-						type="submit"
-						onclick="checkSubmit(event)"
-						id="loginBtn"
-						class="button">
-						Login
-					</button>
-
-					<h4 style="color: var(--action-clr); text-align: center">
-						&nbsp New Here?
-						<a style="color: var(--txt-clr)" href="./signup.html"
-							>&nbsp Sign Up!</a
-						>
-					</h4>
-				</form>
-			</section>
-		</main>
-		<footer style="padding: 20px">
+		<div class="books" id="searchResults">
+			<h3 style="color: whitesmoke; font-size: 22px">No results found</h3>
+		</div>
+		<footer style="padding: 20px" id="footer">
 			<div class="links-wrapper">
-				<a href="#">About us</a>
-				<a href="#">Contact</a>
+				<a href="./pages/about.html">About us</a>
+				<a href="./pages/contact.html">Contact</a>
 			</div>
 			<div class="social-media">
 				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
 			</div>
 		</footer>
-
+		<script>
+			const queryString = window.location.search;
+			const urlParamss = new URLSearchParams(queryString);
+			const userQuery = urlParamss.get("query");
+			search(userQuery);
+		</script>
 		<script>
 			$(function () {
 				$("#nav-placeholder").load("./nav.html");
 			});
 		</script>
-		<script src="../js/script.js"></script>
 	</body>
 </html>

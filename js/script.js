@@ -2,7 +2,9 @@ let currentLoc = window.location.href;
 fetch("books.json")
   .then((response) => response.json())
   .then((data) => {
-    localStorage.setItem("book", JSON.stringify(data));
+   if ((book = "")) {
+      localStorage.setItem("book", JSON.stringify(data));
+   }
   });
 
 function onScreenLoad() {
@@ -349,57 +351,63 @@ if (currentLoc.includes("collection")) {
 /*===============================================================*/
 /*===============================================================*/
 function addBook() {
-    // Select the form element
-    var form = document.getElementById("add");
+  // Select the form element
+  var form = document.getElementById("add");
 
-    // Extract form data
-    var bookName = document.getElementById("book-name").value;
-    var isbn = document.getElementById("ISBN").value;
-    var author = document.getElementById("author").value;
-	var cover = document.getElementById("coverlink").value;
-    var language = document.getElementById("language").value
-    var noPages = document.getElementById("no-pages").value;
-    var publishDate = document.getElementById("publishDate").value;
-    var genres = document.querySelectorAll(".genres input[type='checkbox']:checked");
-    var description = document.getElementById("description").value;
+  // Extract form data
+  var bookName = document.getElementById("book-name").value;
+  var isbn = document.getElementById("ISBN").value;
+  var author = document.getElementById("author").value;
+  var cover = document.getElementById("coverlink").value;
+  var language = document.getElementById("language").value;
+  var noPages = document.getElementById("no-pages").value;
+  var publishDate = document.getElementById("publishDate").value;
+  var genres = document.querySelectorAll(
+    ".genres input[type='checkbox']:checked"
+  );
+  var description = document.getElementById("description").value;
 
-    // Create an object to store book data
-    var bookData = {
-        bookName: bookName,
-        isbn: isbn,
-        author: author,
-		cover : cover,
-        language: language,
-        noPages: noPages,
-        publishDate: publishDate,
-        genres: Array.from(genres).map(genre => genre.name),
-        description: description
-    };
+  var books = JSON.parse(localStorage.getItem("book")) || [];
+  // Create an object to store book data
+  var bookData = {
+    id: books[books.length - 1].id+1,
+    title: bookName,
+    isbn: isbn,
+    author: author,
+    cover: cover,
+    language: language,
+    pages: JSON.stringify(noPages),
+    publishDate: JSON.stringify(publishDate),
+    genres: Array.from(genres).map((genre) => genre.name),
+    description: description,
+    availability: 1,
+    formats: ["Paperback", "eBook"],
 
-    var books = JSON.parse(localStorage.getItem("book")) || [];
-
-    // Add the new book to the array
-    books.push(bookData);
-
-    // Update the books array in local storage
-    localStorage.setItem("book", JSON.stringify(books));
-
-    // Optionally, you can alert the user or redirect them after adding the book
-    alert("Book added successfully!");
-    console.log(book);
+  };
 
 
-    // Clear the form
-    form.reset();
+
+  // Add the new book to the array
+  books.push(bookData);
+
+  // Update the books array in local storage
+  localStorage.setItem("book", JSON.stringify(books));
+
+  // Optionally, you can alert the user or redirect them after adding the book
+  alert("Book added successfully!");
+  console.log(book);
+
+  // Clear the form
+  // form.reset();
 }
 /*Borrow Book*/
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
-borrowed = []
+borrowed = [];
 
 localStorage.setItem("borrowedBook", JSON.stringify(borrowed));
-function borrowBook(){
+function borrowBook() {
   var form = document.getElementById("borrow");
 
   // Extract form data
@@ -408,26 +416,25 @@ function borrowBook(){
   var publishDate = document.getElementById("borrow-date").value;
   var returnDate = document.getElementById("return-date").value;
   var description = document.getElementById("notes").value;
-  
-  var rew =  {
+
+  var rew = {
+
     bookName: bookName,
     isbn: isbn,
     publishDate: publishDate,
     returnDate: returnDate,
     description: description,
-};
+  };
 
-    borrowed.push(rew);
-    console.log(borrowed);
+  borrowed.push(rew);
+  console.log(borrowed);
 
-    // Update the borrowed books array in local storage
-    localStorage.setItem("borrowedBook", JSON.stringify(borrowed));
+  // Update the borrowed books array in local storage
+  localStorage.setItem("borrowedBook", JSON.stringify(borrowed));
 
+  // Optionally, you can alert the user or redirect them after adding the book
+  alert("Book borrowed successfully!");
 
-    // Optionally, you can alert the user or redirect them after adding the book
-    alert("Book borrowed successfully!");
-
-    // Clear the form
-    form.reset();
-
+  // Clear the form
+  form.reset();
 }

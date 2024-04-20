@@ -228,7 +228,7 @@ function login(userObject) {
     if (currentLoc.includes("bookdetails")) {
       const deletebtn = document.getElementById("bookbtn");
       deletebtn.innerHTML = ` <a href="#">
-			<button class="button" id="borrow-btn">Delete Book</button>
+			<button class="button" onclick="deleteBook(event)" id="borrow-btn">Delete Book</button>
 		  </a>`;
     }
   } else {
@@ -442,3 +442,22 @@ if (currentLoc.includes("userprofile")) {
   });
 }
 console.log(borrowed)
+
+/*Delete Book*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+function deleteBook() {
+  const ktabId = parseInt(urlParams.get("id"));
+  var books = JSON.parse(localStorage.getItem("book")) || [];
+
+  var bookIndex = books.findIndex((book) => book.id === ktabId);
+
+  if (bookIndex !== -1) {
+    books.splice(bookIndex, 1);
+    localStorage.setItem("book", JSON.stringify(books));
+  }
+  alert("Book deleted successfully!");
+  window.location.href = "./collection.html";
+ 
+}

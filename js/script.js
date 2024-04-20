@@ -2,9 +2,9 @@ let currentLoc = window.location.href;
 fetch("books.json")
   .then((response) => response.json())
   .then((data) => {
-   if ((book = "")) {
+    if ((book = "")) {
       localStorage.setItem("book", JSON.stringify(data));
-   }
+    }
   });
 
 function onScreenLoad() {
@@ -233,9 +233,8 @@ function login(userObject) {
     }
   } else {
     profileLink.href = `./userprofile.html`;
-    customizable.innerText = "Borrow Book";
-    customizable.href = `./borrowform.html`;
-  }
+    customizable.remove();
+}
   const profilePlaceholder = document.getElementById("profile-placeholder");
   if (!profilePlaceholder.hasChildNodes()) {
     profilePlaceholder.appendChild(profileLink);
@@ -370,7 +369,7 @@ function addBook() {
   var books = JSON.parse(localStorage.getItem("book")) || [];
   // Create an object to store book data
   var bookData = {
-    id: books[books.length - 1].id+1,
+    id: books[books.length - 1].id + 1,
     title: bookName,
     isbn: isbn,
     author: author,
@@ -382,10 +381,7 @@ function addBook() {
     description: description,
     availability: 1,
     formats: ["Paperback", "eBook"],
-
   };
-
-
 
   // Add the new book to the array
   books.push(bookData);
@@ -404,37 +400,44 @@ function addBook() {
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
-borrowed = [];
 
-localStorage.setItem("borrowedBook", JSON.stringify(borrowed));
 function borrowBook() {
-  var form = document.getElementById("borrow");
+  const ktabId = parseInt(urlParams.get("id"));
+  var books = JSON.parse(localStorage.getItem("book")) || [];
 
-  // Extract form data
-  var bookName = document.getElementById("book-name").value;
-  var isbn = document.getElementById("username").value;
-  var publishDate = document.getElementById("borrow-date").value;
-  var returnDate = document.getElementById("return-date").value;
-  var description = document.getElementById("notes").value;
+  var bookIndex = books.findIndex((book) => book.id === ktabId);
 
-  var rew = {
+  if (bookIndex !== -1) {
+    books[bookIndex].availability = 0;
 
-    bookName: bookName,
-    isbn: isbn,
-    publishDate: publishDate,
-    returnDate: returnDate,
-    description: description,
-  };
+    localStorage.setItem("book", JSON.stringify(books));
 
-  borrowed.push(rew);
-  console.log(borrowed);
+    var borrowed = JSON.parse(localStorage.getItem("borrowed")) || [];
 
-  // Update the borrowed books array in local storage
-  localStorage.setItem("borrowedBook", JSON.stringify(borrowed));
+    borrowed.push(books[bookIndex]);
 
-  // Optionally, you can alert the user or redirect them after adding the book
-  alert("Book borrowed successfully!");
+    localStorage.setItem("borrowed", JSON.stringify(borrowed));
 
-  // Clear the form
-  form.reset();
+    alert("Book borrowed successfully!");
+  } else {
+    alert("Book not found!");
+  }
 }
+var borrowed = JSON.parse(localStorage.getItem("borrowed")) || [];
+
+if (currentLoc.includes("userprofile")) {
+  const booksSection = document.getElementById("borrowedBooks");
+  borrowed.forEach((book) => {
+    const bookelement = document.createElement("div");
+    bookelement.innerHTML = `
+    <a href="bookdetails.html?id=${book.id}">
+      <img src="${book.cover}" alt="${book.title} Cover" />
+    </a>
+    <div>
+      <strong>${book.title} by ${book.author}</strong>
+    </div>
+  `;
+    booksSection.appendChild(bookelement);
+  });
+}
+console.log(borrowed)

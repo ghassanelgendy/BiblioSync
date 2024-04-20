@@ -665,6 +665,10 @@ header {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   transform: translateZ(-25px);
   transition: all 0.3s ease-in-out;
+  -webkit-transform: translateZ(-25px);
+  -moz-transform: translateZ(-25px);
+  -ms-transform: translateZ(-25px);
+  -o-transform: translateZ(-25px);
 }
 
 .radio::before {
@@ -679,12 +683,20 @@ header {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
 
 .radio-button input[type="radio"]:checked+.radio {
   border-color: var(--action-clr);
   transform: translateZ(0px);
   background-color: #fff;
+  -webkit-transform: translateZ(0px);
+  -moz-transform: translateZ(0px);
+  -ms-transform: translateZ(0px);
+  -o-transform: translateZ(0px);
 }
 
 .radio-button input[type="radio"]:checked+.radio::before {
@@ -1227,6 +1239,7 @@ strong {
     transform: rotateY(0deg);
   }
 }
+
 /*Admin Profile*/
 /*===============================================================*/
 /*===============================================================*/
@@ -1244,6 +1257,7 @@ strong {
   color: var(--txt-clr);
   transition: color 0.3s ease;
 }
+
 .nav-items a:hover {
   color: var(--light-action-clr);
 }
@@ -1251,6 +1265,7 @@ strong {
 .navbar-toggle {
   display: none;
 }
+
 .wrapper {
   width: 420px;
   background: #756969cd;
@@ -1263,12 +1278,122 @@ strong {
   margin: 30px;
 
 }
+
 #username {
   text-decoration: underline;
 
 }
-.profile-body{
+
+.profile-body {
   display: flex;
   justify-content: center;
 
+}
+
+/* Dice */
+
+.cube-container {
+  width: 15em;
+  height: 15em;
+  text-align: center;
+  perspective: 45em;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition-duration: 2s;
+}
+
+.cube-side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 1px solid black;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.radioBtn {
+  margin-bottom: 5em;
+
+}
+
+.radioBtn:hover {
+  cursor: pointer;
+
+}
+
+.cube-side:nth-child(1) {
+  transform: rotateY(0deg) translateZ(7.5em);
+  background-image: url("../images/bg.jpg");
+
+}
+
+.cube-side:nth-child(1):hover {
+  cursor: pointer;
+}
+
+
+.cube-side:nth-child(2) {
+  transform: rotateY(90deg) translateZ(7.5em);
+  background-image: url("../images/ghassan.bmp");
+}
+
+.cube-side:nth-child(2):hover {
+  background-color: blue;
+}
+
+.cube-side:nth-child(3) {
+  transform: rotateY(180deg) translateZ(7.5em);
+  background-image: url("../images/jana.bmp");
+}
+
+.cube-side:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(7.5em);
+  background-image: url("../images/rue.bmp");
+}
+
+.cube-side:nth-child(5) {
+  transform: rotateX(-90deg) translateZ(7.5em);
+  background-image: url(--image-5);
+}
+
+.cube-side:nth-child(6) {
+  transform: rotateX(90deg) translateZ(7.5em);
+  background-image: url(--image-6);
+}
+
+
+.radioBtn:checked~.cube {
+  transition-duration: 3s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.radioBtn:nth-child(1):checked~.cube {
+  transform: rotateX(-15deg) rotateY(20deg);
+}
+
+.radioBtn:nth-child(2):checked~.cube {
+  transform: rotateX(-15deg) rotateY(180deg);
+}
+
+.radioBtn:nth-child(3):checked~.cube {
+  transform: rotateX(-15deg) rotateY(90deg);
+}
+
+.radioBtn:nth-child(4):checked~.cube {
+  transform: rotateX(-15deg) rotateY(-90deg);
+}
+
+.radioBtn:nth-child(5):checked~.cube {
+  transform: rotateX(-105deg) rotateY(0deg);
+}
+
+.radioBtn:nth-child(6):checked~.cube {
+  transform: rotateX(75deg) rotateY(0deg);
 }

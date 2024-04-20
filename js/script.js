@@ -57,7 +57,7 @@ function onScreenLoad() {
 </nav>`;
   var footerDiv = document.getElementById("footer");
   footerDiv.innerHTML = `<div class="links-wrapper">
-				<a href="./about.html">About us</a>
+				<a href="./aboutus.html">About us</a>
 				<a href="./Credits.html">Credits</a>
 				<a href="./Todo.html">Todo List</a>
 			</div>

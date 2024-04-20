@@ -233,7 +233,8 @@ function login(userObject) {
     }
   } else {
     profileLink.href = `./userprofile.html`;
-    customizable.remove();
+    customizable.innerText = "request book";    
+    customizable.href = "requestbook.html";
 }
   const profilePlaceholder = document.getElementById("profile-placeholder");
   if (!profilePlaceholder.hasChildNodes()) {

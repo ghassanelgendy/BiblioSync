@@ -62,9 +62,10 @@ function onScreenLoad() {
 			<div class="social-media">
 				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
 			</div>`;
+	checkLoggedIn();
 }
-let book = JSON.parse(localStorage.getItem("book"));
 
+let book = JSON.parse(localStorage.getItem("book"));
 //Loader function
 window.addEventListener("load", function () {
 	var loaderWrapper = document.querySelector(".loader-wrapper");
@@ -201,8 +202,8 @@ function login(userObject) {
 		customizable.href = `./addbook.html`;
 		//for some reason bt5aly zorar el profile y5tfy???
 		/* deletebtn.innerHTML = ` <a href="#">
-        <button class="button" id="borrow-btn">Delete Book</button>
-      </a>`;*/
+			<button class="button" id="borrow-btn">Delete Book</button>
+		  </a>`;*/
 	} else {
 		profileLink.href = `./userprofile.html`;
 		//customizable.innerText = "Borrow Book";
@@ -212,12 +213,13 @@ function login(userObject) {
 	if (!profilePlaceholder.hasChildNodes()) {
 		profilePlaceholder.appendChild(profileLink);
 	}
-
-	logged_in = userObject;
-	sessionStorage.setItem("isLoggedIn", "true");
-	localStorage.setItem("Current_user", JSON.stringify(logged_in));
-	document.getElementById("username").innerText = userObject.username;
-	document.getElementById("Mail").innerText = userObject.email;
+	if (currentLoc.includes("register")) {
+		logged_in = userObject;
+		sessionStorage.setItem("isLoggedIn", "true");
+		localStorage.setItem("Current_user", JSON.stringify(logged_in));
+		document.getElementById("username").innerText = userObject.username;
+		document.getElementById("Mail").innerText = userObject.email;
+	}
 }
 
 /*Search results*/

@@ -392,3 +392,42 @@ function addBook() {
     // Clear the form
     form.reset();
 }
+/*Borrow Book*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+borrowed = []
+
+localStorage.setItem("borrowedBook", JSON.stringify(borrowed));
+function borrowBook(){
+  var form = document.getElementById("borrow");
+
+  // Extract form data
+  var bookName = document.getElementById("book-name").value;
+  var isbn = document.getElementById("username").value;
+  var publishDate = document.getElementById("borrow-date").value;
+  var returnDate = document.getElementById("return-date").value;
+  var description = document.getElementById("notes").value;
+  
+  var rew =  {
+    bookName: bookName,
+    isbn: isbn,
+    publishDate: publishDate,
+    returnDate: returnDate,
+    description: description,
+};
+
+    borrowed.push(rew);
+    console.log(borrowed);
+
+    // Update the borrowed books array in local storage
+    localStorage.setItem("borrowedBook", JSON.stringify(borrowed));
+
+
+    // Optionally, you can alert the user or redirect them after adding the book
+    alert("Book borrowed successfully!");
+
+    // Clear the form
+    form.reset();
+
+}

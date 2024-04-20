@@ -158,7 +158,7 @@ function handleSubmit(event) {
     return;
   }
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailPattern = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
   if (!emailPattern.test(email)) {
     alert("Please enter a valid email address");
     return;
@@ -175,11 +175,19 @@ function handleSubmit(event) {
     return;
   }
 
+  //bos ysahbi el user aw pass aw el etnen mtkrneen wla la
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+  if (users.some(user => user.username === name || user.email === email || user.username === name && user.email === email)) {
+    alert('A user with this username or email already exists!');
+    return;
+  }
+
   // Create user object
   const user = createUser(name, isAdmin, email, password, birthdate, gender);
 
   // Store user object in localStorage
-  localStorage.setItem(user.getName(), JSON.stringify(user));
+  users.push(user);
+  localStorage.setItem('users', JSON.stringify(users));
 
   // Clear form fields
   document.getElementById("registrationForm").reset();

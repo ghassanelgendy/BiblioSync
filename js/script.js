@@ -223,8 +223,7 @@ function login(userObject) {
     profileLink.href = `./adminprofile.html`;
     customizable.innerText = "Add book";
     customizable.href = `./addform.html`;
-    //for some reason bt5aly zorar el profile y5tfy???
-    if (currentLoc.includes("book")) {
+    if (currentLoc.includes("bookdetails")) {
       const deletebtn = document.getElementById("bookbtn");
       deletebtn.innerHTML = ` <a href="#">
 			<button class="button" id="borrow-btn">Delete Book</button>
@@ -280,7 +279,7 @@ function search(useQ) {
   filteredBooks.forEach((book) => {
     const bookElement = document.createElement("div");
     bookElement.innerHTML = `
-      <a href="book.html?id=${book.id}">
+      <a href="bookdetails.html?id=${book.id}">
         <img src="${book.cover}" alt="${book.title} Cover" />
       </a>
       <div>
@@ -316,7 +315,7 @@ function displayRandomBooks() {
     const randomBook = shuffledBooks[i];
     const bookDiv = document.createElement("div");
     bookDiv.innerHTML = `
-        <a href="book.html?id=${randomBook.id}">
+        <a href="bookdetails.html?id=${randomBook.id}">
           <img src="${randomBook.cover}" alt="${randomBook.title} Cover" />
         </a>
         <div>
@@ -332,7 +331,7 @@ if (currentLoc.includes("collection")) {
   book.forEach((book) => {
     const bookelement = document.createElement("div");
     bookelement.innerHTML = `
-    <a href="book.html?id=${book.id}">
+    <a href="bookdetails.html?id=${book.id}">
       <img src="${book.cover}" alt="${book.title} Cover" />
     </a>
     <div>
@@ -345,7 +344,52 @@ if (currentLoc.includes("collection")) {
   displayRandomBooks();
 }
 
-/*Collection*/
+/*Add book*/
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
+function addBook() {
+    // Select the form element
+    var form = document.getElementById("add");
+
+    // Extract form data
+    var bookName = document.getElementById("book-name").value;
+    var isbn = document.getElementById("ISBN").value;
+    var author = document.getElementById("author").value;
+    var language = document.getElementById("language").value
+    var noPages = document.getElementById("no-pages").value;
+    var publishDate = document.getElementById("publishDate").value;
+    var genres = document.querySelectorAll(".genres input[type='checkbox']:checked");
+    var availability = document.querySelector("input[name='available']:checked").value;
+    var description = document.getElementById("description").value;
+
+    // Create an object to store book data
+    var bookData = {
+        bookName: bookName,
+        isbn: isbn,
+        author: author,
+        language: language,
+        cover: cover,
+        noPages: noPages,
+        publishDate: publishDate,
+        genres: Array.from(genres).map(genre => genre.name),
+        availability: availability,
+        description: description
+    };
+
+    var books = JSON.parse(localStorage.getItem("book")) || [];
+
+    // Add the new book to the array
+    books.push(bookData);
+
+    // Update the books array in local storage
+    localStorage.setItem("book", JSON.stringify(books));
+
+    // Optionally, you can alert the user or redirect them after adding the book
+    alert("Book added successfully!");
+
+    // Clear the form
+    form.reset();
+}
+
+

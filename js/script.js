@@ -230,12 +230,16 @@ function login(userObject) {
       deletebtn.innerHTML = ` <a href="#">
 			<button class="button" onclick="deleteBook(event)" id="borrow-btn">Delete Book</button>
 		  </a>`;
+      const editbutton = document.createElement("div");
+      editbutton.innerHTML = `
+      <button class="button" onclick="editBook(event)" id="borrow-btn" style="margin-left : 40px">Edit Book</button>`;
+      deletebtn.appendChild(editbutton);
     }
   } else {
     profileLink.href = `./userprofile.html`;
-    customizable.innerText = "request book";    
+    customizable.innerText = "request book";
     customizable.href = "requestbook.html";
-}
+  }
   const profilePlaceholder = document.getElementById("profile-placeholder");
   if (!profilePlaceholder.hasChildNodes()) {
     profilePlaceholder.appendChild(profileLink);
@@ -441,7 +445,7 @@ if (currentLoc.includes("userprofile")) {
     booksSection.appendChild(bookelement);
   });
 }
-console.log(borrowed)
+console.log(borrowed);
 
 /*Delete Book*/
 /*===============================================================*/
@@ -459,5 +463,4 @@ function deleteBook() {
   }
   alert("Book deleted successfully!");
   window.location.href = "./collection.html";
- 
 }

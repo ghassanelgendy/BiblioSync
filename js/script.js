@@ -2,9 +2,9 @@ let currentLoc = window.location.href;
 fetch("books.json")
   .then((response) => response.json())
   .then((data) => {
-    if ((book = "")) {
+    if (!localStorage.getItem("book")) {
       localStorage.setItem("book", JSON.stringify(data));
-    }
+  }
   });
 
 function onScreenLoad() {
@@ -203,9 +203,12 @@ function checkSubmit(event) {
 
   const username = document.getElementById("login-username").value;
   const password = document.getElementById("login-password").value;
-  const storedUserData = localStorage.getItem(username);
-  const userData = storedUserData ? JSON.parse(storedUserData) : {};
-  if (userData.password === password) {
+  const storedUsersData = localStorage.getItem('users');
+  const usersData = storedUsersData ? JSON.parse(storedUsersData) : [];
+  
+  const userData = usersData.find(user => user.username === username);
+  
+  if (userData && userData.password === password) {
     // Successful login
     login(userData);
   } else {
@@ -214,9 +217,10 @@ function checkSubmit(event) {
   }
 }
 
+
 function checkLoggedIn() {
   const currentUser = localStorage.getItem("Current_user");
-  if (currentUser != {}) {
+  if (currentUser) {
     // User is already logged in, redirect to profile page
     const userData = JSON.parse(currentUser);
     console.log("===>", userData);

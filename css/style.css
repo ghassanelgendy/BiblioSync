@@ -1298,6 +1298,7 @@ strong {
   height: 15em;
   text-align: center;
   perspective: 45em;
+  margin-bottom: 5em;
 }
 
 .cube {

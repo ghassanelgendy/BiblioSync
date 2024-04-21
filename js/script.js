@@ -4,7 +4,7 @@ fetch("books.json")
   .then((data) => {
     if (!localStorage.getItem("book")) {
       localStorage.setItem("book", JSON.stringify(data));
-  }
+    }
   });
 
 function onScreenLoad() {
@@ -176,25 +176,34 @@ function handleSubmit(event) {
   }
 
   //bos ysahbi el user aw pass aw el etnen mtkrneen wla la
-  let users = JSON.parse(localStorage.getItem('users')) || [];
-  if (users.some(user => user.username === name || user.email === email || (user.username === name && user.email === email))) {
-    alert('A user with this username or email already exists!');
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  if (
+    users.some(
+      (user) =>
+        user.username === name ||
+        user.email === email ||
+        (user.username === name && user.email === email)
+    )
+  ) {
+    alert("A user with this username or email already exists!");
     return;
-  } else if (document.getElementById('signup-password').value !== document.getElementById('confirm-password').value) {
-    alert('Password and confirm password do not match!');
+  } else if (
+    document.getElementById("signup-password").value !==
+    document.getElementById("confirm-password").value
+  ) {
+    alert("Password and confirm password do not match!");
     return;
-  } else if (document.getElementById('confirm-password').value === "") {
-    alert('Please confirm your password!');
+  } else if (document.getElementById("confirm-password").value === "") {
+    alert("Please confirm your password!");
     return;
   }
-  
 
   // Create user object
   const user = createUser(name, isAdmin, email, password, birthdate, gender);
 
   // Store user object in localStorage
   users.push(user);
-  localStorage.setItem('users', JSON.stringify(users));
+  localStorage.setItem("users", JSON.stringify(users));
 
   // Clear form fields
   document.getElementById("registrationForm").reset();
@@ -210,11 +219,11 @@ function checkSubmit(event) {
 
   const username = document.getElementById("login-username").value;
   const password = document.getElementById("login-password").value;
-  const storedUsersData = localStorage.getItem('users');
+  const storedUsersData = localStorage.getItem("users");
   const usersData = storedUsersData ? JSON.parse(storedUsersData) : [];
-  
-  const userData = usersData.find(user => user.username === username);
-  
+
+  const userData = usersData.find((user) => user.username === username);
+
   if (userData && userData.password === password) {
     // Successful login
     login(userData);
@@ -223,7 +232,6 @@ function checkSubmit(event) {
     alert("Invalid username or password!");
   }
 }
-
 
 function checkLoggedIn() {
   const currentUser = localStorage.getItem("Current_user");
@@ -428,7 +436,7 @@ function addBook() {
 function borrowBook() {
   const ktabId = parseInt(urlParams.get("id"));
   var books = JSON.parse(localStorage.getItem("book")) || [];
-  const currentUser = localStorage.getItem("Current_user");
+  const currentUser = JSON.parse(localStorage.getItem("Current_user"));
   var bookIndex = books.findIndex((book) => book.id === ktabId);
 
   if (bookIndex !== -1) {
@@ -436,11 +444,14 @@ function borrowBook() {
 
     localStorage.setItem("book", JSON.stringify(books));
 
-    var borrowed = JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) || [];
+    var borrowed =
+      JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) ||
+      [];
 
     borrowed.push(books[bookIndex]);
 
     localStorage.setItem("borrowed_" + currentUser.username, JSON.stringify(borrowed));
+
 
     alert("Book borrowed successfully!");
   } else {
@@ -448,7 +459,9 @@ function borrowBook() {
   }
 }
 const currentUser = localStorage.getItem("Current_user");
-var borrowed = JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) || [];
+console.log(currentUser);
+var borrowed =
+  JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) || [];
 
 if (currentLoc.includes("userprofile")) {
   const booksSection = document.getElementById("borrowedBooks");

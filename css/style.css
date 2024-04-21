@@ -1398,3 +1398,22 @@ strong {
 .radioBtn:nth-child(6):checked~.cube {
   transform: rotateX(75deg) rotateY(0deg);
 }
+
+/*About Us*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+
+#features,
+#admin-features,
+#user-features {
+    margin-bottom: 40px;
+}
+
+/* Style for the bullet lists */
+#features ul,
+#admin-features ul,
+#user-features ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}

@@ -26,7 +26,7 @@
 		"language": "English",
 		"pages": 304,
 		"genres": ["Classics", "Thriller", "Romance"],
-		"availability": 0,
+		"availability": 1,
 		"formats": ["Paperback", "eBook"],
 		"borrowingPeriod": "2 weeks",
 		"reservationOption": "Yes"
@@ -58,7 +58,7 @@
 		"language": "English",
 		"pages": 165,
 		"genres": ["Classics", "Tragedy"],
-		"availability": 0,
+		"availability": 1,
 		"formats": ["Paperback", "eBook"],
 		"borrowingPeriod": "2 weeks",
 		"reservationOption": "Yes"

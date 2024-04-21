@@ -428,7 +428,7 @@ function addBook() {
 function borrowBook() {
   const ktabId = parseInt(urlParams.get("id"));
   var books = JSON.parse(localStorage.getItem("book")) || [];
-
+  const currentUser = localStorage.getItem("Current_user");
   var bookIndex = books.findIndex((book) => book.id === ktabId);
 
   if (bookIndex !== -1) {
@@ -436,18 +436,19 @@ function borrowBook() {
 
     localStorage.setItem("book", JSON.stringify(books));
 
-    var borrowed = JSON.parse(localStorage.getItem("borrowed")) || [];
+    var borrowed = JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) || [];
 
     borrowed.push(books[bookIndex]);
 
-    localStorage.setItem("borrowed", JSON.stringify(borrowed));
+    localStorage.setItem("borrowed_" + currentUser.username, JSON.stringify(borrowed));
 
     alert("Book borrowed successfully!");
   } else {
     alert("Book not found!");
   }
 }
-var borrowed = JSON.parse(localStorage.getItem("borrowed")) || [];
+const currentUser = localStorage.getItem("Current_user");
+var borrowed = JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) || [];
 
 if (currentLoc.includes("userprofile")) {
   const booksSection = document.getElementById("borrowedBooks");

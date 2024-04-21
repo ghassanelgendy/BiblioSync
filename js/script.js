@@ -76,6 +76,9 @@ window.addEventListener("load", function () {
 	setTimeout(function () {
 		loaderWrapper.style.display = "none";
 	}, 500);
+	if (this.window.location.href.includes("editbook")) {
+		editBook();
+	}
 	onScreenLoad();
 });
 
@@ -256,7 +259,7 @@ function login(userObject) {
 		  </a>`;
 			const editbutton = document.createElement("div");
 			editbutton.innerHTML = `
-      <button class="button" onclick="editBook(event)" id="borrow-btn" style="margin-left : 40px">Edit Book</button>`;
+      <button class="button" onclick="redirectEdit()" id="borrow-btn" style="margin-left : 40px">Edit Book</button>`;
 			deletebtn.appendChild(editbutton);
 		}
 	} else {
@@ -278,7 +281,36 @@ function login(userObject) {
 		document.getElementById("Mail").innerText = userObject.email;
 	}
 }
+function redirectEdit() {
+	let url;
+	url = `./editbook.html?query=${encodeURIComponent(
+		parseInt(urlParams.get("id"))
+	)}`;
+	window.location.href = url;
+}
 
+function editBook() {
+	const bookID = parseInt(window.location.href.slice(42));
+	const bookIndex = book.findIndex((book) => book.id === bookID);
+	const currentBook = book[bookIndex];
+	const form = document.getElementById("edit");
+	// Extract form data
+	const bookName = (document.getElementById("book-name").value =
+		currentBook.title);
+	const isbn = (document.getElementById("ISBN").value = currentBook.isbn);
+	const author = (document.getElementById("author").value = currentBook.author);
+	const cover = (document.getElementById("coverlink").value =
+		currentBook.cover);
+	const language = (document.getElementById("language").value =
+		currentBook.language);
+	const genres = document.querySelectorAll(
+		".genres input[type='checkbox']:checked"
+	);
+	const description = (document.getElementById("description").value =
+		currentBook.description);
+	console.log(currentBook);
+	const books = JSON.parse(localStorage.getItem("book")) || [];
+}
 /*Search results*/
 /*===============================================================*/
 /*===============================================================*/
@@ -449,7 +481,6 @@ function borrowBook() {
 			"borrowed_" + currentUser.username,
 			JSON.stringify(borrowed)
 		);
-
 		alert("Book borrowed successfully!");
 	} else {
 		alert("Book not found!");
@@ -483,9 +514,7 @@ if (currentLoc.includes("userprofile")) {
 function deleteBook() {
 	const ktabId = parseInt(urlParams.get("id"));
 	var books = JSON.parse(localStorage.getItem("book")) || [];
-
 	var bookIndex = books.findIndex((book) => book.id === ktabId);
-
 	if (bookIndex !== -1) {
 		books.splice(bookIndex, 1);
 		localStorage.setItem("book", JSON.stringify(books));
@@ -493,4 +522,3 @@ function deleteBook() {
 	alert("Book deleted successfully!");
 	window.location.href = "./collection.html";
 }
-//

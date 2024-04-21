@@ -261,7 +261,7 @@ function login(userObject) {
 		}
 	} else {
 		profileLink.href = `./userprofile.html`;
-		customizable.innerText = "request book";
+		customizable.innerText = "Request Book";
 		customizable.href = "requestbook.html";
 	}
 	const profilePlaceholder = document.getElementById("profile-placeholder");
@@ -440,9 +440,9 @@ function borrowBook() {
 
 		localStorage.setItem("book", JSON.stringify(books));
 
-		const borrowed = JSON.parse(
-			localStorage.getItem("borrowed_" + currentUser.username) || []
-		);
+		const borrowed =
+			JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) ||
+			[];
 		borrowed.push(books[bookIndex]);
 		console.log(borrowed);
 		localStorage.setItem(
@@ -455,12 +455,13 @@ function borrowBook() {
 		alert("Book not found!");
 	}
 }
-const currentUser = localStorage.getItem("Current_user");
+
+const currentUser = JSON.parse(localStorage.getItem("Current_user"));
 
 var borrowed =
-	JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) || [];
-
+	JSON.parse(localStorage.getItem(`borrowed_${currentUser.username}`)) || [];
 if (currentLoc.includes("userprofile")) {
+	console.log("EHNA NOW FELPROIFLE WOOO", borrowed);
 	const booksSection = document.getElementById("borrowedBooks");
 	borrowed.forEach((book) => {
 		const bookelement = document.createElement("div");
@@ -492,3 +493,4 @@ function deleteBook() {
 	alert("Book deleted successfully!");
 	window.location.href = "./collection.html";
 }
+//

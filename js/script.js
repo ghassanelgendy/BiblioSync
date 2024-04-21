@@ -177,10 +177,17 @@ function handleSubmit(event) {
 
   //bos ysahbi el user aw pass aw el etnen mtkrneen wla la
   let users = JSON.parse(localStorage.getItem('users')) || [];
-  if (users.some(user => user.username === name || user.email === email || user.username === name && user.email === email)) {
+  if (users.some(user => user.username === name || user.email === email || (user.username === name && user.email === email))) {
     alert('A user with this username or email already exists!');
     return;
+  } else if (document.getElementById('signup-password').value !== document.getElementById('confirm-password').value) {
+    alert('Password and confirm password do not match!');
+    return;
+  } else if (document.getElementById('confirm-password').value === "") {
+    alert('Please confirm your password!');
+    return;
   }
+  
 
   // Create user object
   const user = createUser(name, isAdmin, email, password, birthdate, gender);

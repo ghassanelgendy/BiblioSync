@@ -310,6 +310,21 @@ function editBook() {
 		currentBook.description);
 	console.log(currentBook);
 	const books = JSON.parse(localStorage.getItem("book")) || [];
+	currentBook.title = document.getElementById("book-name").value;
+	currentBook.isbn = document.getElementById("ISBN").value;
+	currentBook.author = document.getElementById("author").value;
+	currentBook.cover = document.getElementById("coverlink").value;
+	currentBook.language = document.getElementById("language").value;
+	currentBook.description = document.getElementById("description").value;
+
+	
+
+	// Update the book in the books array
+	books[bookIndex] = currentBook;
+
+	// Update the books array in local storage
+	localStorage.setItem("book", JSON.stringify(books));
+
 }
 /*Search results*/
 /*===============================================================*/

@@ -16,7 +16,10 @@ Including another URLconf
 #urls.py tells Django which pages to build in response to a browser or URL request
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
 
 urlpatterns = [
+    path('library/', include('library.urls')),
     path('admin/', admin.site.urls),
+    
 ]

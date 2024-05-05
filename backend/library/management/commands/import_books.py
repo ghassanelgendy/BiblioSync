@@ -16,7 +16,6 @@ class Command(BaseCommand):
             books_data = json.load(f)
             for book_data in books_data:
                 reservation_option = True if book_data.get('reservationOption', '') == 'Yes' else False
-                # Create the book without the genres
                 book = Book.objects.create(
                     title=book_data['title'],
                     author=book_data['author'],
@@ -32,7 +31,7 @@ class Command(BaseCommand):
                     reservation_option=reservation_option
                 )
 
-                # Create the genres and add them to the book
+    
                 genres = []
                 for genre_name in book_data['genres']:
                     genre, created = Genre.objects.get_or_create(name=genre_name)

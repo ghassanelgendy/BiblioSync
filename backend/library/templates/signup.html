@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./icons/site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Online Library - Login/Signup</title>
+  </head>
+
+  <body>
+    <div id="nav-placeholder"></div>
+
+    <div class="loader-wrapper">
+      <div class="loader">
+        <div>
+          <ul>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 90 120">
+                <path
+                  d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+                ></path>
+              </svg>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 90 120">
+                <path
+                  d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+                ></path>
+              </svg>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 90 120">
+                <path
+                  d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+                ></path>
+              </svg>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 90 120">
+                <path
+                  d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+                ></path>
+              </svg>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 90 120">
+                <path
+                  d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+                ></path>
+              </svg>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 90 120">
+                <path
+                  d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"
+                ></path>
+              </svg>
+            </li>
+          </ul>
+        </div>
+        <span>Loading</span>
+      </div>
+    </div>
+    <main class="main-reg">
+      <section id="signup-section">
+        <h2 class="underlined"><mark>Signup</mark></h2>
+        <!-- Signup form goes here -->
+        <form class="signup-form" id="registrationForm">
+          <div class="input-group">
+            <div>
+              <input
+                type="text"
+                id="signup-username"
+                name="username"
+                class="field"
+                required
+              />
+              <label class="user-label" for="username">Username</label>
+            </div>
+            <div>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                required
+                class="field"
+              /><label class="user-label" for="email">E-mail </label>
+            </div>
+            <div>
+              <input
+                type="password"
+                id="signup-password"
+                name="password"
+                required
+                class="field"
+              />
+              <label class="user-label" for="password">Password</label>
+            </div>
+            <div>
+              <input
+                type="password"
+                id="confirm-password"
+                name="Confirm password"
+                required
+                class="field"
+              />
+              <label class="user-label" for="Confirm password"
+                >Confirm Password</label
+              >
+            </div>
+            <div class="input-field">
+              <label
+                style="text-align: center"
+                for="birthdate"
+                class="underlined"
+              >
+                <mark>Birthdate</mark></label
+              >
+              <input type="date" name="birthdate" id="birthdate" />
+            </div>
+          </div>
+
+          <p class="underlined" style="text-align: center">
+            <mark>Gender</mark>
+          </p>
+          <div
+            class="genderRadio"
+            style="display: flex; justify-content: space-around"
+          >
+            <span>
+              <input id="Male" type="radio" name="Gender" value="Male" />
+              <label for="Male">Male</label>
+            </span>
+            <span>
+              <input id="Female" type="radio" name="Gender" value="Female" />
+              <label for="Female">Female</label>
+            </span>
+          </div>
+
+          <label class="container" for="is-admin">
+            <input class="checkmark" type="checkbox" id="is-admin" />
+            <div class="checkmark"></div>
+            Register as admin
+          </label>
+
+          <button
+            type="submit"
+            onclick="handleSubmit(event)"
+            id="registerButton"
+            class="button"
+          >
+            Signup
+          </button>
+          <h4 style="color: var(--action-clr); text-align: center">
+            &nbsp Already a user?
+            <a style="color: var(--txt-clr)" href="./login.html"
+              >&nbsp Login!</a
+            >
+          </h4>
+        </form>
+      </section>
+    </main>
+    <footer style="padding: 20px" id="footer">
+      <div class="links-wrapper">
+        <a href="#">About us</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="social-media">
+        <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
+      </div>
+    </footer>
+    <script src="../static/js/script.js"></script>
+  </body>
+</html>

@@ -1,8 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-
-from django.shortcuts import render
 
 def about_us(request):
     return render(request, 'aboutus.html')
@@ -23,7 +20,7 @@ def collection(request):
     return render(request, 'collection.html')
 
 def credits(request):
-    return render(request, 'Credits.html')
+    return render(request, 'credits.html')
 
 def edit_profile(request):
     return render(request, 'Edit profile.html')
@@ -41,7 +38,7 @@ def request_book(request):
     return render(request, 'requestbook.html')
 
 def search_results(request):
-    return render(request, 'searchResults.html')
+    return render(request, 'searchresults.html')
 
 def sign_up(request):
     return render(request, 'signup.html')

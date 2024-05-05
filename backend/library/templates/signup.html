@@ -21,8 +21,9 @@
     <link rel="manifest" href="./icons/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <title>Online Library - Login/Signup</title>
   </head>
 
@@ -188,6 +189,7 @@
         <a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
       </div>
     </footer>
-    <script src="../static/js/script.js"></script>
+	{% load static %}
+	<script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>

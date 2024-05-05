@@ -26,7 +26,10 @@
       src="https://kit.fontawesome.com/d954325b52.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./css/style.css" />
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
+  
   </head>
 
   <body>
@@ -93,6 +96,7 @@
     </main>
 
     <footer style="padding: 20px" id="footer"></footer>
-    <script src="../static/js/script.js"></script>
+	{% load static %}
+	<script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>

@@ -8,8 +8,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BiblioSync</title>
-	<link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -153,6 +154,7 @@
         $("#nav-placeholder").load("./nav.html");
       });
     </script>
-    <script src="../static/js/script.js"></script>
+{% load static %}
+<script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>

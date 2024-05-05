@@ -915,6 +915,7 @@ span i {
   gap: 1.5em;
   justify-content: center;
   color: var(--txt-clr);
+  background-color: var(--bg-clr);
 }
 
 .books>div {

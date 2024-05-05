@@ -21,11 +21,13 @@
     <link rel="manifest" href="./icons/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <title>About Us</title>
   </head>
-  <script src="../static/js/script.js"></script>
+  {% load static %}
+  <script src="{% static 'js/script.js' %}"></script>
   <body class="forms" style="margin-left: 10px">
     <div class="loader-wrapper">
       <div class="loader">
@@ -132,5 +134,6 @@
   </body>
 
   <footer style="padding: 20px" id="footer"></footer>
-  <script src="../static/js/script.js"></script>
+  {% load static %}
+  <script src="{% static 'js/script.js' %}"></script>
 </html>

@@ -7,68 +7,6 @@ fetch("books.json")
     }
   });
 
-function onScreenLoad() {
-  var navbar = document.getElementById("nav-placeholder");
-  navbar.innerHTML = `
-	{% load url %}
-	{% load static %}
-	<nav class="navbar">
-		<span class="navbar-toggle" id="js-navbar-toggle">
-			<i class="fas fa-bars"></i>
-		</span>
-		<div>
-			<a href="{% url 'index' %}" class="logo">BiblioSync</a>
-		</div>
-		<ul class="main-nav" id="js-menu">
-			<li>
-				<div class="group">
-					<svg
-						id="searchIcon"
-						onclick="redirectToResults()"
-						viewBox="0 0 24 24"
-						aria-hidden="true"
-						class="icon">
-						<g>
-							<path
-								d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-						</g>
-					</svg>
-	
-					<input
-						class="input"
-						id="searchInput"
-						type="search"
-						placeholder="Search" />
-				</div>
-			</li>
-			<li>
-				<a href="{% url 'index' %}" class="nav-links">Home</a>
-			</li>
-			<li>
-				<a href="{% url 'collection' %}" class="nav-links">Books</a>
-			</li>
-			<li>
-				<a href="{% url 'customizable' %}" class="nav-links">Customizable</a>
-			</li>
-			<li>
-				<a href="{% url 'sign_up' %}" class="nav-links">Register</a>
-			</li>
-	
-			<li id="profile-placeholder"></li>
-		</ul>
-	</nav>;
-	`;
-  var footerDiv = document.getElementById("footer");
-  footerDiv.innerHTML = `<div class="links-wrapper">
-				<a href="./aboutus.html">About us</a>
-				<a href="./Credits.html">Credits</a>
-				<a href="./Todo.html">Todo List</a>
-			</div>
-			<div class="social-media">
-				<a href="#">Facebook</a><a href="#">X</a><a href="#">LinkedIn</a>
-			</div>`;
-  checkLoggedIn();
-}
 
 let book = JSON.parse(localStorage.getItem("book"));
 //Loader function

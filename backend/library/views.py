@@ -13,8 +13,9 @@ def admin_profile(request):
     return render(request, 'adminprofile.html')
 
 def book_details(request, id):
-    Book.objects.get(id=id)
-    return render(request, 'bookdetails.html', {'book':     Book.objects.get(id=id)})
+    book = get_object_or_404(Book, id=id)
+    genres = book.genres.all() 
+    return render(request, 'bookdetails.html', {'book': book, 'genres': genres})
 
 def change_password(request):
     return render(request, 'change password.html')

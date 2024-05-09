@@ -40,7 +40,11 @@
 							<p>ISBN: &nbsp<span id="isbn">{{book.isbn}}</span></p>
 							<p>Language: &nbsp<span id="language">{{book.language}}</span></p>
 							<p>Pages: &nbsp<span id="pages">{{book.pages}}</span></p>
-							<p>Genres: &nbsp<span id="genres">{{book.genres}}</span></p>
+              Genres:
+             
+                {% for genre in genres %}
+                  <span id="genre">&nbsp{{ genre }}&nbsp;</span>
+                {% endfor %}
 						</div>
 						<div class="additional-info">
 							<ul>

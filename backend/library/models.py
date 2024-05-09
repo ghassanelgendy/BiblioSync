@@ -23,7 +23,7 @@ class Book(models.Model):
         Genre
     )  # Use ManyToManyField for genres 3shan moken kaza genre
     availability = models.BooleanField(default=True)
-    formats = models.TextField(default="['Paperback', 'eBook']")
+    formats = models.TextField(default="Paperback, eBook")
     borrowing_period = models.CharField(max_length=100, default="2 weeks")
     reservation_option = models.BooleanField(default=True)
 

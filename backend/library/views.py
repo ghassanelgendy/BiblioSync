@@ -27,7 +27,16 @@ def change_password(request):
 
 
 def collection(request):
-    return render(request, "collection.html", {"books": Book.objects.all()})
+    sort = request.GET.get('sort', 'title')
+    if sort == 'year':
+        books = Book.objects.order_by('published')
+    elif sort == 'pages':
+        books = Book.objects.order_by('pages')
+    else:
+        books = Book.objects.order_by('title')
+
+    return render(request, "collection.html", {"books": books, "sort": sort})
+
 
 
 def credits(request):

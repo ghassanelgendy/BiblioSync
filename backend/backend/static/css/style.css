@@ -1419,3 +1419,16 @@ strong {
     list-style-type: disc;
     padding-left: 20px;
 }
+
+/*sort*/
+/*===============================================================*/
+/*===============================================================*/
+/*===============================================================*/
+.sort{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  margin: 20px;
+}

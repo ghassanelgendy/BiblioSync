@@ -11,8 +11,23 @@
     <h2 style="text-align: center; padding: 25px; color: var(--action-clr)">
       Books collection
     </h2>
-
+  
     <main>
+      <form method="get" id="sort" style="  display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 10px;
+      margin: 20px;">
+        <p>Sort by : </p>
+        <input type="radio" id="title" name="sort" value="title" {% if sort == 'title' %}checked{% endif %}>
+        <label for="title">Title</label><br>
+        <input type="radio" id="year" name="sort" value="year" {% if sort == 'year' %}checked{% endif %}>
+        <label for="year">Year</label><br>
+        <input type="radio" id="pages" name="sort" value="pages" {% if sort == 'pages' %}checked{% endif %}>
+        <label for="pages"> Pages</label><br><br>
+        <input type="submit" value="Sort" style="padding : 2px 15px 3px 15px">
+      </form>
       <section id="collection" class="books">
         {% for book in books %}
         <div>

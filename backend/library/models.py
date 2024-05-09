@@ -15,7 +15,7 @@ class Book(models.Model):
         default="https://m.media-amazon.com/images/I/51RTdGBiL6L._SY445_SX342_.jpg"
     )
     description = models.TextField(default="dah ktab")
-    published = models.CharField(max_length=255, default="26 march 2004")
+    published = models.IntegerField(default=2004)
     isbn = models.CharField(max_length=13)
     language = models.CharField(max_length=100, default=" English")
     pages = models.IntegerField(default=354)

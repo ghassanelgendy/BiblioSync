@@ -1,0 +1,51 @@
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<script src="{% static 'js/script.js' %}"></script>
+
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="{% static 'icons/apple-touch-icon.png' %}"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="{% static 'icons/favicon-32x32.png' %}"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="{% static 'icons/favicon-16x16.png' %}"
+/>
+<link rel="manifest" href="{% static './icons/site.webmanifest'%}"/>
+<script
+      src="https://kit.fontawesome.com/d954325b52.js"
+      crossorigin="anonymous"
+    ></script>
+{% include 'loadingscreen.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found</title>
+  </head>
+  <body>
+    <h1 style="padding: 12px;text-align: center">Error 404</h1>
+    <h3 style="padding: 12px;text-align: center">
+      The page you are looking for does not exist
+    </h3>
+    <div>
+        <img src="{% static 'images/error.png' %}" alt="404" height= 250px style="display: flex; justify-content : center; margin : auto" />
+    </div>
+        <a style="padding: 50px;text-align: center; color: whitesmoke" href="{% url 'index' %}">Go back to the home page</a>
+
+  </body>
+</html>
+{% endblock %}

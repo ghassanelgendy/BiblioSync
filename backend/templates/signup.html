@@ -1,36 +1,4 @@
-{% comment %} ana sebt el navbar wel footer mengher el base 3shan mfhosh reset 3shan law sebt el reset el page hatbooz{% endcomment %}
-{% load static %}
-
-
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
-<script src="{% static 'js/script.js' %}"></script>
-
-<link
-rel="apple-touch-icon"
-sizes="180x180"
-href="{% static 'icons/apple-touch-icon.png' %}"
-/>
-<link
-rel="icon"
-type="image/png"
-sizes="32x32"
-href="{% static 'icons/favicon-32x32.png' %}"
-/>
-<link
-rel="icon"
-type="image/png"
-sizes="16x16"
-href="{% static 'icons/favicon-16x16.png' %}"
-/>
-<link rel="manifest" href="{% static './icons/site.webmanifest'%}"/>
-<script
-      src="https://kit.fontawesome.com/d954325b52.js"
-      crossorigin="anonymous"
-    ></script>
-{% include 'loadingscreen.html'%}
-
-{% include 'navbar.html'%}
-
+{% extends 'baseMengherReset.html' %}
 
 {% block content %}
 <!DOCTYPE html>

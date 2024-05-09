@@ -1,38 +1,4 @@
-{% load static %}
-
-
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
-<script src="{% static 'js/script.js' %}"></script>
-
-<link
-rel="apple-touch-icon"
-sizes="180x180"
-href="{% static 'icons/apple-touch-icon.png' %}"
-/>
-<link
-rel="icon"
-type="image/png"
-sizes="32x32"
-href="{% static 'icons/favicon-32x32.png' %}"
-/>
-<link
-rel="icon"
-type="image/png"
-sizes="16x16"
-href="{% static 'icons/favicon-16x16.png' %}"
-/>
-<link rel="manifest" href="{% static './icons/site.webmanifest'%}"/>
-<script
-      src="https://kit.fontawesome.com/d954325b52.js"
-      crossorigin="anonymous"
-    ></script>
-{% include 'loadingscreen.html'%}
-
-{% include 'navbar.html'%}
-
-
-
-{% block content %}
+{% extends 'baseMengherReset.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,7 +17,8 @@ href="{% static 'icons/favicon-16x16.png' %}"
         {% for book in books %}
         <div>
           <a href="{% url 'book_details' id=book.id %}">
-          <img src="{{ book.cover }}" alt="{{ book.title }}" />
+            <img src="{{ book.cover }}" alt="{{ book.title }}"
+          /></a>
           <div><strong>{{ book.title }} By {{book.author}}</strong></div>
         </div>
         {% endfor %}
@@ -60,5 +27,3 @@ href="{% static 'icons/favicon-16x16.png' %}"
   </body>
 </html>
 {% endblock %}
-
-{% include 'footer.html'%}

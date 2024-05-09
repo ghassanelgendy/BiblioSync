@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'baseMengherReset.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,37 +23,54 @@
           rel="noreferrer noopener"
         >
           <div class="book">
-            <img id="book-cover" src="{{ book.cover }}" alt="{{ book.title }}" />
+            <img
+              id="book-cover"
+              src="{{ book.cover }}"
+              alt="{{ book.title }}"
+            />
           </div>
         </a>
 
         <div class="desc">
-					<h3>Description:</h3>
-					<p id="description">{{book.description}}</p>
-          <br/>
-					
-					<div class="info">
-						<div class="book-info">
-							<p>Originally published:&nbsp <span id="published">{{book.published}}</span></p>
-							<p>ISBN: &nbsp<span id="isbn">{{book.isbn}}</span></p>
-							<p>Language: &nbsp<span id="language">{{book.language}}</span></p>
-							<p>Pages: &nbsp<span id="pages">{{book.pages}}</span></p>
-              Genres:
-             
-                {% for genre in genres %}
-                  <span id="genre">&nbsp{{ genre }}&nbsp;</span>
-                {% endfor %}
-						</div>
-						<div class="additional-info">
-							<ul>
-								<li>Availability: &nbsp <span id="availability">{{book.availability}} </span></li>
-								<li>Formats: &nbsp<span id="formats">{{book.formats}}</span></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+          <h3>Description:</h3>
+          <p id="description">{{book.description}}</p>
+          <br />
+
+          <div class="info">
+            <div class="book-info">
+              <p>
+                Originally published:&nbsp
+                <span id="published">{{book.published}}</span>
+              </p>
+              <p>ISBN: &nbsp<span id="isbn">{{book.isbn}}</span></p>
+              <p>Language: &nbsp<span id="language">{{book.language}}</span></p>
+              <p>Pages: &nbsp<span id="pages">{{book.pages}}</span></p>
+              Genres: {% for genre in genres %}
+              <span id="genre">&nbsp{{ genre }}&nbsp;</span>
+              {% endfor %}
+            </div>
+            <div class="additional-info">
+              <ul>
+                <li>
+                  Availability: &nbsp
+                  <span id="availability">
+                    {% if book.availability %}
+                    <i class="fa-solid fa-check"></i>
+                {% else %}
+                    <i class="fa-solid fa-xmark"></i>
+                {% endif %}
+                  </span>
+                </li>
+                <li>
+                  Formats: &nbsp<span id="formats">{{book.formats}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="bookbtn" class="button-container">
       <button class="button" onclick="borrowBook(event)" id="borrow-btn">
         Borrow

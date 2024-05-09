@@ -17,9 +17,9 @@
         {% for book in books %}
         <div>
           <a href="{% url 'book_details' id=book.id %}">
-            <img src="{{ book.cover }}" alt="{{ book.title }}"
+            <img src="{{ book.cover }}" alt="{{ book.title }} " height= 300px width= 200px
           /></a>
-          <div><strong>{{ book.title }} By {{book.author}}</strong></div>
+          <div style="padding-top : 20px"><strong>{{ book.title }} By {{book.author}}</strong></div>
         </div>
         {% endfor %}
       </section>

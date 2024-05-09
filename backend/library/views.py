@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Book
-import json
+import random
 from django.shortcuts import render, get_object_or_404
 
 
@@ -43,7 +43,10 @@ def edit_book(request):
 
 
 def index(request):
-    return render(request, "index.html")
+    books = list(Book.objects.all())
+    random.shuffle(books)
+    books = books[:4]
+    return render(request, "index.html", {"books": books})
 
 
 def login(request):

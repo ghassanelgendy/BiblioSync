@@ -1,21 +1,23 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script
-      src="https://kit.fontawesome.com/d954325b52.js"
-      crossorigin="anonymous"
-    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BiblioSync</title>
-	
+  </head>
+  <body>
     <h3 style="padding: 10px; text-align: center"><u>Recommended Books</u></h3>
     <div id="rand" class="books">
-      <p>Recommended Books</p>
+      {% for book in books %}
+        <div>
+          <a href="{% url 'book_details' id=book.id %}">
+            <img src="{{ book.cover }}" alt="{{ book.title }} " height= 300px width= 200px
+          /></a>
+          <div style="padding-top : 20px"><strong>{{ book.title }} By {{book.author}}</strong></div>
+        </div>
+        {% endfor %}
     </div>
-     </body>
+  </body>
 </html>
 {% endblock %}

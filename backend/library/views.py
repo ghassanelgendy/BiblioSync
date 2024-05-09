@@ -13,16 +13,14 @@ def admin_profile(request):
     return render(request, 'adminprofile.html')
 
 def book_details(request, id):
-    book = get_object_or_404(Book, id=id)
-    return render(request, 'bookdetails.html', {'book': book})
+    Book.objects.get(id=id)
+    return render(request, 'bookdetails.html', {'book':     Book.objects.get(id=id)})
 
 def change_password(request):
     return render(request, 'change password.html')
 
 def collection(request):
-    with open('books.JSON', encoding='utf-8') as f:
-        books = json.load(f)
-    return render(request, 'collection.html', {'books': books})
+    return render(request, 'collection.html', {'books': Book.objects.all() })
 
 
 def credits(request):

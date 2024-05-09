@@ -13,8 +13,8 @@
     <div class="main-content">
       <div id="book-details">
         <header id="book-title">
-          <h1></h1>
-          <h2>by <span id="author"></span></h2>
+          <h1>{{ book.title }}</h1>
+          <h2>by <span id="author">{{book.author}}</span></h2>
         </header>
       </div>
       <div id="align">
@@ -25,32 +25,33 @@
           rel="noreferrer noopener"
         >
           <div class="book">
-            <img id="book-cover" src="" alt="Cover" />
+            <img id="book-cover" src="{{ book.cover }}" alt="{{ book.title }}" />
           </div>
         </a>
 
         <div class="desc">
-          <h3>Description:</h3>
-          <p id="description"></p>
-          <br />
-          <div class="info">
-            <div class="book-info">
-              <p>Originally published:&nbsp <span id="published"></span></p>
-              <p>ISBN: &nbsp<span id="isbn"></span></p>
-              <p>Language: &nbsp<span id="language"></span></p>
-              <p>Pages: &nbsp<span id="pages"></span></p>
-              <p>Genres: &nbsp<span id="genres"></span></p>
-            </div>
-            <div class="additional-info">
-              <ul>
-                <li>Availability: &nbsp <span id="availability"> </span></li>
-                <li>Formats: &nbsp<span id="formats"></span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+					<h3>Description:</h3>
+					<p id="description">{{book.description}}</p>
+          <br/>
+					
+					<div class="info">
+						<div class="book-info">
+							<p>Originally published:&nbsp <span id="published">{{book.published}}</span></p>
+							<p>ISBN: &nbsp<span id="isbn">{{book.isbn}}</span></p>
+							<p>Language: &nbsp<span id="language">{{book.language}}</span></p>
+							<p>Pages: &nbsp<span id="pages">{{book.pages}}</span></p>
+							<p>Genres: &nbsp<span id="genres">{{book.genres}}</span></p>
+						</div>
+						<div class="additional-info">
+							<ul>
+								<li>Availability: &nbsp <span id="availability">{{book.availability}} </span></li>
+								<li>Formats: &nbsp<span id="formats">{{book.formats}}</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     <div id="bookbtn" class="button-container">
       <button class="button" onclick="borrowBook(event)" id="borrow-btn">
         Borrow

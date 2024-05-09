@@ -1,5 +1,7 @@
 from django.shortcuts import render
-
+from .models import Book
+import json
+from django.shortcuts import render, get_object_or_404
 
 def about_us(request):
     return render(request, 'aboutus.html')
@@ -10,14 +12,18 @@ def add_form(request):
 def admin_profile(request):
     return render(request, 'adminprofile.html')
 
-def book_details(request):
-    return render(request, 'bookdetails.html')
+def book_details(request, id):
+    book = get_object_or_404(Book, id=id)
+    return render(request, 'bookdetails.html', {'book': book})
 
 def change_password(request):
     return render(request, 'change password.html')
 
 def collection(request):
-    return render(request, 'collection.html')
+    with open('books.JSON', encoding='utf-8') as f:
+        books = json.load(f)
+    return render(request, 'collection.html', {'books': books})
+
 
 def credits(request):
     return render(request, 'credits.html')

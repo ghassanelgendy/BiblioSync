@@ -82,6 +82,8 @@
       <button class="button" id="borrow-btn">Borrow</button>
     </div>
 
+
+<div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px;">
     <form method="link" action="{% url 'edit_book' id=book.id %}">
       <div id="bookbtn" class="button-container">
         <button class="button">Edit Book</button>
@@ -96,6 +98,8 @@
         </button>
       </div>
     </form>
+  </div>
   </body>
+
 </html>
 {% endblock %}

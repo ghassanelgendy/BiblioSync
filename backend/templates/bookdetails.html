@@ -38,30 +38,38 @@
 
           <div class="info">
             <div class="book-info">
-              <p style="margin-bottom: 7px;">
-                  Originally published:&nbsp
-                  <span id="published">{{book.published}}</span>
+              <p style="margin-bottom: 7px">
+                Originally published:&nbsp
+                <span id="published">{{book.published}}</span>
               </p>
-              <p style="margin-bottom: 7px;">ISBN: &nbsp<span id="isbn">{{book.isbn}}</span></p>
-              <p style="margin-bottom: 7px;">Language: &nbsp<span id="language">{{book.language}}</span></p>
-              <p style="margin-bottom: 7px;">Pages: &nbsp<span id="pages">{{book.pages}}</span></p>
+              <p style="margin-bottom: 7px">
+                ISBN: &nbsp<span id="isbn">{{book.isbn}}</span>
+              </p>
+              <p style="margin-bottom: 7px">
+                Language: &nbsp<span id="language">{{book.language}}</span>
+              </p>
+              <p style="margin-bottom: 7px">
+                Pages: &nbsp<span id="pages">{{book.pages}}</span>
+              </p>
               Genres: {% for genre in genres %}
-              <span id="genre" style="margin-bottom: 7px;">&nbsp{{ genre }}&nbsp;</span>
+              <span id="genre" style="margin-bottom: 7px"
+                >&nbsp{{ genre }}&nbsp;</span
+              >
               {% endfor %}
-          </div>
+            </div>
             <div class="additional-info">
               <ul>
-                <li style="margin-bottom: 7px;"> 
+                <li style="margin-bottom: 7px">
                   Availability: &nbsp
                   <span id="availability">
                     {% if book.availability %}
                     <i class="fa-solid fa-check"></i>
-                {% else %}
+                    {% else %}
                     <i class="fa-solid fa-xmark"></i>
-                {% endif %}
+                    {% endif %}
                   </span>
                 </li>
-                <li style="margin-bottom: 7px;">
+                <li style="margin-bottom: 7px">
                   Formats: &nbsp<span id="formats">{{book.formats}}</span>
                 </li>
               </ul>
@@ -70,12 +78,23 @@
         </div>
       </div>
     </div>
-    <form method="link" action={% url 'edit_book' id=book.id %}>
     <div id="bookbtn" class="button-container">
-      <button class="button"  id="borrow-btn" >
-        Edit Book
-      </button>
+      <button class="button" id="borrow-btn">Borrow</button>
     </div>
+
+    <form method="link" action="{% url 'edit_book' id=book.id %}">
+      <div id="bookbtn" class="button-container">
+        <button class="button" id="borrow-btn">Edit Book</button>
+      </div>
+    </form>
+
+    <form method="post" action="">
+      <div id="bookbtn" class="button-container">
+        {% csrf_token %}
+        <button class="button" type="submit" name="delete_book">
+          Delete Book
+        </button>
+      </div>
     </form>
   </body>
 </html>

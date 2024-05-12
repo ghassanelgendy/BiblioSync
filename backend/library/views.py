@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Book,Genre
 import random
 from django.shortcuts import render, get_object_or_404
-
+from django.shortcuts import redirect
 
 def about_us(request):
     return render(request, "aboutus.html")
@@ -35,9 +35,15 @@ def admin_profile(request):
     return render(request, "adminprofile.html")
 
 
+
 def book_details(request, id):
     book = get_object_or_404(Book, id=id)
     genres = book.genres.all()
+
+    if request.method == "POST" and "delete_book" in request.POST:
+        book.delete()
+        return redirect("collection")  
+
     return render(request, "bookdetails.html", {"book": book, "genres": genres})
 
 
@@ -135,10 +141,3 @@ def user_profile(request):
 
 
 
-def delete_book(request , id):
-        
-    book = Book.objects.get(id=id)
-    if request.method == "POST":
-        book.delete()
-
-    return render(request,"deletebook.html" , {'book':book})

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Book
+from .models import Book,Genre
 import random
 from django.shortcuts import render, get_object_or_404
 

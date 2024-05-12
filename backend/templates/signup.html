@@ -1,6 +1,4 @@
-{% extends 'baseMengherReset.html' %}
-
-{% block content %}
+{% extends 'baseMengherReset.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,8 +12,9 @@
     <main class="main-reg">
       <section id="signup-section">
         <h2 class="underlined"><mark>Signup</mark></h2>
-        <!-- Signup form goes here -->
-        <form class="signup-form" id="registrationForm">
+
+        <form class="signup-form" id="registrationForm" method="POST">
+          {% csrf_token %}
           <div class="input-group">
             <div>
               <input
@@ -93,12 +92,7 @@
             Register as admin
           </label>
 
-          <button
-            type="submit"
-            onclick="handleSubmit(event)"
-            id="registerButton"
-            class="button"
-          >
+          <button type="submit" id="registerButton" class="button">
             Signup
           </button>
           <h4 style="color: var(--action-clr); text-align: center">
@@ -107,12 +101,18 @@
               >&nbsp Login!</a
             >
           </h4>
+       
+      </section>  
+      {% if messages %}
+       <script>
+          {% for message in messages %}
+              alert("{{ message }}");
+          {% endfor %}
+        </script>
+         {% endif %}
+
         </form>
-      </section>
     </main>
   </body>
 </html>
-{% endblock %}
-
-
-{% include 'footer.html'%}
+{% endblock %} {% include 'footer.html'%}

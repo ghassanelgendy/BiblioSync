@@ -7,7 +7,6 @@ urlpatterns = [
     path("adminprofile/", views.admin_profile, name="admin_profile"),
     path("collection/", views.collection, name="collection"),
     path("credits/", views.credits, name="credits"),
-    path("editbook/", views.edit_book, name="edit_book"),
     path("", views.index, name="index"),
     path("index/", views.index, name="index"),
     path("login/", views.login, name="login"),
@@ -18,4 +17,6 @@ urlpatterns = [
     path("bookdetails/<int:id>/", views.book_details, name="book_details"),
     path("bookdetails/", views.book_details, name="book_details"),
     path("userprofile/", views.user_profile, name="user_profile"),
+    path('editbook/<int:id>/', views.edit_book, name="edit_book"),
+    path('deletebook/<int:id>/', views.delete_book, name="delete_book"),
 ]

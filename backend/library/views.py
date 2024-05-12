@@ -9,6 +9,25 @@ def about_us(request):
 
 
 def add_form(request):
+    if request.method == 'POST':
+        bookname = request.POST.get('book-name')
+        ISBN = request.POST.get('ISBN')
+        author = request.POST.get('author')
+        coverlink = request.POST.get('coverlink')
+        language = request.POST.get('language')
+        pagesnumber = request.POST.get('no-pages')
+        # publishDate = request.POST.get('publishDate')
+        description = request.POST.get('description')
+        availability = True if request.POST.get('available') == 'available' else False
+        genres = request.POST.getlist('genres')
+
+        book = Book(title=bookname, isbn=ISBN, author=author, language=language, cover=coverlink, pages=pagesnumber, availability=availability, description=description)
+        book.save()
+
+        # for genre_name in genres:
+        #     genre= Genre.objects.get(name=genre_name)
+        #     book.genres.add(genre)
+
     return render(request, "addform.html")
 
 
@@ -47,8 +66,41 @@ def edit_profile(request):
     return render(request, "Edit profile.html")
 
 
-def edit_book(request):
-    return render(request, "editbook.html")
+def edit_book(request, id):
+
+    #negeeb el ketab el awl
+    book = get_object_or_404(Book, id=id)
+
+    if request.method == 'POST':
+        bookname = request.POST.get('book-name')
+        ISBN = request.POST.get('ISBN')
+        author = request.POST.get('author')
+        language = request.POST.get('language')
+        coverlink = request.POST.get('coverlink')
+        genres = book.genres.all()
+        availability = True if request.POST.get('available') == 'available' else False
+        description = request.POST.get('description')
+
+
+
+        # el new values 
+        book.title = bookname
+        book.isbn = ISBN
+        book.author = author
+        book.language = language
+        book.cover = coverlink
+        book.availability = availability
+        book.description = description
+
+        for genre_name in genres:
+            genre = Genre.objects.get(name= genre_name)
+            book.genres.add(genre)
+  
+
+        book.save()
+
+ 
+    return render(request, "editbook.html",{"book": book})
 
 
 def index(request):
@@ -80,3 +132,13 @@ def todo(request):
 
 def user_profile(request):
     return render(request, "userprofile.html")
+
+
+
+def delete_book(request , id):
+        
+    book = Book.objects.get(id=id)
+    if request.method == "POST":
+        book.delete()
+
+    return render(request,"deletebook.html" , {'book':book})

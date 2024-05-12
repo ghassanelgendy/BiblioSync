@@ -3,6 +3,9 @@ from .models import Book,Genre
 import random
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Book, BorrowedBook
 
 def about_us(request):
     return render(request, "aboutus.html")
@@ -139,5 +142,20 @@ def todo(request):
 def user_profile(request):
     return render(request, "userprofile.html")
 
-
+@csrf_exempt
+def borrow_book(request, book_id):
+    if request.method == 'POST':
+        try:
+            book = Book.objects.get(id=book_id)
+            if book.availability:
+                book.availability = False
+                book.save()
+                BorrowedBook.objects.create(book=book, borrower_name=request.user.username)
+                return JsonResponse({'message': 'Book borrowed successfully.'}, status=200)
+            else:
+                return JsonResponse({'error': 'Book is not available.'}, status=400)
+        except Book.DoesNotExist:
+            return JsonResponse({'error': 'Book not found.'}, status=404)
+    else:
+        return JsonResponse({'error': 'Method not allowed.'}, status=405) 
 

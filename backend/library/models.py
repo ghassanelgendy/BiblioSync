@@ -45,3 +45,9 @@ class User(models.Model):
     birthdate = models.DateField()
     is_admin = models.BooleanField(default=False)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+
+
+class BorrowedBook(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    borrower_name = models.CharField(max_length=100)
+    borrowed_date = models.DateField(auto_now_add=True)

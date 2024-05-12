@@ -414,52 +414,60 @@ function addBook() {
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
-
 function borrowBook() {
   const ktabId = parseInt(urlParams.get("id"));
-  const books = JSON.parse(localStorage.getItem("book")) || [];
   const currentUser = JSON.parse(localStorage.getItem("Current_user"));
-  const bookIndex = books.findIndex((book) => book.id === ktabId);
-  if (bookIndex != -1) {
-    books[bookIndex].availability = 0;
 
-    localStorage.setItem("book", JSON.stringify(books));
-
-    const borrowed =
-      JSON.parse(localStorage.getItem("borrowed_" + currentUser.username)) ||
-      [];
-    borrowed.push(books[bookIndex]);
-    console.log(borrowed);
-    localStorage.setItem(
-      "borrowed_" + currentUser.username,
-      JSON.stringify(borrowed)
-    );
-    alert("Book borrowed successfully!");
-  } else {
-    alert("Book not found!");
-  }
-}
-
-const currentUser = JSON.parse(localStorage.getItem("Current_user"));
-
-var borrowed =
-  JSON.parse(localStorage.getItem(`borrowed_${currentUser.username}`)) || [];
-if (currentLoc.includes("userprofile")) {
-  console.log("EHNA NOW FELPROIFLE WOOO", borrowed);
-  const booksSection = document.getElementById("borrowedBooks");
-  borrowed.forEach((book) => {
-    const bookelement = document.createElement("div");
-    bookelement.innerHTML = `
-    <a href="bookdetails.html?id=${book.id}">
-      <img src="${book.cover}" alt="${book.title} Cover" />
-    </a>
-    <div>
-      <strong>${book.title} by ${book.author}</strong>
-    </div>
-  `;
-    booksSection.appendChild(bookelement);
+  fetch(`/borrow-book/${ktabId}/`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken')
+      },
+      body: JSON.stringify({ user_id: currentUser.id })
+  })
+  .then(response => {
+      if (response.ok) {
+          alert("Book borrowed successfully!");
+      } else {
+          return response.json();
+      }
+  })
+  .then(data => {
+      if (data && data.error) {
+          alert(data.error);
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
+      alert("Failed to borrow book.");
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const borrow_btn= document.getElementById("borrow-btn");
+  
+  borrow_btn.addEventListener("click", function() {
+      borrowBook();
+  });
+});
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
+}
+
+
 /*Delete Book*/
 /*===============================================================*/
 /*===============================================================*/
@@ -475,3 +483,5 @@ function deleteBook() {
   alert("Book deleted successfully!");
   window.location.href = "./collection.html";
 }
+
+

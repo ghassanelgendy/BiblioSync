@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from .models import Book,Genre
 import random
-from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from .models import Book, BorrowedBook
+
+
+# from django.http import JsonResponse
+# from django.views.decorators.csrf import csrf_exempt
+# from .models import Book, BorrowedBook
 
 def about_us(request):
     return render(request, "aboutus.html")
@@ -19,7 +20,7 @@ def add_form(request):
         coverlink = request.POST.get('coverlink')
         language = request.POST.get('language')
         pagesnumber = request.POST.get('no-pages')
-        # publishDate = request.POST.get('publishDate')
+        publishDate = request.POST.get('publishDate')
         description = request.POST.get('description')
         availability = True if request.POST.get('available') == 'available' else False
         genres = request.POST.getlist('genres')
@@ -27,9 +28,9 @@ def add_form(request):
         book = Book(title=bookname, isbn=ISBN, author=author, language=language, cover=coverlink, pages=pagesnumber, availability=availability, description=description)
         book.save()
 
-        # for genre_name in genres:
-        #     genre= Genre.objects.get(name=genre_name)
-        #     book.genres.add(genre)
+        for genre_name in genres:
+            genre, created = Genre.objects.get_or_create(name=genre_name)
+            book.genres.add(genre)
 
     return render(request, "addform.html")
 
@@ -76,9 +77,9 @@ def edit_profile(request):
 
 
 def edit_book(request, id):
-
-    #negeeb el ketab el awl
+    # hat elketab
     book = get_object_or_404(Book, id=id)
+    genres = Genre.objects.all()
 
     if request.method == 'POST':
         bookname = request.POST.get('book-name')
@@ -86,13 +87,12 @@ def edit_book(request, id):
         author = request.POST.get('author')
         language = request.POST.get('language')
         coverlink = request.POST.get('coverlink')
-        genres = book.genres.all()
         availability = True if request.POST.get('available') == 'available' else False
         description = request.POST.get('description')
+        genres = request.POST.getlist('genres')
+        # publishDate = request.POST.get('publishDate')
 
-
-
-        # el new values 
+        #el values elgededa
         book.title = bookname
         book.isbn = ISBN
         book.author = author
@@ -101,15 +101,21 @@ def edit_book(request, id):
         book.availability = availability
         book.description = description
 
-        for genre_name in genres:
-            genre = Genre.objects.get(name= genre_name)
-            book.genres.add(genre)
-  
+       
+        book.genres.clear()
 
+        
+        for genre_name in genres:
+            genre, created = Genre.objects.get_or_create(name=genre_name)
+            book.genres.add(genre)
+
+
+      
         book.save()
 
- 
-    return render(request, "editbook.html",{"book": book})
+  
+    return render(request, "editbook.html", {"book": book, "genres": genres})
+
 
 
 def index(request):
@@ -142,20 +148,20 @@ def todo(request):
 def user_profile(request):
     return render(request, "userprofile.html")
 
-@csrf_exempt
-def borrow_book(request, book_id):
-    if request.method == 'POST':
-        try:
-            book = Book.objects.get(id=book_id)
-            if book.availability:
-                book.availability = False
-                book.save()
-                BorrowedBook.objects.create(book=book, borrower_name=request.user.username)
-                return JsonResponse({'message': 'Book borrowed successfully.'}, status=200)
-            else:
-                return JsonResponse({'error': 'Book is not available.'}, status=400)
-        except Book.DoesNotExist:
-            return JsonResponse({'error': 'Book not found.'}, status=404)
-    else:
-        return JsonResponse({'error': 'Method not allowed.'}, status=405) 
+# @csrf_exempt
+# def borrow_book(request, book_id):
+#     if request.method == 'POST':
+#         try:
+#             book = Book.objects.get(id=book_id)
+#             if book.availability:
+#                 book.availability = False
+#                 book.save()
+#                 BorrowedBook.objects.create(book=book, borrower_name=request.user.username)
+#                 return JsonResponse({'message': 'Book borrowed successfully.'}, status=200)
+#             else:
+#                 return JsonResponse({'error': 'Book is not available.'}, status=400)
+#         except Book.DoesNotExist:
+#             return JsonResponse({'error': 'Book not found.'}, status=404)
+#     else:
+#         return JsonResponse({'error': 'Method not allowed.'}, status=405) 
 

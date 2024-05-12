@@ -25,9 +25,13 @@
 
         <div class="button-container">
           <div>
-            <a href="editbook.html"
-              ><button class="button">Edit Book</button></a
-            >
+            <form method="link" action={% url 'add_form' %}>
+              <div id="bookbtn" class="button-container">
+                <button class="button"  i >
+                  Add Book
+                </button>
+              </div>
+              </form>
             <button class="button">Delete Book</button>
           </div>
         </div>

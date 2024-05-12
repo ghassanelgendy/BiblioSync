@@ -70,12 +70,13 @@
         </div>
       </div>
     </div>
-
+    <form method="link" action={% url 'edit_book' id=book.id %}>
     <div id="bookbtn" class="button-container">
-      <button class="button" onclick="borrowBook(event)" id="borrow-btn">
-        Borrow
+      <button class="button"  id="borrow-btn" >
+        Edit Book
       </button>
     </div>
+    </form>
   </body>
 </html>
 {% endblock %}

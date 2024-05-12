@@ -24,12 +24,11 @@
             name="book-name"
             class="field"
             required
-            value="{{ initial_data.bookName }}"
           />
           <label class="user-label" for="book-name">Book name</label>
         </div>
         <div>
-          <input type="text" id="ISBN" name="ISBN" required class="field"  value="{{ initial_data.ISBN }}"/>
+          <input type="text" id="ISBN" name="ISBN" required class="field" />
           <label class="user-label" for="ISBN">ISBN</label>
         </div>
         <div>
@@ -39,8 +38,6 @@
             name="author"
             required
             class="field"
-            value="{{ initial_data.author }}"
-
           /><label class="user-label" for="Author">Author </label>
         </div>
         <div>
@@ -50,7 +47,6 @@
             name="language"
             class="field"
             required
-            value="{{ initial_data.language }}"
           />
           <label class="user-label" for="language">Language</label>
         </div>
@@ -61,7 +57,6 @@
             name="coverlink"
             class="field"
             required
-            value="{{ initial_data.coverlink }}"
           />
           <label class="user-label" for="coverlink">Cover link</label>
         </div>
@@ -70,38 +65,67 @@
       <h2 id="titles">Genres :</h2>
       <div class="genres">
         <div class="divide">
-          {% for genre in genres %}
-          {% if forloop.counter0|divisibleby:4 %}
-          </div><div class="divide">
-          {% endif %}
           <label class="container">
-              <input type="checkbox" name="genres" value="{{ genre.name }}"
-              {% if genre.name in initial_data.genres %}
-              checked
-              {% endif %} />
-              <div class="checkmark"></div>
-              {{ genre.name }}
+            <input checked="checked" type="checkbox"   name = "genres"   value="classics" />
+            <div class="checkmark"></div>
+            Classics
           </label>
-          {% endfor %}
+          <label class="container">
+            <input checked="checked" type="checkbox"  name = "genres"  value="Comedy" />
+            <div class="checkmark"></div>
+            Comedy
+          </label>
+          <label class="container">
+            <input checked="checked" type="checkbox"  name = "genres"  value="fantasy" />
+            <div class="checkmark"></div>
+            Fantasy
+          </label>
+          <label class="container">
+            <input checked="checked" type="checkbox"   name = "genres"    value="horror" />
+            <div class="checkmark"></div>
+            Horror
+          </label>
+        </div>
+        <div>
+          <label class="container">
+            <input type="checkbox"   name = "genres"        value="mystery" />
+            <div class="checkmark"></div>
+            Mystery
+          </label>
+          <label class="container">
+            <input type="checkbox"    name = "genres"     value="romance" />
+            <div class="checkmark"></div>
+            Romance
+          </label>
+          <label class="container">
+            <input type="checkbox"    name = "genres"      value="sci-fi" />
+            <div class="checkmark"></div>
+            Sci-fi
+          </label>
+
+          <label class="container">
+            <input type="checkbox"   name = "genres"     value="tragedy" />
+            <div class="checkmark"></div>
+            Tragedy
+          </label>
+
       </div>
+        </div>
       </div>
       <h2 id="titles">Availability :</h2>
       <div id="avail">
         <label class="radio-button">
-            <input type="radio" name="available" value="available"
-            {% if initial_data.available == 'available' %} checked {% endif %}/>
-            <span class="radio"></span>
-            Available
+          <input type="radio" name="available" value="available" />
+          <span class="radio"></span>
+          Available
         </label>
-    
+
         <label class="radio-button">
-            <input type="radio" name="available" value="notAvailable"
-            {% if initial_data.available == 'notAvailable' %} checked {% endif %}/>
-            <span class="radio"></span>
-            Not Available
+          <input type="radio" name="available" value="notAvailable" />
+          <span class="radio"></span>
+          Not Available
         </label>
-    </div>
-    
+      </div>
 
       <div class="description">
         <h2 id="titles">Description :</h2>
@@ -111,7 +135,7 @@
           rows="4"
           cols="50"
           placeholder="Add book description"
-        >{{ initial_data.description }}</textarea>
+        ></textarea>
       </div>
 
       <div class="button-container">

@@ -1,9 +1,7 @@
 from django.shortcuts import render , get_object_or_404
-from .models import Book,Genre,User
+from .models import Book,Genre
 import random
 from django.shortcuts import redirect
-from django.contrib.auth.hashers import make_password
-from django.contrib import messages
 
 
 # from django.http import JsonResponse
@@ -83,18 +81,6 @@ def edit_book(request, id):
     book = get_object_or_404(Book, id=id)
     genres = Genre.objects.all()
 
-    initial_data = {
-            'bookName': book.title,
-            'ISBN': book.isbn,
-            'author': book.author,
-            'language': book.language,
-            'coverlink': book.cover,
-            'description': book.description,
-            'available': 'available' if book.availability else 'notAvailable',
-            'genres': [genre.name for genre in book.genres.all()],
-        }
-       
-
     if request.method == 'POST':
         bookname = request.POST.get('book-name')
         ISBN = request.POST.get('ISBN')
@@ -126,9 +112,9 @@ def edit_book(request, id):
 
       
         book.save()
-        return redirect('book_details', id=id)
 
-    return render(request, "editbook.html", {"book": book, "genres": genres, "initial_data": initial_data})
+  
+    return render(request, "editbook.html", {"book": book, "genres": genres})
 
 
 
@@ -152,25 +138,7 @@ def search_results(request):
 
 
 def sign_up(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('Confirm password')
-        birthdate = request.POST.get('birthdate')
-        gender = request.POST.get('Gender')
-        is_admin = request.POST.get('is-admin') is not None
-
-        if password == confirm_password:
-            hashed_password = make_password(password)
-            user = User(username=username, email=email, password=hashed_password, birthdate=birthdate, gender=gender, is_admin=is_admin)
-            user.save()
-            return redirect('login')
-        else:
-            messages.error(request, 'Passwords do not match')
-           
-
-    return render(request, 'signup.html')
+    return render(request, "signup.html")
 
 
 def todo(request):

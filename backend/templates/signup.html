@@ -92,12 +92,21 @@
             >
           </h4>
        
+          <div id="toast">
+            {% for message in messages %}
+             {{ message }}
+          {% endfor %}
+          
+          </div>
       </section>  
       {% if messages %}
        <script>
-          {% for message in messages %}
-              alert("{{ message }}");
-          {% endfor %}
+          var x = document.getElementById("toast");
+          x.style.visibility = "visible";
+          setTimeout(function () {
+            x.style.visibility = "hidden";
+          }, 3000);
+        
         </script>
          {% endif %}
 

@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.http import JsonResponse
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout as auth_logout
+from django.db.utils import IntegrityError
 
 
 # from django.http import JsonResponse
@@ -151,23 +152,26 @@ def index(request):
     return render(request, "index.html", {"books": books})
 
 def sign_up(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('Confirm password')
-        birthdate = request.POST.get('birthdate')
-        gender = request.POST.get('Gender')
-        is_admin = request.POST.get('is-admin') is not None
+    try:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            confirm_password = request.POST.get('Confirm password')
+            birthdate = request.POST.get('birthdate')
+            gender = request.POST.get('Gender')
+            is_admin = request.POST.get('is-admin') is not None
 
-        if password == confirm_password:
-            user = User(username=username, email=email,  gender=gender, is_admin=is_admin)
-            user.set_password(password)
-            user.save()
-            return redirect('login')
-        else:
-            messages.error(request, 'Passwords do not match')
-           
+            if password == confirm_password:
+                user = User(username=username, email=email,  gender=gender, is_admin=is_admin)
+                user.set_password(password)
+                user.save()
+                return redirect('login')
+            else:
+                messages.error(request, 'Passwords do not match')
+    except IntegrityError:
+       messages.error(request, 'Username already exists. Please choose a different username.')
+            
 
     return render(request, 'signup.html')
 

@@ -19,8 +19,9 @@
             src="{% static 'images/user profile.jpg' %}"
             alt="user profile"
           />
-          <h2 style="padding: 5px"><span id="username"></span></h2>
-          <h3><span id="Mail"></span></h3>
+          <h2 style="padding: 5px"><span id="username">{{username}}</span></h2>
+          <br>
+          <h3><span id="Mail">{{email}}</span></h3>
         </div>
 
         <div class="button-container">
@@ -32,7 +33,11 @@
                 </button>
               </div>
               </form>
-            <button class="button">Delete Book</button>
+            <form method="POST">
+              {% csrf_token %}
+              <button type="submit" name="deleteaccount" class="button">Delete Account</button>
+            </form>
+            
           </div>
         </div>
       </div>

@@ -40,7 +40,17 @@ def add_form(request):
 
 
 def admin_profile(request):
-    return render(request, "adminprofile.html")
+
+    if request.method == 'POST' and 'deleteaccount' in request.POST:
+        user = request.user
+        user.delete()
+        return redirect('index')
+
+    x = {
+        'username': request.user.username,
+        'email': request.user.email
+    }
+    return render(request, "adminprofile.html", x)
 
 
 
@@ -216,7 +226,12 @@ def todo(request):
 
 
 def user_profile(request):
-    return render(request, "userprofile.html")
+    
+    x = {
+        'username': request.user.username,
+        'email': request.user.email
+    }
+    return render(request, "userprofile.html", x)
 
 # @csrf_exempt
 # def borrow_book(request, book_id):

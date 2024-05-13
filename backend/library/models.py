@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 class Genre(models.Model):
@@ -34,18 +35,17 @@ class Book(models.Model):
         ordering = ["title"]
 
 
-class User(models.Model):
+
+class User(AbstractUser):
     GENDER_CHOICES = [
         ("M", "Male"),
         ("F", "Female"),
     ]
-    username = models.CharField(max_length=255)
+    REQUIRED_FIELDS = ['email', 'gender']
+    
     email = models.EmailField()
-    password = models.CharField(max_length=255)
-    birthdate = models.DateField()
     is_admin = models.BooleanField(default=False)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-
 
 # class BorrowedBook(models.Model):
 #     book = models.ForeignKey(Book, on_delete=models.CASCADE)

@@ -48,13 +48,29 @@
     <li>
       <a href="{% url 'collection' %}" class="nav-links">Books</a>
     </li>
-    <li>
-      <a href="{% url 'sign_up' %}" class="nav-links">Register</a>
-    </li>
-
-    <li id="profile-placeholder"></li>
+    {% if user.is_authenticated %} 
+      {% if user.is_admin %}
+        <li>
+          <a href="{% url 'admin_profile' %}" class="nav-links">Profile</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="{% url 'user_profile' %}" class="nav-links">Profile</a>
+        </li>
+    
+      {% endif %}
+       <li>
+          <a href="{% url 'logout' %}" class="nav-links">Logout</a>
+        </li>
+    {% else %}
+      <li>
+        <a href="{% url 'sign_up' %}" class="nav-links">Register</a>
+      </li>
+    {% endif %}
   </ul>
 </nav>
+
+
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 <script>

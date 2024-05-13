@@ -2,10 +2,11 @@ from django.shortcuts import render , get_object_or_404
 from .models import Book,Genre,User
 import random
 from django.shortcuts import redirect
-from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.http import JsonResponse
 from django.db.models import Q
+from django.contrib.auth import authenticate, login, logout as auth_logout
+
 
 # from django.http import JsonResponse
 # from django.views.decorators.csrf import csrf_exempt
@@ -139,10 +140,47 @@ def index(request):
     books = books[:4]
     return render(request, "index.html", {"books": books})
 
+def sign_up(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('Confirm password')
+        birthdate = request.POST.get('birthdate')
+        gender = request.POST.get('Gender')
+        is_admin = request.POST.get('is-admin') is not None
 
-def login(request):
-    return render(request, "login.html")
+        if password == confirm_password:
+            user = User(username=username, email=email,  gender=gender, is_admin=is_admin)
+            user.set_password(password)
+            user.save()
+            return redirect('login')
+        else:
+            messages.error(request, 'Passwords do not match')
+           
 
+    return render(request, 'signup.html')
+
+
+
+def login_bta3tna(request):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            print(request.POST.get('username'))
+            print(request.POST.get('password'))
+            if user is not None:
+                login(request, user)
+                return redirect('index')  
+            else:
+                messages.error(request, 'Invalid username or password')
+
+        return render(request, 'login.html')
+
+def logout(request):
+    auth_logout(request)
+    return redirect('index')
 
 def request_book(request):
     return render(request, "requestbook.html")
@@ -172,28 +210,6 @@ def search(request):
             book_json['value'] = book.id
             results.append(book_json)
         return JsonResponse(results, safe=False)
-
-def sign_up(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('Confirm password')
-        birthdate = request.POST.get('birthdate')
-        gender = request.POST.get('Gender')
-        is_admin = request.POST.get('is-admin') is not None
-
-        if password == confirm_password:
-            hashed_password = make_password(password)
-            user = User(username=username, email=email, password=hashed_password, birthdate=birthdate, gender=gender, is_admin=is_admin)
-            user.save()
-            return redirect('login')
-        else:
-            messages.error(request, 'Passwords do not match')
-           
-
-    return render(request, 'signup.html')
-
 
 def todo(request):
     return render(request, "Todo.html")

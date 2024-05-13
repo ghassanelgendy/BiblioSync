@@ -1,61 +1,40 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- boxicons da website gebt meno el icons eli mahtota ganb el username w pw -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-  </head>
-
   <body>
     <main class="main-reg">
       <section id="login-section">
         <h2 class="underlined"><mark>Login</mark></h2>
-        <!-- Signup form goes here -->
-        <form class="signup-form" id="login-form">
+        <form class="signup-form" method="post">
+          {% csrf_token %}
           <div class="input-group">
             <div>
-              <input
-                type="text"
-                id="login-username"
-                name="username"
-                class="field"
-                required
-              />
+              <input type="text" name="username" class="field" required />
               <label class="user-label" for="username">Username</label>
             </div>
             <div>
-              <input
-                type="password"
-                id="login-password"
-                name="password"
-                required
-                class="field"
-              />
+              <input type="password" name="password" required class="field" />
               <label class="user-label" for="password">Password</label>
             </div>
           </div>
-
-          <button
-            type="submit"
-            onclick="checkSubmit(event)"
-            id="loginBtn"
-            class="button"
-          >
-            Login
-          </button>
-
-          <h4 style="color: var(--action-clr); text-align: center">
-            &nbsp New Here?
-            <a style="color: var(--txt-clr)" href="{% url 'sign_up' %}"
-              >&nbsp Sign Up!</a
-            >
-          </h4>
+          <button type="submit" class="button">Login</button>
         </form>
+        <h4 style="color: var(--action-clr); text-align: center">
+          &nbsp New Here? <a style="color: var(--txt-clr)" href="{% url 'sign_up' %}"
+            >&nbsp Sign Up!</a
+          >
+        </h4>
       </section>
     </main>
   </body>
+  {% if messages %}
+  <script>
+     {% for message in messages %}
+         alert("{{ message }}");
+     {% endfor %}
+   </script>
+    {% endif %}
+
 </html>
 {% endblock %}

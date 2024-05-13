@@ -4,7 +4,8 @@ import random
 from django.shortcuts import redirect
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
-
+from django.http import JsonResponse
+from django.db.models import Q
 
 # from django.http import JsonResponse
 # from django.views.decorators.csrf import csrf_exempt
@@ -148,8 +149,29 @@ def request_book(request):
 
 
 def search_results(request):
-    return render(request, "searchresults.html")
+    query = request.GET.get('query')
+    if query:
+        filtered_books = Book.objects.filter(
+            Q(title__icontains=query) |
+            Q(author__icontains=query) |
+            Q(isbn__icontains=query) |
+            Q(genres__name__icontains=query)
+        ).distinct()
+        return render(request, 'searchresults.html', {'books': filtered_books, 'query': query})
+    else:
+        return render(request, 'searchresults.html', {'query': query})
+    
 
+def search(request):
+    if 'term' in request.GET:
+        books = Book.objects.filter(title__icontains=request.GET.get('term'))
+        results = []
+        for book in books:
+            book_json = {}
+            book_json['label'] = book.title
+            book_json['value'] = book.id
+            results.append(book_json)
+        return JsonResponse(results, safe=False)
 
 def sign_up(request):
     if request.method == 'POST':

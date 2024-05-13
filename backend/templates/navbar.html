@@ -1,46 +1,85 @@
+<nav class="navbar">
+  <link
+    rel="stylesheet"
+    href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
+  />
+  <span class="navbar-toggle" id="js-navbar-toggle">
+    <i class="fas fa-bars"></i>
+  </span>
+  <div>
+    <a href="{% url 'index' %}" class="logo">BiblioSync</a>
+  </div>
+  <ul class="main-nav" id="js-menu">
+    <li>
+      <div class="group">
+        <form action="{% url 'search_results' %}" method="get">
+          <button type="submit" style="margin: 0; padding: 0; border: none; background: none;">
+            <svg
+              id="searchIcon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="icon"
+			  style="vertical-align: middle; margin-right: 5px;"
+            >
+              <g>
+                <path
+                  d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                ></path>
+              </g>
+            </svg>
+          </button>
 
-	<nav class="navbar">
-		<span class="navbar-toggle" id="js-navbar-toggle">
-			<i class="fas fa-bars"></i>
-		</span>
-		<div>
-			<a href="{% url 'index' %}" class="logo">BiblioSync</a>
-		</div>
-		<ul class="main-nav" id="js-menu">
-			<li>
-				<div class="group">
-					<svg
-						id="searchIcon"
-						onclick="redirectToResults()"
-						viewBox="0 0 24 24"
-						aria-hidden="true"
-						class="icon">
-						<g>
-							<path
-								d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-						</g>
-					</svg>
-	
-					<input
-						class="input"
-						id="searchInput"
-						type="search"
-						placeholder="Search" />
-				</div>
-			</li>
-			<li>
-				<a href="{% url 'index' %}" class="nav-links">Home</a>
-			</li>
-			<li>
-				<a href="{% url 'collection' %}" class="nav-links">Books</a>
-			</li>
-			<li>
-				{% comment %} <a href="{% url 'customizable' %}" class="nav-links">Customizable</a> {% endcomment %}
-			</li>
-			<li>
-				<a href="{% url 'sign_up' %}" class="nav-links">Register</a>
-			</li>
-	
-			<li id="profile-placeholder"></li>
-		</ul>
-	</nav>
+          <input
+            class="input"
+            name="query"
+            id="searchInput"
+            type="search"
+            placeholder="Search"
+          />
+        </form>
+      </div>
+    </li>
+    <li>
+      <a href="{% url 'index' %}" class="nav-links">Home</a>
+    </li>
+    <li>
+      <a href="{% url 'collection' %}" class="nav-links">Books</a>
+    </li>
+    <li>
+      {% comment %}
+      <a href="{% url 'customizable' %}" class="nav-links">Customizable</a> {% endcomment %}
+    </li>
+    <li>
+      <a href="{% url 'sign_up' %}" class="nav-links">Register</a>
+    </li>
+
+    <li id="profile-placeholder"></li>
+  </ul>
+</nav>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+<script>
+  $(document).ready(function () {
+    initializeAutocomplete();
+  });
+
+  function initializeAutocomplete() {
+    $("#searchInput").autocomplete({
+      source: function (request, response) {
+        $.ajax({
+          url: "/search/",
+          data: {
+            term: request.term,
+          },
+          dataType: "json",
+          success: function (data) {
+            response(data);
+          },
+        });
+      },
+      select: function (event, ui) {
+        window.location.href = "/bookdetails/" + ui.item.value + "/";
+      },
+    });
+  }
+</script>

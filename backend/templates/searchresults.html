@@ -1,26 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'baseMengherReset.html' %}
 
 {% block content %}
-<!-- book_details.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search results</title>
-  </head>
-
-  <body>
+</head>
+<body>
+    <h1 style="margin : 50px auto;  ">Search Results for "{{ query }}"</h1>
     <div class="books" id="searchResults">
-      <h3 style="color: whitesmoke; font-size: 22px">No results found</h3>
+        {% if books %}
+            {% for book in books %}
+                <div>
+                    <a href="{% url 'book_details' book.id %}">
+                        <img src="{{ book.cover }}" alt="{{ book.title }} Cover">
+                    </a>
+                    <div>
+                        <strong>{{ book.title }} by {{ book.author }}</strong>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>No results found</h3>
+        {% endif %}
     </div>
-
-    <script>
-      const queryString = window.location.search;
-      const urlParamss = new URLSearchParams(queryString);
-      const userQuery = urlParamss.get("query");
-      search(userQuery);
-    </script>
-  </body>
+</body>
 </html>
 {% endblock %}

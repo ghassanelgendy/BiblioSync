@@ -13,13 +13,16 @@
     <li>
       <div class="group">
         <form action="{% url 'search_results' %}" method="get">
-          <button type="submit" style="margin: 0; padding: 0; border: none; background: none;">
+          <button
+            type="submit"
+            style="margin: 0; padding: 0; border: none; background: none"
+          >
             <svg
               id="searchIcon"
               viewBox="0 0 24 24"
               aria-hidden="true"
               class="icon"
-			  style="vertical-align: middle; margin-right: 5px;"
+              style="vertical-align: middle; margin-right: 5px"
             >
               <g>
                 <path
@@ -44,10 +47,6 @@
     </li>
     <li>
       <a href="{% url 'collection' %}" class="nav-links">Books</a>
-    </li>
-    <li>
-      {% comment %}
-      <a href="{% url 'customizable' %}" class="nav-links">Customizable</a> {% endcomment %}
     </li>
     <li>
       <a href="{% url 'sign_up' %}" class="nav-links">Register</a>
@@ -79,6 +78,9 @@
       },
       select: function (event, ui) {
         window.location.href = "/bookdetails/" + ui.item.value + "/";
+      },
+      focus: function (event, ui) {
+        return false;
       },
     });
   }

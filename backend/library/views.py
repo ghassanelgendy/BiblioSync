@@ -23,7 +23,7 @@ def add_form(request):
         coverlink = request.POST.get('coverlink')
         language = request.POST.get('language')
         pagesnumber = request.POST.get('no-pages')
-        publishDate = request.POST.get('publishDate')
+        published= request.POST.get('publishDate')
         description = request.POST.get('description')
         availability = True if request.POST.get('available') == 'available' else False
         genres = request.POST.getlist('genres')

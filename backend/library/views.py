@@ -7,10 +7,9 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout as auth_logout
 from django.db.utils import IntegrityError
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from .models import Book, BorrowedBook
-from django.db import transaction
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 
 def about_us(request):
@@ -165,19 +164,38 @@ def sign_up(request):
             email = request.POST.get('email')
             password = request.POST.get('password')
             confirm_password = request.POST.get('Confirm password')
-            birthdate = request.POST.get('birthdate')
             gender = request.POST.get('Gender')
             is_admin = request.POST.get('is-admin') is not None
 
-            if password == confirm_password:
-                user = User(username=username, email=email,  gender=gender, is_admin=is_admin)
-                user.set_password(password)
-                user.save()
-                return redirect('login')
-            else:
+            # Check if email is in correct format
+            try:
+                validate_email(email)
+            except ValidationError:
+                print('Email validation failed')
+                messages.error(request, 'Invalid email format')
+                # return render(request, 'signup.html') 
+
+            # Check if password is at least 8 characters long
+            if len(password) < 8:
+                print('Password length check failed')
+                messages.error(request, 'Password should be at least 8 characters long')
+                # return render(request, 'signup.html') 
+
+            # Check if password and confirm password match
+            elif password != confirm_password:
+                print('Password match check failed')
                 messages.error(request, 'Passwords do not match')
+                # return render(request, 'signup.html') 
+
+            else:
+               user = User(username=username, email=email, gender=gender, is_admin=is_admin)
+               user.set_password(password)
+               user.save()
+               return redirect('login')
+
     except IntegrityError:
-       messages.error(request, 'Username already exists. Please choose a different username.')
+        print('An error occurred during registration')
+        messages.error(request, 'Username already exists. Please choose a different username.')
     return render(request, 'signup.html')
 
 
@@ -244,22 +262,4 @@ def user_profile(request):
     x["borrowed_books"] = borrowed_books
     return render(request, "userprofile.html", x)
 
-# @csrf_exempt
-# def borrow_book(request, book_id):
-#   if request.method == 'POST':
-#     with transaction.atomic(): 
-#       try:
-#         book = Book.objects.get(id=book_id)
-#         if book.availability:
-#           book.availability = False
-#           book.save()
-#           BorrowedBook.objects.create(book=book, borrower=request.user)
-#           return messages({'message': 'Book borrowed successfully.'}, status=200)
-#         else:
-#           return messages({'error': 'Book is not available.'}, status=400)
-#       except Book.DoesNotExist:
-#         return messages({'error': 'Book not found.'}, status=404)
-#   else:
-#     return messages({'error': 'Method not allowed.'}, status=405)
-#   return render(request,"bookdetails.html")
 

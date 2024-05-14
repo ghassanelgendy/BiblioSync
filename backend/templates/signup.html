@@ -82,7 +82,7 @@
             Register as admin
           </label>
 
-          <button type="submit" id="registerButton" class="button">
+          <button type="submit" id="registerButton" class="button" onclick="toastFunction()">
             Signup
           </button>
           <h4 style="color: var(--action-clr); text-align: center">
@@ -96,22 +96,23 @@
             {% for message in messages %}
              {{ message }}
           {% endfor %}
-          
-          </div>
       </section>  
       {% if messages %}
-       <script>
-          var x = document.getElementById("toast");
-          x.style.visibility = "visible";
-          setTimeout(function () {
-            x.style.visibility = "hidden";
-          }, 3000);
-        
-        </script>
+      
          {% endif %}
 
         </form>
     </main>
+    <script>
+      function toastFunction() {
+	var x = document.getElementById("toast");
+	x.className = "show";
+	setTimeout(function () {
+		x.className = x.className.replace("show", "");
+	}, 2300);
+}
+
+    </script>
   </body>
 </html>
 {% endblock %} {% include 'footer.html'%}

@@ -177,6 +177,7 @@ body {
   font-family: "Exo 2", sans-serif;
 }
 
+
 .navbar {
   font-size: 18px;
   background-color: var(--action-clr);
@@ -1408,22 +1409,22 @@ strong {
 #features,
 #admin-features,
 #user-features {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 /* Style for the bullet lists */
 #features ul,
 #admin-features ul,
 #user-features ul {
-    list-style-type: disc;
-    padding-left: 20px;
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 /*sort*/
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
-#sort{
+#sort {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1474,13 +1475,13 @@ strong {
   transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.radio-button__input:checked + .radio-button__label .radio-button__custom {
+.radio-button__input:checked+.radio-button__label .radio-button__custom {
   transform: translateY(-50%) scale(0.9);
   border: 5px solid #e1d2b8;
   color: #e1d2b8;
 }
 
-.radio-button__input:checked + .radio-button__label {
+.radio-button__input:checked+.radio-button__label {
   color: #e1d2b8;
 }
 
@@ -1489,4 +1490,3 @@ strong {
   border-color: #e1d2b8;
   box-shadow: 0 0 10px #e1d2b880;
 }
-

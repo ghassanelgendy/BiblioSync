@@ -7,20 +7,19 @@ let currentLoc = window.location.href;
 //     }
 //   });
 
-
 let book = JSON.parse(localStorage.getItem("book"));
 //Loader function
 window.addEventListener("load", function () {
-  var loaderWrapper = document.querySelector(".loader-wrapper");
-  loaderWrapper.style.transition = "opacity 0.5s";
-  loaderWrapper.style.opacity = "0";
-  setTimeout(function () {
-    loaderWrapper.style.display = "none";
-  }, 500);
-  if (this.window.location.href.includes("editbook")) {
-    editBook();
-  }
-  onScreenLoad();
+	var loaderWrapper = document.querySelector(".loader-wrapper");
+	loaderWrapper.style.transition = "opacity 0.5s";
+	loaderWrapper.style.opacity = "0";
+	setTimeout(function () {
+		loaderWrapper.style.display = "none";
+	}, 500);
+	if (this.window.location.href.includes("editbook")) {
+		editBook();
+	}
+	onScreenLoad();
 });
 
 /*books*/
@@ -415,58 +414,57 @@ window.addEventListener("load", function () {
 /*===============================================================*/
 /*===============================================================*/
 function borrowBook() {
-  const ktabId = parseInt(urlParams.get("id"));
-  const currentUser = JSON.parse(localStorage.getItem("Current_user"));
+	const ktabId = parseInt(urlParams.get("id"));
+	const currentUser = JSON.parse(localStorage.getItem("Current_user"));
 
-  fetch(`/borrow-book/${ktabId}/`, {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken')
-      },
-      body: JSON.stringify({ user_id: currentUser.id })
-  })
-  .then(response => {
-      if (response.ok) {
-          alert("Book borrowed successfully!");
-      } else {
-          return response.json();
-      }
-  })
-  .then(data => {
-      if (data && data.error) {
-          alert(data.error);
-      }
-  })
-  .catch(error => {
-      console.error('Error:', error);
-      alert("Failed to borrow book.");
-  });
+	fetch(`/borrow-book/${ktabId}/`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"X-CSRFToken": getCookie("csrftoken"),
+		},
+		body: JSON.stringify({ user_id: currentUser.id }),
+	})
+		.then((response) => {
+			if (response.ok) {
+				alert("Book borrowed successfully!");
+			} else {
+				return response.json();
+			}
+		})
+		.then((data) => {
+			if (data && data.error) {
+				alert(data.error);
+			}
+		})
+		.catch((error) => {
+			console.error("Error:", error);
+			alert("Failed to borrow book.");
+		});
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  const borrow_btn= document.getElementById("borrow-btn");
-  
-  borrow_btn.addEventListener("click", function() {
-      borrowBook();
-  });
+document.addEventListener("DOMContentLoaded", function () {
+	const borrow_btn = document.getElementById("borrow-btn");
+
+	borrow_btn.addEventListener("click", function () {
+		borrowBook();
+	});
 });
 
 function getCookie(name) {
-  let cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if (cookie.substring(0, name.length + 1) === (name + '=')) {
-              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-              break;
-          }
-      }
-  }
-  return cookieValue;
+	let cookieValue = null;
+	if (document.cookie && document.cookie !== "") {
+		const cookies = document.cookie.split(";");
+		for (let i = 0; i < cookies.length; i++) {
+			const cookie = cookies[i].trim();
+			if (cookie.substring(0, name.length + 1) === name + "=") {
+				cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+				break;
+			}
+		}
+	}
+	return cookieValue;
 }
-
 
 /*Delete Book*/
 /*===============================================================*/
@@ -483,5 +481,3 @@ function getCookie(name) {
 //   alert("Book deleted successfully!");
 //   window.location.href = "./collection.html";
 // }
-
-

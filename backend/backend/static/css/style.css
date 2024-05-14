@@ -36,6 +36,14 @@
   justify-content: center;
 }
 
+.main-regs {
+  height: 86.5vh;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #login-section,
 #signup-section {
   color: var(--white-font);
@@ -362,7 +370,10 @@ footer {
   display: flex;
   justify-content: space-around;
   background-color: var(--action-clr);
+
 }
+
+
 
 footer a {
   color: var(--txt-clr);
@@ -1409,22 +1420,22 @@ strong {
 #features,
 #admin-features,
 #user-features {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 /* Style for the bullet lists */
 #features ul,
 #admin-features ul,
 #user-features ul {
-    list-style-type: disc;
-    padding-left: 20px;
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 /*sort*/
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
-#sort{
+#sort {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1475,13 +1486,13 @@ strong {
   transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.radio-button__input:checked + .radio-button__label .radio-button__custom {
+.radio-button__input:checked+.radio-button__label .radio-button__custom {
   transform: translateY(-50%) scale(0.9);
   border: 5px solid #e1d2b8;
   color: #e1d2b8;
 }
 
-.radio-button__input:checked + .radio-button__label {
+.radio-button__input:checked+.radio-button__label {
   color: #e1d2b8;
 }
 
@@ -1509,6 +1520,7 @@ strong {
   position: relative;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.068);
 }
+
 .card-content {
   width: 100%;
   height: fit-content;
@@ -1516,15 +1528,18 @@ strong {
   flex-direction: column;
   gap: 5px;
 }
+
 .card-heading {
   font-size: 20px;
   font-weight: 700;
   color: rgb(27, 27, 27);
 }
+
 .card-description {
   padding: 9px;
   color: rgb(102, 102, 102);
 }
+
 .card-button-wrapper {
   width: 100%;
   display: flex;
@@ -1532,6 +1547,7 @@ strong {
   justify-content: center;
   gap: 10px;
 }
+
 .card-button {
   padding: 5px 20px;
   height: 35px;
@@ -1540,19 +1556,24 @@ strong {
   cursor: pointer;
   font-weight: 600;
 }
+
 .primary {
   background-color: rgb(255, 114, 109);
   color: white;
 }
+
 .primary:hover {
   background-color: rgb(255, 73, 66);
 }
+
 .secondary {
   background-color: #ddd;
 }
+
 .secondary:hover {
   background-color: rgb(197, 197, 197);
 }
+
 .exit-button {
   display: flex;
   align-items: center;
@@ -1564,23 +1585,25 @@ strong {
   right: 20px;
   cursor: pointer;
 }
+
 .exit-button:hover svg {
   fill: black;
 }
+
 .exit-button svg {
   fill: rgb(175, 175, 175);
 }
 
 #deleteCard {
-  position: fixed; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  z-index: 1000; 
-  background-color: white; 
-  padding: 20px; 
-  border-radius: 10px; 
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -1645,17 +1668,18 @@ strong {
 #toast {
   visibility: hidden;
   min-width: 250px;
+  color: red;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  color: black;
+  border-bottom: solid red 5px;
   text-align: center;
   border-radius: 10px;
-  padding: 16px;
+  padding: 22px 15px;
   position: fixed;
   z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  font-size: 16px;
+  left: 815px;
+  bottom: 95px;
+  font-size: 19px;
 }
 
 #toast.show {

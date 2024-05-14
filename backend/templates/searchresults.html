@@ -1,33 +1,31 @@
-{% extends 'baseMengherReset.html' %}
-
-{% block content %}
+{% extends 'baseMengherReset.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search results</title>
-</head>
-<body>
-    <h1 style="margin : 50px auto;  ">Search Results for "{{ query }}"</h1>
-    <div class="books" id="searchResults">
-        {% if books %}
-            {% for book in books %}
-                <div>
-                    <a href="{% url 'book_details' book.id %}">
-                        <img src="{{ book.cover }}" alt="{{ book.title }} Cover">
-                    </a>
-                    <div style="padding-top : 20px">
-                        <strong>{{ book.title }} by {{ book.author }}</strong>
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %}
-        
-            <h3 >No results found</h3>
-        
-        {% endif %}
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Search results</title>
+	</head>
+	<body>
+		<div class="main-regs">
+			<h1 style="margin: 50px auto">Search Results for "{{ query }}"</h1>
+			<div class="books" id="searchResults">
+				{% if books %} {% for book in books %}
+				<div>
+					<a href="{% url 'book_details' book.id %}">
+						<img src="{{ book.cover }}" alt="{{ book.title }} Cover" />
+					</a>
+					<div style="padding-top: 20px">
+						<strong>{{ book.title }} by {{ book.author }}</strong>
+					</div>
+				</div>
+				{% endfor %} {% else %}
+
+				<h3>No results found</h3>
+
+				{% endif %}
+			</div>
+		</div>
+	</body>
 </html>
 {% endblock %}

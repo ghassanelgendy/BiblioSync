@@ -171,8 +171,6 @@ def sign_up(request):
                 messages.error(request, 'Passwords do not match')
     except IntegrityError:
        messages.error(request, 'Username already exists. Please choose a different username.')
-            
-
     return render(request, 'signup.html')
 
 

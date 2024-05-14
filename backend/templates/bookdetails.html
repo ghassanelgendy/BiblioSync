@@ -79,7 +79,10 @@
       </div>
     </div>
     <div id="bookbtn" class="button-container">
-      <button class="button" id="borrow-btn">Borrow</button>
+      <form method="POST">
+        {% csrf_token %}
+      <button class="button" id="borrow-btn" name="zorar">Borrow</button>
+    </form>
     </div>
 
     <div

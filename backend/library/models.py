@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
 
 class Genre(models.Model):
@@ -35,7 +36,6 @@ class Book(models.Model):
         ordering = ["title"]
 
 
-
 class User(AbstractUser):
     GENDER_CHOICES = [
         ("M", "Male"),
@@ -46,8 +46,16 @@ class User(AbstractUser):
     email = models.EmailField()
     is_admin = models.BooleanField(default=False)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    borrowed_books = models.ManyToManyField('BorrowedBook', related_name='borrowers')
 
-# class BorrowedBook(models.Model):
-#     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-#     borrower_name = models.CharField(max_length=100)
-#     borrowed_date = models.DateField(auto_now_add=True)
+    def __str__(self):
+        return self.username
+    
+
+class BorrowedBook(models.Model):
+    book = models.ForeignKey('Book', on_delete=models.CASCADE)
+    borrower = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    borrowed_date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.book.title} - Borrowed by {self.borrower.username}"

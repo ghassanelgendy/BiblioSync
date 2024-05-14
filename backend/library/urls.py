@@ -19,6 +19,6 @@ urlpatterns = [
     path("bookdetails/", views.book_details, name="book_details"),
     path("userprofile/", views.user_profile, name="user_profile"),
     path("editbook/<int:id>/", views.edit_book, name="edit_book"),
-     path('logout/', views.logout, name='logout'),
-    # path('borrowbook/<int:id>/', views.borrow_book, name= "borrow_book"),
+    path('logout/', views.logout, name='logout'),
+    # path('borrowbook/<int:book_id>/', views.borrow_book, name="borrow_book"),
 ]

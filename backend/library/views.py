@@ -7,11 +7,11 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout as auth_logout
 from django.db.utils import IntegrityError
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Book, BorrowedBook
+from django.db import transaction
 
-
-# from django.http import JsonResponse
-# from django.views.decorators.csrf import csrf_exempt
-# from .models import Book, BorrowedBook
 
 def about_us(request):
     return render(request, "aboutus.html")
@@ -58,12 +58,19 @@ def admin_profile(request):
 def book_details(request, id):
     book = get_object_or_404(Book, id=id)
     genres = book.genres.all()
+    # BorrowedBook = User.borrowed_books.all()
 
     if request.method == "POST" and "delete_book" in request.POST:
         book.delete()
         return redirect("collection")  
+    
+    if request.method == 'POST' and 'zorar' in request.POST:
+                book.availability = False
+                book.save()
+                BorrowedBook.objects.create(book=book, borrower=request.user)
+                # return messages({'message': 'Book borrowed successfully.'}, status=200)
+    return render(request, "bookdetails.html", {"book": book, "genres": genres, "BorrowedBook": BorrowedBook})
 
-    return render(request, "bookdetails.html", {"book": book, "genres": genres})
 
 
 def change_password(request):
@@ -233,22 +240,26 @@ def user_profile(request):
         'username': request.user.username,
         'email': request.user.email
     }
+    borrowed_books = BorrowedBook.objects.filter(borrower=request.user)
+    x["borrowed_books"] = borrowed_books
     return render(request, "userprofile.html", x)
 
 # @csrf_exempt
 # def borrow_book(request, book_id):
-#     if request.method == 'POST':
-#         try:
-#             book = Book.objects.get(id=book_id)
-#             if book.availability:
-#                 book.availability = False
-#                 book.save()
-#                 BorrowedBook.objects.create(book=book, borrower_name=request.user.username)
-#                 return JsonResponse({'message': 'Book borrowed successfully.'}, status=200)
-#             else:
-#                 return JsonResponse({'error': 'Book is not available.'}, status=400)
-#         except Book.DoesNotExist:
-#             return JsonResponse({'error': 'Book not found.'}, status=404)
-#     else:
-#         return JsonResponse({'error': 'Method not allowed.'}, status=405) 
+#   if request.method == 'POST':
+#     with transaction.atomic(): 
+#       try:
+#         book = Book.objects.get(id=book_id)
+#         if book.availability:
+#           book.availability = False
+#           book.save()
+#           BorrowedBook.objects.create(book=book, borrower=request.user)
+#           return messages({'message': 'Book borrowed successfully.'}, status=200)
+#         else:
+#           return messages({'error': 'Book is not available.'}, status=400)
+#       except Book.DoesNotExist:
+#         return messages({'error': 'Book not found.'}, status=404)
+#   else:
+#     return messages({'error': 'Method not allowed.'}, status=405)
+#   return render(request,"bookdetails.html")
 

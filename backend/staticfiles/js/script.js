@@ -413,58 +413,47 @@ window.addEventListener("load", function () {
 /*===============================================================*/
 /*===============================================================*/
 /*===============================================================*/
+
 function borrowBook() {
 	const ktabId = parseInt(urlParams.get("id"));
 	const currentUser = JSON.parse(localStorage.getItem("Current_user"));
-
-	fetch(`/borrow-book/${ktabId}/`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-			"X-CSRFToken": getCookie("csrftoken"),
-		},
-		body: JSON.stringify({ user_id: currentUser.id }),
+	const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+  
+	fetch(`/borrowbook/${ktabId}/`, {
+	  method: "POST",
+	  headers: {
+		"Content-Type": "application/json",
+		"X-CSRFToken": csrfToken,
+	  },
+	  body: JSON.stringify({ user_id: currentUser.id }),
 	})
-		.then((response) => {
-			if (response.ok) {
-				alert("Book borrowed successfully!");
-			} else {
-				return response.json();
-			}
-		})
-		.then((data) => {
-			if (data && data.error) {
-				alert(data.error);
-			}
-		})
-		.catch((error) => {
-			console.error("Error:", error);
-			alert("Failed to borrow book.");
-		});
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-	const borrow_btn = document.getElementById("borrow-btn");
-
-	borrow_btn.addEventListener("click", function () {
-		borrowBook();
-	});
-});
-
-function getCookie(name) {
-	let cookieValue = null;
-	if (document.cookie && document.cookie !== "") {
-		const cookies = document.cookie.split(";");
-		for (let i = 0; i < cookies.length; i++) {
-			const cookie = cookies[i].trim();
-			if (cookie.substring(0, name.length + 1) === name + "=") {
-				cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-				break;
-			}
+	  .then((response) => response.json())  // Parse response as JSON
+	  .then((data) => {
+		if (data.message) {
+		  alert(data.message); // Success message
+		} else if (data.error) {
+		  alert(data.error); // Specific error message
+		} else {
+		  alert("Failed to borrow book."); // Generic error for unexpected response
 		}
-	}
-	return cookieValue;
-}
+	  })
+	  .catch((error) => {
+		console.error("Error:", error);
+		const errorStatus = error.response ? error.response.status : 500; // Get status code or default to 500
+		let errorMessage = "Failed to borrow book.";
+		switch (errorStatus) {
+		  case 400:
+			errorMessage = "Book is not available.";
+			break;
+		  case 404:
+			errorMessage = "Book not found.";
+			break;
+		  default:
+			errorMessage = "Internal Server Error.";
+		}
+		alert(errorMessage);
+	  });
+  }
 
 /*Delete Book*/
 /*===============================================================*/

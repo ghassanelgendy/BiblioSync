@@ -22,7 +22,18 @@
       <div id="user-details">
         <div class="buttons">
           <h3><u> Borrowed Books</u></h3>
-          <div id="borrowedBooks" class="books"></div>
+          <section class="books">
+            {% for borrowed_book in borrowed_books %}
+            <div>
+              <a href="{% url 'book_details' id=borrowed_book.book.id %}">
+                <img src="{{ borrowed_book.book.cover }}" alt="{{ borrowed_book.book.title }}" height="300px" width="200px" />
+              </a>
+              <div style="padding-top: 20px">
+                <strong>{{ borrowed_book.book.title }} by {{ borrowed_book.book.author }}</strong>
+              </div>
+            </div>
+            {% endfor %}
+          </section>       
         </div>
       </div>
     </div>

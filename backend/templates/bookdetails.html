@@ -79,25 +79,27 @@
       </div>
     </div>
     <div id="bookbtn" class="button-container">
-      <form method="POST">
-        {% csrf_token %}
-      <button class="button" id="borrow-btn" name="zorar">Borrow</button>
-    </form>
-    </div>
+      {% if user.is_authenticated %} 
+       {% if not user.is_admin %}
+        {% if book.availability %}
+          <form method="POST">
+            {% csrf_token %}
+          <button class="button" id="borrow-btn" name="zorar">Borrow</button>
+        </form>
+        </div>
+        {% else %}
+        <button class="button" id="borrow-btn" disabled style="background-color: gray; cursor: not-allowed; box-shadow:0px 6px 0px #5A5A5A; color: black">Borrow</button>
+        {% endif %}
+        {% else %}
 
-    <div
-      style="
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-      "
-    >
+
+    
       <form method="link" action="{% url 'edit_book' id=book.id %}">
         <div id="bookbtn" class="button-container">
           <button class="button">Edit Book</button>
         </div>
       </form>
+   
 
       <div id="bookbtn" class="button-container">
         <button
@@ -161,6 +163,12 @@
           z-index: 999;
         "
       ></div>
+      {% endif %}
+        {% else %}
+        <h3 style="color: var(--action-clr); text-align: center">
+          <a style="color: var(--txt-clr)" href="{% url 'login'%}"
+            >&nbsp Login to borrow this book!</a>
+      {% endif %}
 
       <script>
         document.getElementById("deleteButton").addEventListener("click", function() {

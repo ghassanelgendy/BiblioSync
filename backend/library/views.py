@@ -1,15 +1,11 @@
-from django.shortcuts import render , get_object_or_404
-from .models import Book,Genre,User
-import random
-from django.shortcuts import redirect
+from django.shortcuts import render , get_object_or_404, redirect
+from .models import Book,Genre,User ,BorrowedBook
 from django.contrib import messages
 from django.http import JsonResponse
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout as auth_logout
 from django.db.utils import IntegrityError
-from .models import Book, BorrowedBook
-from django.core.validators import validate_email
-from django.core.exceptions import ValidationError
+import re,random
 
 
 def about_us(request):
@@ -67,7 +63,6 @@ def book_details(request, id):
                 book.availability = False
                 book.save()
                 BorrowedBook.objects.create(book=book, borrower=request.user)
-                # return messages({'message': 'Book borrowed successfully.'}, status=200)
     return render(request, "bookdetails.html", {"book": book, "genres": genres, "BorrowedBook": BorrowedBook})
 
 
@@ -157,48 +152,46 @@ def index(request):
     books = books[:4]
     return render(request, "index.html", {"books": books})
 
+
 def sign_up(request):
-    try:
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            email = request.POST.get('email')
-            password = request.POST.get('password')
-            confirm_password = request.POST.get('Confirm password')
-            gender = request.POST.get('Gender')
-            is_admin = request.POST.get('is-admin') is not None
+    error_messages = None
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('Confirm password')
+        gender = request.POST.get('Gender')
+        is_admin = request.POST.get('is-admin') is not None
 
-            # Check if email is in correct format
+        # Check if email is in correct format
+        if not re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', email):
+            print('Email validation failed')
+            error_messages = 'Invalid email format'
+
+        # Check if password is at least 8 characters long
+        elif len(password) < 8:
+            print('Password length check failed')
+            error_messages = 'Password should be at least 8 characters long'
+
+        # Check if password and confirm password match
+        elif password != confirm_password:
+            print('Password match check failed')
+            error_messages = 'Passwords do not match'
+
+        if not error_messages:
             try:
-                validate_email(email)
-            except ValidationError:
-                print('Email validation failed')
-                messages.error(request, 'Invalid email format')
-                # return render(request, 'signup.html') 
+                error_messages = None
+                user = User(username=username, email=email, gender=gender, is_admin=is_admin)
+                user.set_password(password)
+                user.save()
+                error_messages = None  
+                return JsonResponse({'success': True})
+            except IntegrityError:
+                error_messages = 'Username already exists. Please choose a different username.'
 
-            # Check if password is at least 8 characters long
-            if len(password) < 8:
-                print('Password length check failed')
-                messages.error(request, 'Password should be at least 8 characters long')
-                # return render(request, 'signup.html') 
-
-            # Check if password and confirm password match
-            elif password != confirm_password:
-                print('Password match check failed')
-                messages.error(request, 'Passwords do not match')
-                # return render(request, 'signup.html') 
-
-            else:
-               user = User(username=username, email=email, gender=gender, is_admin=is_admin)
-               user.set_password(password)
-               user.save()
-               return redirect('login')
-
-    except IntegrityError:
-        print('An error occurred during registration')
-        messages.error(request, 'Username already exists. Please choose a different username.')
-    return render(request, 'signup.html')
-
-
+        return JsonResponse({'error': error_messages})
+    else:
+        return render(request, 'signup.html')
 
 def login_bta3tna(request):
         if request.method == 'POST':

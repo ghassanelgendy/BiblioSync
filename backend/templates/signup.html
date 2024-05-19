@@ -112,10 +112,17 @@
     var x = document.getElementById("toast");
     x.innerHTML = message;
     x.className = "show";
+    x.style.visibility = "visible";  // Ensure visibility is visible when showing the toast
+    x.style.opacity = "1";  // Ensure opacity is set to 1 when showing the toast
+    
     setTimeout(function () {
       x.className = x.className.replace("show", "");
-    }, 5000);
+      x.style.visibility = "hidden";  // Ensure visibility is hidden immediately after removing the 'show' class
+      x.style.opacity = "0";  // Ensure opacity is set to 0 immediately after removing the 'show' class
+    }, 3000); // Total duration including fadeout
   }
+  
+  
   $(document).on("submit", "#registrationForm", function (e) {
     e.preventDefault();
     var form = $(this);
@@ -127,12 +134,13 @@
         if (data.error) {
           toastFunction(data.error);
         } else if (data.success) {
-
           window.location.href = "{% url 'login' %}";
         }
       }    
     });
   });
+  
+  
 </script>
 
   </body> 

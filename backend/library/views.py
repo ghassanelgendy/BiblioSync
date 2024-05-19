@@ -154,7 +154,7 @@ def index(request):
 
 
 def sign_up(request):
-    error_messages = None
+    error_messages = ''
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -180,14 +180,13 @@ def sign_up(request):
 
         if not error_messages:
             try:
-                error_messages = None
                 user = User(username=username, email=email, gender=gender, is_admin=is_admin)
                 user.set_password(password)
                 user.save()
-                error_messages = None  
                 return JsonResponse({'success': True})
             except IntegrityError:
                 error_messages = 'Username already exists. Please choose a different username.'
+
 
         return JsonResponse({'error': error_messages})
     else:

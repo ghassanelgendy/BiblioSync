@@ -32,7 +32,7 @@ Take a look at our website
 <img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/3ab415b2-23e8-482d-b713-9b1c9b32701a" alt="demo" width="400"> &nbsp;&nbsp;
 <img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/efb6d104-dece-47b3-94fb-13b6f29d83d8" alt="demo" width="400">
 <img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/9d0e617b-02c9-4e00-b7ce-27b3a6d6c1a4" alt="demo" width="400" >&nbsp;&nbsp;
-<img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/97ba6d34-eab7-4bc9-839f-f6e26854eaca" alt="demo" width="400">
+<img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/c3c270cd-990d-4008-8af0-9b88977e51ae" alt="demo" width="400">
 
 ---
 

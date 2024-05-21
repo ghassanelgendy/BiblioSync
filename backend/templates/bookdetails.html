@@ -11,7 +11,7 @@
     <div class="main-content">
       <div id="book-details">
         <header id="book-title" style="padding: 20px">
-          <h1>{{ book.title }}</h1>
+          <h1 id="esm">{{ book.title }}</h1>
           <h2>by <span id="author">{{book.author}}</span></h2>
         </header>
       </div>
@@ -32,7 +32,7 @@
         </a>
 
         <div class="desc">
-          <h3>Description:</h3>
+          <h3 style="color: var(--action-clr)">Description:</h3>
           <p id="description">{{book.description}}</p>
           <br />
 
@@ -165,8 +165,8 @@
       ></div>
       {% endif %}
         {% else %}
-        <h3 style="color: var(--action-clr); text-align: center">
-          <a style="color: var(--txt-clr)" href="{% url 'login'%}"
+        <h3 style="text-align: center">
+          <a style="color : var(--gray-clr)" href="{% url 'login'%}"
             >&nbsp Login to borrow this book!</a>
       {% endif %}
 

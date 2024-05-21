@@ -82,7 +82,7 @@
             Register as admin
           </label>
 
-          <button type="submit" id="registerButton" class="button" onclick="toastFunction()">
+          <button type="submit" id="registerButton" class="button" >
             Signup
           </button>
           <h4 style="color: var(--action-clr); text-align: center">
@@ -112,14 +112,14 @@
     var x = document.getElementById("toast");
     x.innerHTML = message;
     x.className = "show";
-    x.style.visibility = "visible";  // Ensure visibility is visible when showing the toast
-    x.style.opacity = "1";  // Ensure opacity is set to 1 when showing the toast
+    x.style.visibility = "visible"; 
+    x.style.opacity = "1";  
     
     setTimeout(function () {
       x.className = x.className.replace("show", "");
-      x.style.visibility = "hidden";  // Ensure visibility is hidden immediately after removing the 'show' class
-      x.style.opacity = "0";  // Ensure opacity is set to 0 immediately after removing the 'show' class
-    }, 3000); // Total duration including fadeout
+      x.style.visibility = "hidden";  
+      x.style.opacity = "0";  
+    }, 3000); 
   }
   
   
@@ -134,7 +134,9 @@
         if (data.error) {
           toastFunction(data.error);
         } else if (data.success) {
+          
           window.location.href = "{% url 'login' %}";
+          x.className = x.className.replace("show", "");
         }
       }    
     });

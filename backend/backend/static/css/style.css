@@ -4,8 +4,8 @@
 
 :root {
   --bg-clr: #1e1e1e;
-  --action-clr: #e1d2b8;
-  --txt-clr: #894e1d;
+  --action-clr: #d4bf98;
+  --txt-clr: #963c12;
   --white-clr: #;
   --gray-clr: #9b775d;
   --light-action-clr: #dba084;
@@ -110,7 +110,7 @@ body {
   justify-content: space-between;
   background-color: var(--bg-clr);
   color: whitesmoke;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 /*search*/
@@ -270,6 +270,7 @@ body {
     display: none;
   }
 
+
   .logo:hover,
   .nav-links:hover {
     color: var(--txt-clr);
@@ -308,7 +309,7 @@ textarea {
   color: var(--txt-clr);
   font-size: 20px;
   background-color: var(--action-clr);
-  border: 1px solid var(--white-font);
+  border: 1px solid #ecd9b6;
   border-radius: 9px;
   cursor: pointer;
   padding: 5px 30px;
@@ -331,6 +332,14 @@ textarea {
   justify-content: center;
   margin: 15px;
   margin-bottom: 45px;
+}
+h3{
+  color: var(--action-clr);
+  letter-spacing: 0.15rem;
+  font-size: 1.8em;
+ 
+  
+
 }
 
 /*radio button and checkbox style in add page part*/
@@ -370,7 +379,11 @@ footer {
   display: flex;
   justify-content: space-around;
   background-color: var(--action-clr);
+  position: relative;
+  bottom: 0;
+  width: 100%;
 
+ padding: 14px;
 }
 
 
@@ -828,6 +841,7 @@ header {
 
 .main-content {
   color: var(--white-font);
+  font-size: 19px;
 }
 
 .fa-check {
@@ -844,7 +858,7 @@ header {
 
 li span,
 .info span {
-  color: var(--light-action-clr);
+  color: var(--action-clr);
 }
 
 span i {
@@ -872,6 +886,10 @@ span i {
 
 #description {
   font-family: "Eczar";
+}
+
+#esm{
+ color: rgb(255, 241, 230);
 }
 
 #book-title::first-line {
@@ -1333,7 +1351,7 @@ strong {
 }
 
 .radioBtn {
-  margin-bottom: 5em;
+  margin-bottom: 3em;
 
 }
 
@@ -1711,4 +1729,9 @@ strong {
 @keyframes fadeout {
   from {bottom: 95px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+
+#rand{
+  min-height: 74vh;
 }

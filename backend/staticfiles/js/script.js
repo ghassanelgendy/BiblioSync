@@ -7,19 +7,20 @@ let currentLoc = window.location.href;
 //     }
 //   });
 
+
 let book = JSON.parse(localStorage.getItem("book"));
 //Loader function
 window.addEventListener("load", function () {
-	var loaderWrapper = document.querySelector(".loader-wrapper");
-	loaderWrapper.style.transition = "opacity 0.5s";
-	loaderWrapper.style.opacity = "0";
-	setTimeout(function () {
-		loaderWrapper.style.display = "none";
-	}, 500);
-	if (this.window.location.href.includes("editbook")) {
-		editBook();
-	}
-	onScreenLoad();
+  var loaderWrapper = document.querySelector(".loader-wrapper");
+  loaderWrapper.style.transition = "opacity 0.5s";
+  loaderWrapper.style.opacity = "0";
+  setTimeout(function () {
+    loaderWrapper.style.display = "none";
+  }, 500);
+  if (this.window.location.href.includes("editbook")) {
+    editBook();
+  }
+  onScreenLoad();
 });
 
 /*books*/
@@ -414,46 +415,8 @@ window.addEventListener("load", function () {
 /*===============================================================*/
 /*===============================================================*/
 
-function borrowBook() {
-	const ktabId = parseInt(urlParams.get("id"));
-	const currentUser = JSON.parse(localStorage.getItem("Current_user"));
-	const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-  
-	fetch(`/borrowbook/${ktabId}/`, {
-	  method: "POST",
-	  headers: {
-		"Content-Type": "application/json",
-		"X-CSRFToken": csrfToken,
-	  },
-	  body: JSON.stringify({ user_id: currentUser.id }),
-	})
-	  .then((response) => response.json())  // Parse response as JSON
-	  .then((data) => {
-		if (data.message) {
-		  alert(data.message); // Success message
-		} else if (data.error) {
-		  alert(data.error); // Specific error message
-		} else {
-		  alert("Failed to borrow book."); // Generic error for unexpected response
-		}
-	  })
-	  .catch((error) => {
-		console.error("Error:", error);
-		const errorStatus = error.response ? error.response.status : 500; // Get status code or default to 500
-		let errorMessage = "Failed to borrow book.";
-		switch (errorStatus) {
-		  case 400:
-			errorMessage = "Book is not available.";
-			break;
-		  case 404:
-			errorMessage = "Book not found.";
-			break;
-		  default:
-			errorMessage = "Internal Server Error.";
-		}
-		alert(errorMessage);
-	  });
-  }
+
+
 
 /*Delete Book*/
 /*===============================================================*/
@@ -470,3 +433,5 @@ function borrowBook() {
 //   alert("Book deleted successfully!");
 //   window.location.href = "./collection.html";
 // }
+
+

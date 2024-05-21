@@ -245,6 +245,13 @@ def todo(request):
 
 
 def user_profile(request):
+
+    
+    if request.method == 'POST' and 'deleteaccount' in request.POST:
+        user = request.user
+        user.delete()
+        return redirect('index')
+
     
     x = {
         'username': request.user.username,

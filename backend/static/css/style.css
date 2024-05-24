@@ -110,6 +110,7 @@ body {
   justify-content: space-between;
   background-color: var(--bg-clr);
   color: whitesmoke;
+              min-height: 100vh;
   font-size: 19px;
 }
 
@@ -336,11 +337,6 @@ textarea {
 
 h3 {
   color: var(--action-clr);
-  letter-spacing: 0.15rem;
-  font-size: 1.8em;
-
-
-
 }
 
 /*radio button and checkbox style in add page part*/
@@ -380,8 +376,6 @@ footer {
   display: flex;
   justify-content: space-around;
   background-color: var(--action-clr);
-  position: relative;
-  bottom: 0;
   width: 100%;
 
   padding: 14px;
@@ -1007,7 +1001,9 @@ strong {
   border-radius: 300px;
   margin: 0 auto;
 }
-
+#Mail {
+  font-size: 1.2rem;
+}
 #user-details {
   display: flex;
   flex-direction: column;
@@ -1759,8 +1755,21 @@ strong {
     opacity: 0;
   }
 }
+.main-wallahy {
+  flex: 1;
+}
 
+.welcome-g {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.4rem;
+  margin-bottom: 2rem;
+}
 
-#rand {
-  min-height: 75vh;
+.slog {
+  margin-top: 0.4rem;
+  text-align: center;
+  font-size: large;
 }

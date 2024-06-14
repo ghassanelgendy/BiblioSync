@@ -1,6 +1,6 @@
 # BiblioSync
 
-Welcome to BiblioSync, the ultimate online library experience crafted as a project for the IS231 course at the Faculty of Computer Science, Cairo University. Whether you're a book lover or a library manager, BiblioSync has everything you need to dive into the world of books.
+Welcome to BiblioSync, the ultimate online library experience crafted as a project for the IS231 course at the FCAI, Cairo University. Whether you're a book lover or a library manager, BiblioSync has everything you need to dive into the world of books.
 
 ## Features
 
@@ -21,19 +21,12 @@ Welcome to BiblioSync, the ultimate online library experience crafted as a proje
 - **View Borrowed Books**: Keep track of all the books you've borrowed.
 
 ## Dynamic Navigation
-
 BiblioSync features a dynamic navigation bar that adapts based on the logged-in user. This ensures a seamless and intuitive browsing experience across all web pages.
 
-## DEMO
-
-Take a look at our website
 &nbsp;
-
-<img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/3ab415b2-23e8-482d-b713-9b1c9b32701a" alt="demo" width="400"> &nbsp;&nbsp;
-<img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/efb6d104-dece-47b3-94fb-13b6f29d83d8" alt="demo" width="400">
-<img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/9d0e617b-02c9-4e00-b7ce-27b3a6d6c1a4" alt="demo" width="400" >&nbsp;&nbsp;
-<img src="https://github.com/ghassanelgendy/BiblioSync/assets/142116846/c3c270cd-990d-4008-8af0-9b88977e51ae" alt="demo" width="400">
-
+![mockup](https://github.com/ghassanelgendy/bibliosync/assets/112765677/3ecea334-b3d2-4404-b3e6-f20472001616)
+  
 ---
 
-Developed with ❤️ 
+Developed with ❤️
+BiblioSync is proudly deployed on Vercel and utilizes PostgreSQL for its database, hosted on Railway.

@@ -28,5 +28,4 @@ BiblioSync features a dynamic navigation bar that adapts based on the logged-in 
   
 ---
 
-Developed with ❤️
-BiblioSync is proudly deployed on Vercel and utilizes PostgreSQL for its database, hosted on Railway.
+Developed with ❤️ <br>BiblioSync is proudly deployed on Vercel and utilizes PostgreSQL for its database, hosted on Railway.

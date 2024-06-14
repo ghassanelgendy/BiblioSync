@@ -6,7 +6,7 @@
     <main class="main-reg">
       <section id="login-section">
         <h2 class="underlined"><mark>Login</mark></h2>
-        <form class="signup-form" method="post">
+        <form class="signup-form" id="loginForm" method="post">
           {% csrf_token %}
           <div class="input-group">
             <div>
@@ -27,14 +27,54 @@
         </h4>
       </section>
     </main>
-  </body>
-  {% if messages %}
-  <script>
-     {% for message in messages %}
-         alert("{{ message }}");
-     {% endfor %}
-   </script>
-    {% endif %}
+    
+    <div id="toast"></div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+      function toastFunction(message) {
+        var x = document.getElementById("toast");
+        x.innerHTML = message;
+        x.className = "show";
+        x.style.visibility = "visible"; 
+        x.style.opacity = "1";  
+
+        setTimeout(function () {
+          x.className = x.className.replace("show", "");
+          x.style.visibility = "hidden";  
+          x.style.opacity = "0";  
+        }, 3000); 
+      }
+
+      $(document).on("submit", "#loginForm", function (e) {
+        e.preventDefault();
+        var form = $(this);
+        $.ajax({
+          type: form.attr("method"),
+          url: form.attr("action"),
+          data: form.serialize(),
+          success: function (data) {
+            if (data.error) {
+              toastFunction(data.error);
+            } else if (data.success) {
+              window.location.href = "{% url 'index' %}";
+            }
+          },
+          error: function () {
+            toastFunction('An error occurred. Please try again.');
+          }
+        });
+      });
+    </script>
+
+    {% if messages %}
+    <script>
+      {% for message in messages %}
+          toastFunction("{{ message }}");
+      {% endfor %}
+    </script>
+    {% endif %}
+  </body>
 </html>
 {% endblock %}

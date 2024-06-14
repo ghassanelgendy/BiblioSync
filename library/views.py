@@ -193,19 +193,17 @@ def sign_up(request):
         return render(request, 'signup.html')
 
 def login_bta3tna(request):
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(username=username, password=password)
-            print(request.POST.get('username'))
-            print(request.POST.get('password'))
-            if user is not None:
-                login(request, user)
-                return redirect('index')  
-            else:
-                messages.error(request, 'Invalid username or password')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'error': 'Invalid username or password'})
+    return render(request, 'login.html')
 
-        return render(request, 'login.html')
 
 def logout(request):
     auth_logout(request)

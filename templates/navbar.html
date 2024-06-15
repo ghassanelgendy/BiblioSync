@@ -3,11 +3,13 @@
     rel="stylesheet"
     href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
   />
-  <span class="navbar-toggle" id="js-navbar-toggle">
-    <i class="fas fa-bars"></i>
-  </span>
-  <div>
+  <div class="logo-container">
     <a href="{% url 'index' %}" class="logo">BiblioSync</a>
+  </div>
+  <div class="hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
   </div>
   <ul class="main-nav" id="js-menu">
     <li>
@@ -31,7 +33,6 @@
               </g>
             </svg>
           </button>
-
           <input
             class="input"
             name="query"
@@ -57,7 +58,6 @@
         <li>
           <a href="{% url 'user_profile' %}" class="nav-links">Profile</a>
         </li>
-    
       {% endif %}
        <li>
           <a href="{% url 'logout' %}" class="nav-links">Logout</a>
@@ -76,6 +76,29 @@
 <script>
   $(document).ready(function () {
     initializeAutocomplete();
+
+  
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.main-nav');
+    const searchBar = document.getElementById('searchInput');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.main-nav li').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        if (!searchBar.contains(event.target)) {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+
+    searchBar.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
   });
 
   function initializeAutocomplete() {
